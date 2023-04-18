@@ -579,3 +579,4 @@ C:\Users\Admin\Desktop\BayMaxShop\BayMaxShop\BayMaxShop\obj\Debug\BayMaxShop.csp
 C:\Users\Admin\Desktop\BayMaxShop\BayMaxShop\BayMaxShop\obj\Debug\BayMaxShop.csproj.CopyComplete
 C:\Users\Admin\Desktop\BayMaxShop\BayMaxShop\BayMaxShop\obj\Debug\BayMaxShop.dll
 C:\Users\Admin\Desktop\BayMaxShop\BayMaxShop\BayMaxShop\obj\Debug\BayMaxShop.pdb
+C:\Users\Admin\Desktop\BayMaxShop\BayMaxShop\BayMaxShop\obj\Debug\BayMaxShop.Migrations.Updatadata.resources

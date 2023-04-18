@@ -49,9 +49,8 @@ namespace BayMaxShop.Models
     public class LoginViewModel
     {
         [Required]
-        [Display(Name = "Email")]
-        [EmailAddress]
-        public string Email { get; set; }
+        [Display(Name = "UserName")]
+        public string UserName { get; set; }
 
         [Required]
         [DataType(DataType.Password)]
@@ -68,6 +67,7 @@ namespace BayMaxShop.Models
         public string UserName { get; set; }
         [Required]
         public string FullName { get; set; }
+        public string Images { get; set; }
         public string Phone { get; set; }
         public string Role { get; set; }
         [Required]
