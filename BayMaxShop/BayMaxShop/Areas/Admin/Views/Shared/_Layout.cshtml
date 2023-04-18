@@ -163,6 +163,14 @@
                 <img src="~/Content/clients/dist/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
                 <span class="brand-text font-weight-light">BayMax Shop</span>
             </a>
+            <div class="user-panel mt-3 pb-3 mb-3 d-flex">
+                <dv class="image">
+                    <img src="~/Content/assets/images/single_1.jpg" class="img-circle elevation-2" alt="User Image">
+                </dv>
+                <div class="info">
+                    <a href="/admin/profile/profile/@User.Identity.Name">@User.Identity.Name</a>
+                </div>
+            </div>
 
             @Html.Partial("_PartialSideBar")
         </aside>
@@ -341,10 +349,11 @@
         document.querySelector("#actions .cancel").onclick = function () {
             myDropzone.removeAllFiles(true)
         }
-          // DropzoneJS Demo Code End</script>
+              // DropzoneJS Demo Code End</script>
 
     @RenderSection("scripts", required: false)
     <script src="~/Content/ckeditor/ckeditor.js"></script>
     <script src="~/Content/ckfinder/ckfinder.js"></script>
+    @RenderSection("upload", required: false)
 </body>
 </html>
