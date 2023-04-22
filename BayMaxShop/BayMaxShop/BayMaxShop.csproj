@@ -192,8 +192,11 @@
     <Compile Include="Areas\Admin\Controllers\RoleController.cs" />
     <Compile Include="Common\Common.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\ContactController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\MenuController.cs" />
+    <Compile Include="Controllers\ProductsController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -232,6 +235,10 @@
     <Compile Include="Migrations\202304181745482_Updatadata.cs" />
     <Compile Include="Migrations\202304181745482_Updatadata.designer.cs">
       <DependentUpon>202304181745482_Updatadata.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202304211520054_Update.cs" />
+    <Compile Include="Migrations\202304211520054_Update.designer.cs">
+      <DependentUpon>202304211520054_Update.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -3313,6 +3320,15 @@
     <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
+    <Content Include="Views\Menu\MenuTop.cshtml" />
+    <Content Include="Views\Menu\MenuProductCategory.cshtml" />
+    <Content Include="Views\Menu\MenuArrival.cshtml" />
+    <Content Include="Views\Products\Partial_ItemsByCateId.cshtml" />
+    <Content Include="Views\Products\Partial_ProductSales.cshtml" />
+    <Content Include="Views\Products\Index.cshtml" />
+    <Content Include="Views\Contact\Index.cshtml" />
+    <Content Include="Views\Menu\MenuLeft.cshtml" />
+    <Content Include="Views\Products\ProductCategory.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -3361,6 +3377,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202304181745482_Updatadata.resx">
       <DependentUpon>202304181745482_Updatadata.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202304211520054_Update.resx">
+      <DependentUpon>202304211520054_Update.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
