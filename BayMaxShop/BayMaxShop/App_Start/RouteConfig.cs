@@ -18,6 +18,7 @@ namespace BayMaxShop
                 defaults: new { controller = "Contact", action = "Index", alias = UrlParameter.Optional },
                 namespaces: new[] { "BayMaxShop.Controllers" }
             );
+         
             routes.MapRoute(
                 name: "About",
                 url: "gioi-thieu",

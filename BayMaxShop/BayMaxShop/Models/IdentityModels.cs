@@ -1,7 +1,9 @@
-﻿using System.Data.Entity;
+﻿using System;
+using System.Data.Entity;
 using System.Security.Claims;
 using System.Threading.Tasks;
 using BayMaxShop.Models.EF;
+using Microsoft.Ajax.Utilities;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
 
@@ -45,6 +47,11 @@ namespace BayMaxShop.Models
         public static ApplicationDbContext Create()
         {
             return new ApplicationDbContext();
+        }
+
+        public static implicit operator Var(ApplicationDbContext v)
+        {
+            throw new NotImplementedException();
         }
     }
 }
