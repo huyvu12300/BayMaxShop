@@ -43,7 +43,7 @@ namespace BayMaxShop.Areas.Admin.Controllers
             if (ModelState.IsValid)
             {
                 model.CreatedDate = DateTime.Now;
-                model.CategoryId = 3;
+                model.CategoryId = 6;
                 model.ModifiedDate = DateTime.Now;
                 model.Alias = BayMaxShop.Models.Commons.Filter.FilterChar(model.Title);
                 db.News.Add(model);

@@ -37,9 +37,6 @@ namespace BayMaxShop.Areas.Admin.Controllers
 
 
         }
-
-
-
         public ActionResult Add()
         {
             return View();
@@ -50,7 +47,7 @@ namespace BayMaxShop.Areas.Admin.Controllers
         {
             if (ModelState.IsValid)
             {
-                model.CategoryId = 3;
+                model.CategoryId = 5;
                 model.CreatedDate = DateTime.Now;
                 model.ModifiedDate = DateTime.Now;
                 model.Alias = BayMaxShop.Models.Commons.Filter.FilterChar(model.Title);
