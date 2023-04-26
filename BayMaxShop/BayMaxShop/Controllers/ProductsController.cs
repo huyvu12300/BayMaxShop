@@ -4,7 +4,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-
+using System.Web.UI;
+using PagedList;
+using BayMaxShop.Models.EF;
 
 namespace BayMaxShop.Controllers
 {
@@ -12,13 +14,23 @@ namespace BayMaxShop.Controllers
     {
         private ApplicationDbContext db = new ApplicationDbContext();
         // GET: Products
-        public ActionResult Index(int? id)
+        public ActionResult Index(string Searchtext, int? page)
         {
-            var items = db.Products.ToList();
-            if (id != null)
+            var pageSize = 10;
+            if (page == null)
             {
-                items = items.Where(x => x.Id == id).ToList();
-            }    
+                page = 1;
+            }
+            IEnumerable<Product> items = db.Products.OrderByDescending(x => x.Id);
+            if (!string.IsNullOrEmpty(Searchtext))
+            {
+
+                items = items.Where(x => x.Alias.Contains(Searchtext) || x.Title.Contains(Searchtext));
+            }
+            var pageIndex = page.HasValue ? Convert.ToInt32(page) : 1;
+            items = items.ToPagedList(pageIndex, pageSize);
+            ViewBag.PageSize = pageSize;
+            ViewBag.Page = page;
             return View(items);
         }
 
@@ -30,9 +42,14 @@ namespace BayMaxShop.Controllers
         }
 
 
-        public ActionResult ProductCategory(string alias, int id)
+        public ActionResult ProductCategory(string alias, int? id, string Searchtext)
         {
-            var items = db.Products.ToList();
+            IEnumerable<Product> items = db.Products.OrderByDescending(x => x.Id);
+            if (!string.IsNullOrEmpty(Searchtext))
+            {
+
+                items = items.Where(x => x.Alias.Contains(Searchtext) || x.Title.Contains(Searchtext));
+            }
             if (id > 0)
             {
                 items = items.Where(x => x.ProductCategoryId == id).ToList();
