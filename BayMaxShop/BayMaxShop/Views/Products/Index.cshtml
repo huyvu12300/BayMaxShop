@@ -1,6 +1,8 @@
 ﻿@model PagedList.PagedList<BayMaxShop.Models.EF.Product>
 @using PagedList.Mvc;
 @using PagedList;
+
+@{
     ViewBag.Title = "Danh sách sản phẩm";
 }
 
@@ -53,7 +55,8 @@
                 <div class="products_iso">
                     <div class="row">
                         <div class="col">
-                            <div class="pages d-flex flex-row align-items-center">
+                            <div class="col-6" style="margin-left: 580px;">
+
                                 <form>
                                     @using (Html.BeginForm("index", "News", FormMethod.Get, new { }))
                                     {
@@ -66,12 +69,15 @@
                                         </div>
                                     }
                                 </form>
+
                             </div>
                             <!-- Product Grid -->
 
                             <div class="product-grid">
 
                                 <!-- Product 1 -->
+
+
                                 @foreach (var item in Model)
                                 {
                                     var strImge = "";
@@ -107,6 +113,7 @@
 
                                     </div>
                                 }
+
                             </div>
                             <div class="row">
                                 <div class="col-9"></div>
@@ -114,6 +121,7 @@
                                     @Html.PagedListPager(Model, page => Url.Action("Index", new { page }))
                                 </div>
                             </div>
+
                             <!-- Product Sorting -->
 
                         </div>

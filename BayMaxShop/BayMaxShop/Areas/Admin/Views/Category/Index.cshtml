@@ -1,4 +1,5 @@
-﻿@model IEnumerable<BayMaxShop.Models.EF.Category>
+﻿
+@model IEnumerable<BayMaxShop.Models.EF.Category>
 @{
     ViewBag.Title = "Index";
     Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
@@ -63,15 +64,15 @@
                         var i = 1;
                         foreach (var item in Model)
                         {
-                        <tr id="trow_@item.Id">
-                            <th>@i</th>
-                            <th>@item.Title</th>
-                            <th>@item.Position</th>
-                            <td>
-                                <a href="/admin/category/edit/@item.Id" class="btn btn-sm btn-primary">Sửa</a>
-                                <a href="#" data-id="@item.Id" class="btn btn-sm btn-danger btnDelete">Xoá</a>
-                            </td>
-                        </tr>
+                            <tr id="trow_@item.Id">
+                                <th>@i</th>
+                                <th>@item.Title</th>
+                                <th>@item.Position</th>
+                                <td>
+                                    <a href="/admin/category/edit/@item.Id" class="btn btn-sm btn-primary">Sửa</a>
+                                    <a href="#" data-id="@item.Id" class="btn btn-sm btn-danger btnDelete">Xoá</a>
+                                </td>
+                            </tr>
                             i++;
                         }
                     }
@@ -83,6 +84,7 @@
                     }
                 </tbody>
             </table>
+           
         </div>
         <!-- /.card-body -->
         <div class="card-footer">
@@ -101,8 +103,7 @@
             $('body').on('click', '.btnDelete', function () {
                 var id = $(this).data("id");
                 var conf = confirm('Bạn có muốn xoá không?');
-                if (conf == true)
-                {
+                if (conf == true) {
                     $.ajax({
                         url: '/admin/category/delete',
                         type: 'POST',
