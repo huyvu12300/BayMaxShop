@@ -17,5 +17,7 @@ namespace BayMaxShop.Controllers
             var item = db.Posts.FirstOrDefault(x => x.Alias == alias);
             return View(item);
         }
+
+
     }
 }

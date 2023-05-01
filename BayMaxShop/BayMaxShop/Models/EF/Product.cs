@@ -25,6 +25,7 @@ namespace BayMaxShop.Models.EF
         public string ProductCode { get; set; }
         public string Description { get; set; }
         public string Detail { get; set; }
+        public decimal OriginalPrice { get; set; }
         public decimal Price { get; set; }
         public decimal PriceSale { get; set; }
         public int Quantity { get; set; }

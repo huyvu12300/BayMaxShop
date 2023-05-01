@@ -43,8 +43,12 @@ namespace BayMaxShop
               defaults: new { controller = "Products", action = "ProductCategory", id = UrlParameter.Optional },
               namespaces: new[] { "BayMaxShop.Controllers" }
           );
-
-
+            routes.MapRoute(
+           name: "BaiViet",
+           url: "post/{alias}",
+           defaults: new { controller = "Article", action = "Index", alias = UrlParameter.Optional },
+           namespaces: new[] { "BayMaxShop.Controllers" }
+       );
 
             routes.MapRoute(
                name: "detailProducts",
@@ -66,13 +70,13 @@ namespace BayMaxShop
                namespaces: new[] { "BayMaxShop.Controllers" }
 
             );
-            routes.MapRoute(
-               name: "NewsPost",
-               url: "bai-viet",
-               defaults: new { controller = "Posts", action = "Index", alias = UrlParameter.Optional },
-               namespaces: new[] { "BayMaxShop.Controllers" }
+            //routes.MapRoute(
+            //   name: "NewsPost",
+            //   url: "bai-viet",
+            //   defaults: new { controller = "Posts", action = "Index", alias = UrlParameter.Optional },
+            //   namespaces: new[] { "BayMaxShop.Controllers" }
 
-            );
+            //);
             routes.MapRoute(
                name: "DetailNews",
                url: "{alias}-n{id}",
@@ -81,13 +85,13 @@ namespace BayMaxShop
 
             );
 
-            routes.MapRoute(
-               name: "DetailPosts",
-               url: "bai-viet/{alias}-n{id}",
-               defaults: new { controller = "Posts", action = "Detail", id = UrlParameter.Optional },
-               namespaces: new[] { "BayMaxShop.Controllers" }
+            //routes.MapRoute(
+            //   name: "DetailPosts",
+            //   url: "bai-viet/{alias}-n{id}",
+            //   defaults: new { controller = "Posts", action = "Detail", id = UrlParameter.Optional },
+            //   namespaces: new[] { "BayMaxShop.Controllers" }
 
-            );
+            //);
 
             routes.MapRoute(
                 name: "Default",

@@ -906,3 +906,6 @@ D:\bfs_at\w\BayMaxShop\BayMaxShop\BayMaxShop\obj\Debug\BayMaxShop.csproj.CoreCom
 D:\bfs_at\w\BayMaxShop\BayMaxShop\BayMaxShop\obj\Debug\BayMaxShop.csproj.CopyComplete
 D:\bfs_at\w\BayMaxShop\BayMaxShop\BayMaxShop\obj\Debug\BayMaxShop.dll
 D:\bfs_at\w\BayMaxShop\BayMaxShop\BayMaxShop\obj\Debug\BayMaxShop.pdb
+C:\Users\Admin\Desktop\BayMaxShop\BayMaxShop\BayMaxShop\obj\Debug\BayMaxShop.Migrations.Update_Product_OriginalPrice.resources
+C:\Users\Admin\Desktop\BayMaxShop\BayMaxShop\BayMaxShop\obj\Debug\BayMaxShop.Migrations.Update_Category_Link.resources
+C:\Users\Admin\Desktop\BayMaxShop\BayMaxShop\BayMaxShop\obj\Debug\BayMaxShop.Migrations.Update_Subscribe.resources
