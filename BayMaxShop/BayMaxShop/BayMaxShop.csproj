@@ -190,6 +190,7 @@
     <Compile Include="Areas\Admin\Controllers\ProductsController.cs" />
     <Compile Include="Areas\Admin\Controllers\ProfileController.cs" />
     <Compile Include="Areas\Admin\Controllers\RoleController.cs" />
+    <Compile Include="Areas\Admin\Controllers\StatisticalController.cs" />
     <Compile Include="Common\Common.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\ArticleController.cs" />
@@ -242,6 +243,18 @@
     <Compile Include="Migrations\202304211520054_Update.cs" />
     <Compile Include="Migrations\202304211520054_Update.designer.cs">
       <DependentUpon>202304211520054_Update.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202304301429397_Update_Product_OriginalPrice.cs" />
+    <Compile Include="Migrations\202304301429397_Update_Product_OriginalPrice.designer.cs">
+      <DependentUpon>202304301429397_Update_Product_OriginalPrice.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202304301511050_Update_Category_Link.cs" />
+    <Compile Include="Migrations\202304301511050_Update_Category_Link.designer.cs">
+      <DependentUpon>202304301511050_Update_Category_Link.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202304301907179_Update_Subscribe.cs" />
+    <Compile Include="Migrations\202304301907179_Update_Subscribe.designer.cs">
+      <DependentUpon>202304301907179_Update_Subscribe.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -3289,6 +3302,7 @@
     <Content Include="Areas\Admin\Views\Posts\Index.cshtml" />
     <Content Include="Areas\Admin\Views\Posts\Add.cshtml" />
     <Content Include="Areas\Admin\Views\Posts\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\Statistical\Index.cshtml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
@@ -3403,6 +3417,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202304211520054_Update.resx">
       <DependentUpon>202304211520054_Update.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202304301429397_Update_Product_OriginalPrice.resx">
+      <DependentUpon>202304301429397_Update_Product_OriginalPrice.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202304301511050_Update_Category_Link.resx">
+      <DependentUpon>202304301511050_Update_Category_Link.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202304301907179_Update_Subscribe.resx">
+      <DependentUpon>202304301907179_Update_Subscribe.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
