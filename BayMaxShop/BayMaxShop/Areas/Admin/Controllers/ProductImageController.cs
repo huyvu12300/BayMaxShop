@@ -8,6 +8,7 @@ using BayMaxShop.Models.EF;
 
 namespace BayMaxShop.Areas.Admin.Controllers
 {
+    [Authorize(Roles = "Admin, Staff")]
     public class ProductImageController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();

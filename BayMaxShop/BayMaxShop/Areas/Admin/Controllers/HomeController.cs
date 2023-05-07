@@ -9,6 +9,7 @@ namespace BayMaxShop.Areas.Admin.Controllers
     [Authorize]
     public class HomeController : Controller
     {
+        [Authorize(Roles = "Admin, Staff")]
         // GET: Admin/Home
         public ActionResult Index()
         {
