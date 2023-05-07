@@ -11,8 +11,10 @@ using BayMaxShop.Models.ViewModels;
 
 namespace BayMaxShop.Areas.Admin.Controllers
 {
+    [Authorize(Roles = "Admin, Staff")]
     public class OrderController : Controller
     {
+
 
         private ApplicationDbContext db = new ApplicationDbContext();
         // GET: Admin/Order

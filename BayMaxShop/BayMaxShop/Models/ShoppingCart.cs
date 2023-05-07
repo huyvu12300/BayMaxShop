@@ -8,14 +8,13 @@ namespace BayMaxShop.Models
     public class ShoppingCart
     {
         public List<ShoppingCartItem> Items { get; set; }
-
+        private ApplicationDbContext db = new ApplicationDbContext();
         public ShoppingCart()
         {
-           this.Items = new List<ShoppingCartItem>();
+            this.Items = new List<ShoppingCartItem>();
         }
-
         public void AddToCart(ShoppingCartItem item, int Quantity)
-        { 
+        {
             var checkExits = Items.FirstOrDefault(x => x.ProductId == item.ProductId);
             if (checkExits != null)
             {
@@ -27,40 +26,41 @@ namespace BayMaxShop.Models
                 Items.Add(item);
             }
         }
-
         public void Remove(int id)
         {
-            var checkExits = Items.FirstOrDefault(x => x.ProductId == id);
+            var checkExits = Items.SingleOrDefault(x => x.ProductId == id);
             if (checkExits != null)
             {
                 Items.Remove(checkExits);
             }
         }
-
         public void UpdateQuantity(int id, int quantity)
         {
             var checkExits = Items.SingleOrDefault(x => x.ProductId == id);
+            if (quantity <= 0)
+            {
+
+                Remove(id);
+            }
             if (checkExits != null)
             {
-                checkExits.Quantity += quantity;
+                checkExits.Quantity = quantity;
                 checkExits.TotalPrice = checkExits.Price * checkExits.Quantity;
             }
         }
-
         public decimal GetTotalPrice()
         {
             return Items.Sum(x => x.TotalPrice);
         }
-
-        public decimal GetTotalQuantity()
+        public int GetTotalQuntity()
         {
-            return Items.Sum(x => x.TotalPrice);
+            return Items.Sum(x => x.Quantity);
         }
-
         public void ClearCart()
         {
             Items.Clear();
         }
+
     }
 
     public class ShoppingCartItem
@@ -73,5 +73,6 @@ namespace BayMaxShop.Models
         public int Quantity { get; set; }
         public decimal Price { get; set; }
         public decimal TotalPrice { get; set; }
+
     }
 }
