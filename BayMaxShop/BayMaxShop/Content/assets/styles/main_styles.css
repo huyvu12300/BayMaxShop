@@ -933,7 +933,7 @@ section
 }
 .banner_category a:hover
 {
-	color: #b5aec4;
+	color: rgba(0,0,0,.01);
 }
 
 /*********************************

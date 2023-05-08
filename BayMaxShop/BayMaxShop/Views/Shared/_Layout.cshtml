@@ -17,6 +17,8 @@
     <link rel="stylesheet" type="text/css" href="~/Content/assets/plugins/OwlCarousel2-2.2.1/owl.theme.default.css">
     <link rel="stylesheet" type="text/css" href="~/Content/assets/plugins/OwlCarousel2-2.2.1/animate.css">
     <link rel="icon" type="image/x-icon" href="~/Content/assets/images/logo.jpg">
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
     @*@RenderSection("css", required: false)*@
     <link rel="stylesheet" type="text/css" href="~/Content/assets/styles/responsive.css">
@@ -27,32 +29,52 @@
     @Scripts.Render("~/bundles/jqueryval")
     @RenderSection("Css", required: false)
 </head>
-<body>
+<body style="background: linear-gradient(to right, #E8E8E8, #E6E6E6); ">
     <div class="super_container">
 
         <!-- Header -->
 
         <header class="header trans_300">
 
-            <!-- Top Navigation -->
+           
 
-            <div class="top_nav">
+            <!-- Main Navigation -->
+
+            <div  style="height:120px;" class="main_nav_container">
                 <div class="container">
                     <div class="row">
-                        <div class="col-md-6">
-                            <div class="top_nav_left"><span style="color:deepskyblue">Chào mừng bạn đến với BayMaxShop - Thiên đường của thời trang</span></div>
+                        <div class="nhande" style="left: 500px; top: 12px;">
+                           <h4 style="font-size: 30px; font-family: Lucida Handwriting; color: #F5FFFA; ">Fashion</h4>
                         </div>
-                        <div class="col-md-6 text-right">
-                            <div class="top_nav_right">
+                        <div style="margin-top: -16px;" class="col-lg-12 text-right">
+                            <div class="logo_container" >
+                                <a href="/"><span style="color: #FA8072; font-size: 35px; font-family:'Times New Roman', Times, serif; ">BayMax</span><span style="color: #FFA07A ; margin-top:100px; font-size:20px; "> Shop</span></a>
+                            </div>
+                            <nav style="font-family: 'Times New Roman', Times, serif; margin-top: 12px;" class="navbar">
+                                @Html.Action("MenuTop", "Menu")
+                                <ul class="navbar_user">
+
+                                    <li class="checkout">
+                                        <a href="/gio-hang">
+                                            <i style="color: #282828; " class="fa fa-shopping-cart" aria-hidden="true"></i>
+                                            <span id="checkout_items" class="checkout_items">0</span>
+                                        </a>
+                                    </li>
+                                </ul>
+
+
+                                <div class="hamburger_container">
+                                    <i class="fa fa-bars" aria-hidden="true"></i>
+                                </div>
                                 <ul class="top_nav_menu">
 
                                     <!-- Currency / Language / My Account -->
-                                    
-                                    <li class="account">
+
+                                    <li style="background-color: black; left:200px;" class="account">
                                         @if (!Request.IsAuthenticated)
                                         {
                                             <a href="#">
-                                                <span style="color:deepskyblue">My Account</span>
+                                                <span style="color: deepskyblue; font-size: 14px;">My Account</span>
                                                 <i class="fa fa-angle-down"></i>
                                             </a>
                                             <ul class="account_selection">
@@ -73,46 +95,9 @@
                                         }
                                     </li>
                                 </ul>
-                                @if (Request.IsAuthenticated)
-                                {
-                                    <div style="display:none">
-                                        @using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { @id = "logOffForm" }))
-                                        {
-                                            @Html.AntiForgeryToken();
-                                        }
-                                    </div>
-                                }
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Main Navigation -->
-
-            <div class="main_nav_container">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-lg-12 text-right">
-                            <div class="logo_container">
-                                <a href="/"><span style="color: greenyellow">BayMax</span><span style="color: orangered"> Shop</span></a>
-                            </div>
-                            <nav class="navbar">
-                                @Html.Action("MenuTop", "Menu")
-                                <ul class="navbar_user">
-
-                                    <li class="checkout">
-                                        <a href="/gio-hang">
-                                            <i class="fa fa-shopping-cart" aria-hidden="true"></i>
-                                            <span id="checkout_items" class="checkout_items">0</span>
-                                        </a>
-                                    </li>
-                                </ul>
-                                <div class="hamburger_container">
-                                    <i class="fa fa-bars" aria-hidden="true"></i>
-                                </div>
                             </nav>
                         </div>
+
                     </div>
                 </div>
             </div>
@@ -194,55 +179,42 @@
 
         <!-- Footer -->
 
-        <footer style="padding: 50px" class="footer">
+        <footer style="margin-top: 30px; " class="footer">
             <div class="container">
-                <div class="row">
-                    <div class="col-lg-3">
-                        <div class="block" style="width: 268px;">
-                            <h4></h4>
-                            <h4 class="styles__FooterHeading-sc-32ws10-4 fdMvyN" style="font-size: 21px; padding-bottom: 20px ">Hỗ trợ khách hàng</h4>
-                            <p class="hotline">
-                                Hotline:
-                                <a href="tel:1900-6035">0999999999</a>
-                            </p>
-                            <p>Các câu hỏi thường gặp: </p>
-                            <p>Gửi yêu cầu hỗ trợ</p>
-                            <p>Hướng dẫn đặt hàng</p>
-                            <p>Phương thức vận chuyển</p>
-                            <p>Hướng dẫn trả góp</p>
-                            <p class="security">
-                                Hỗ trợ khách hàng: <a href="nguyennguyentrung.2002@gmai.com">nguyennguyentrung.2002@gmai.com</a>
-                            </p>
-                        </div>
+                <div style="display:flex; justify-content: center; align-items: center;s" class="row">
+                    <div class="footer-col">
+                        <h4>company</h4>
+                        <ul>
+                            <li><a href="#">about us</a></li>
+                            <li><a href="#">our services</a></li>
+                            <li><a href="#">privacy policy</a></li>
+                            <li><a href="#">affiliate program</a></li>
+                        </ul>
                     </div>
-                    <div class="col-lg-3">
-                        <div class="block" style="width: 268px;">
-                            <h4></h4>
-                            <h4 class="styles__FooterHeading-sc-32ws10-4 fdMvyN" style="font-size: 21px; padding-bottom: 20px ">Về BookGrotto</h4>
-                            <p>Giới thiệu </p>
-                            <p>Tuyển dụng</p>
-                            <p>Chính sách bảo mật</p>
-                            <p>Điều khoản sử dụng</p>
-                        </div>
-                    </div>
-                    <div class="col-lg-3">
-                        <div class="block">
-                            <h4></h4>
-                            <h4 class="styles__FooterHeading-sc-32ws10-4 fdMvyN" style="font-size:21px">Phương thức thanh toán</h4>
-                            <img width="100" src="~/Content/assets/images/momo.png" />
-                            <img width="100" src="~/Content/assets/images/chuyenkhoan.png" />
-                            <img width="100" src="~/Content/assets/images/paypal.png" />
-                            <img width="100" src="~/Content/assets/images/vnpay.png" />
-                        </div>
-                    </div>
-                    <div class="footer_nav_container d-flex flex-sm-row flex-column align-items-center justify-content-lg-start justify-content-center text-center">
+                    <div class="footer-col">
+                        <h4>get help</h4>
+                        <ul>
+                            <li><a href="#">FAQ</a></li>
+                            <li><a href="#">shipping</a></li>
+                            <li><a href="#">returns</a></li>
+                            <li><a href="#">order status</a></li>
 
+                        </ul>
                     </div>
+
+                    <div class="footer-col">
+                        <h4>follow us</h4>
+                        <div class="social-links">
+                            <a href="#"><i class="fab fa-facebook-f"></i></a>
+                            <a href="#"><i class="fab fa-twitter"></i></a>
+                            <a href="#"><i class="fab fa-instagram"></i></a>
+                        </div>
+                    </div>
+                   
                 </div>
-
             </div>
         </footer>
-
+       
     </div>
 
     @*@Scripts.Render("~/bundles/jquery")*@
@@ -265,6 +237,10 @@
 </html>
 
 <style>
+
+    .fa fa-shopping-cart a i :hover {
+        color: #B0B0B0;
+    }
     .main_nav_container {
         width: 100%;
         background: black;
@@ -302,4 +278,75 @@
         -o-transition: color 0.3s ease;
         transition: color 0.3s ease;
     }
+
+    .footer {
+        background-color: #24262b;
+        padding: 70px 0;
+    }
+
+    .footer-col {
+        width: 25%;
+        padding: 0 15px;
+    }
+
+        .footer-col h4 {
+            font-size: 18px;
+            color: #ffffff;
+            text-transform: capitalize;
+            margin-bottom: 35px;
+            font-weight: 500;
+            position: relative;
+        }
+
+            .footer-col h4::before {
+                content: '';
+                position: absolute;
+                left: 0;
+                bottom: -10px;
+                background-color: #e91e63;
+                height: 2px;
+                box-sizing: border-box;
+                width: 50px;
+            }
+
+        .footer-col ul li:not(:last-child) {
+            margin-bottom: 10px;
+        }
+
+        .footer-col ul li a {
+            font-size: 16px;
+            text-transform: capitalize;
+            color: #ffffff;
+            text-decoration: none;
+            font-weight: 300;
+            color: #bbbbbb;
+            display: block;
+            transition: all 0.3s ease;
+        }
+
+            .footer-col ul li a:hover {
+                color: #ffffff;
+                padding-left: 8px;
+            }
+
+        .footer-col .social-links a {
+            display: inline-block;
+            height: 40px;
+            width: 40px;
+            background-color: rgba(255,255,255,0.2);
+            margin: 0 10px 10px 0;
+            text-align: center;
+            line-height: 40px;
+            border-radius: 50%;
+            color: #ffffff;
+            transition: all 0.5s ease;
+        }
+
+            .footer-col .social-links a:hover {
+                color: #24262b;
+                background-color: #ffffff;
+            }
+
+    
+
 </style>
