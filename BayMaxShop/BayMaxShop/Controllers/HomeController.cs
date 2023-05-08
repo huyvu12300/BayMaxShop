@@ -26,5 +26,9 @@ namespace BayMaxShop.Controllers
 
             return View();
         }
+        public ActionResult Partial_Subcrice()
+        {
+            return PartialView();
+        }
     }
 }
