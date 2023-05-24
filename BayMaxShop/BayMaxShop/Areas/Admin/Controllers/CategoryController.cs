@@ -9,7 +9,7 @@ using System.Web.Mvc;
 
 namespace BayMaxShop.Areas.Admin.Controllers
 {
-    [Authorize(Roles = "Admin, Staff")]
+   
     public class CategoryController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();

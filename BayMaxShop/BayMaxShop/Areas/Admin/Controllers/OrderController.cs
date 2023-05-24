@@ -11,7 +11,7 @@ using BayMaxShop.Models.ViewModels;
 
 namespace BayMaxShop.Areas.Admin.Controllers
 {
-    [Authorize(Roles = "Admin, Staff")]
+    
     public class OrderController : Controller
     {
 

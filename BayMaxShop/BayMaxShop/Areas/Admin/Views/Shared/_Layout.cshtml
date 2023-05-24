@@ -31,10 +31,10 @@
     <link rel="stylesheet" href="~/Content/clients/dist/css/adminlte.min.css">
     <link href="~/Content/PagedList.css" rel="stylesheet" />
 </head>
-<body class="hold-transition sidebar-mini">
+<body class="hold-transition sidebar-mini" style="font-family: 'Times New Roman', Times, serif;">
     <div class="wrapper">
         <!-- Navbar -->
-        <nav class="main-header navbar navbar-expand navbar-white navbar-light">
+        <nav style="background-color: #16614E " class="main-header navbar navbar-expand navbar-white navbar-light">
             @RenderSection("naviheader", required: false)
             <!-- Right navbar links -->
             <ul class="navbar-nav ml-auto">
@@ -49,12 +49,12 @@
         <!-- Main Sidebar Container -->
         <aside class="main-sidebar sidebar-dark-primary elevation-4">
             <!-- Brand Logo -->
-            <a href="/admin/home" class="brand-link">
+            <a href="/admin/home" class="brand-link" style="display:flex; justify-content: center; align-items: center; margin-top: 10px; height: 46px;" >
                 <p>BayMax<span style="color:orangered"> Shop</span></p>
             </a>
-            <div class="user-panel mt-3 pb-3 mb-3 d-flex">
-                <dv class="image">
-                    <img src="~/Content/assets/images/avatar8.png">
+            <div class="user-panel mt-3 pb-3 mb-3 d-flex" >
+                <dv class="image" >
+                    <img  src="~/Content/assets/images/avatar8.png">
                 </dv>
                 <div class="info">
                     <a href="/admin/profile/profile/@User.Identity.Name">@User.Identity.Name</a>
@@ -65,11 +65,12 @@
         </aside>
 
         <!-- Content Wrapper. Contains page content -->
-        <div class="content-wrapper">
+        <div class="content-wrapper" style="background: linear-gradient(to right, #E8E8E8, #E6E6E6);">
             @RenderBody()
         </div>
         <!-- /.content-wrapper -->
-        <footer class="main-footer">
+        <footer class="main-footer" style="display:flex; justify-content: center; align-items: center; height: 10px;" >
+            <p style="margin-top: 15px;" class="MuiTypography-root MuiTypography-body1 css-1nue457">Copyright © 2023 - Bản Quyền Thuộc BayMaxShop</p>
         </footer>
 
         <!-- Control Sidebar -->

@@ -298,6 +298,8 @@
     <Content Include="Content\assets\images\desc_1.jpg" />
     <Content Include="Content\assets\images\desc_2.jpg" />
     <Content Include="Content\assets\images\desc_3.jpg" />
+    <Content Include="Content\Image\BayMax.png" />
+    <Content Include="Content\Image\FreeShipping.png" />
     <Content Include="Content\assets\images\logo.jpg" />
     <Content Include="Content\assets\images\map_marker.png" />
     <Content Include="Content\assets\images\momo.png" />
@@ -3140,6 +3142,9 @@
     <Content Include="Content\clients\plugins\uplot\uPlot.iife.js" />
     <Content Include="Content\clients\plugins\uplot\uPlot.iife.min.js" />
     <Content Include="Content\clients\plugins\uplot\uPlot.min.css" />
+    <Content Include="Content\Image\login.jpg" />
+    <Content Include="Content\Image\LogoBM.png" />
+    <Content Include="Content\Image\logoo.png" />
     <Content Include="Content\PagedList.css" />
     <Content Include="Content\templates\send1.html" />
     <Content Include="Content\templates\send2.html" />
@@ -3307,6 +3312,8 @@
     <Content Include="Areas\Admin\Views\Posts\Add.cshtml" />
     <Content Include="Areas\Admin\Views\Posts\Edit.cshtml" />
     <Content Include="Areas\Admin\Views\Statistical\Index.cshtml" />
+    <Content Include="Content\Image\sda.webp" />
+    <Content Include="Content\Image\top_banner.webp" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
@@ -3378,7 +3385,6 @@
     <Folder Include="App_Data\" />
     <Folder Include="Areas\Admin\Data\" />
     <Folder Include="Content\ckfinder\userfiles\" />
-    <Folder Include="Content\Image\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />

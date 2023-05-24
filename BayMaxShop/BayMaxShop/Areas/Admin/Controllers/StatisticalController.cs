@@ -10,7 +10,7 @@ using BayMaxShop.Models;
 
 namespace BayMaxShop.Areas.Admin.Controllers
 {
-    [Authorize(Roles = "Admin, Staff")]
+    
     public class StatisticalController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();
