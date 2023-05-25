@@ -298,6 +298,7 @@
     <Content Include="Content\assets\images\desc_1.jpg" />
     <Content Include="Content\assets\images\desc_2.jpg" />
     <Content Include="Content\assets\images\desc_3.jpg" />
+    <Content Include="Content\Image\as.jpg" />
     <Content Include="Content\Image\BayMax.png" />
     <Content Include="Content\Image\FreeShipping.png" />
     <Content Include="Content\assets\images\logo.jpg" />
@@ -3312,8 +3313,6 @@
     <Content Include="Areas\Admin\Views\Posts\Add.cshtml" />
     <Content Include="Areas\Admin\Views\Posts\Edit.cshtml" />
     <Content Include="Areas\Admin\Views\Statistical\Index.cshtml" />
-    <Content Include="Content\Image\sda.webp" />
-    <Content Include="Content\Image\top_banner.webp" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
