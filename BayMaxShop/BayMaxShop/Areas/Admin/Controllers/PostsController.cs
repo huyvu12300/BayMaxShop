@@ -17,7 +17,7 @@ namespace BayMaxShop.Areas.Admin.Controllers
         public ActionResult Index(string Searchtext, int? page)
         {
 
-            var pageSize = 10;
+            var pageSize = 5;
             if (page == null)
             {
                 page = 1;
