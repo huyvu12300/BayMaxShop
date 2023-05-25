@@ -27,7 +27,7 @@ namespace BayMaxShop.Areas.Admin.Controllers
                 page = 1;
             }
             var pageNumber = page ?? 1;
-            var pageSize = 10;
+            var pageSize = 5;
             ViewBag.PageSize = pageSize;
             ViewBag.Page = pageNumber;
             return View(items.ToPagedList(pageNumber, pageSize));
