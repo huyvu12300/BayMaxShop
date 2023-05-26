@@ -282,6 +282,7 @@
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\assets\images\admin.png" />
     <Content Include="Content\assets\images\adminn.png" />
     <Content Include="Content\assets\images\as.jpg" />
     <Content Include="Content\assets\images\avatar8.png" />
@@ -296,13 +297,17 @@
     <Content Include="Content\assets\images\bmss.jpg" />
     <Content Include="Content\assets\images\chuyenkhoan.png" />
     <Content Include="Content\assets\images\cod.jpg" />
+    <Content Include="Content\assets\images\ddd.jpg" />
+    <Content Include="Content\assets\images\dddd.jpg" />
     <Content Include="Content\assets\images\deal_ofthe_week.png" />
     <Content Include="Content\assets\images\desc_1.jpg" />
     <Content Include="Content\assets\images\desc_2.jpg" />
     <Content Include="Content\assets\images\desc_3.jpg" />
+    <Content Include="Content\assets\images\FreeShippp.png" />
     <Content Include="Content\assets\images\logo.jpg" />
     <Content Include="Content\assets\images\map_marker.png" />
     <Content Include="Content\assets\images\momo.png" />
+    <Content Include="Content\assets\images\nen.png" />
     <Content Include="Content\assets\images\paypal.png" />
     <Content Include="Content\assets\images\product_1.png" />
     <Content Include="Content\assets\images\product_10.png" />
