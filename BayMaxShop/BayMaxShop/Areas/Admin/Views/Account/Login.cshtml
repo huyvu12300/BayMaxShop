@@ -10,7 +10,7 @@
     {
         @Html.AntiForgeryToken()
         @Html.ValidationSummary(true);
-        <div class="input-group mb-3">
+        <div class="input-group mb-3" style="width: 350px; margin-left: 63px;">
             @Html.TextBoxFor(x => x.UserName, new { @class = "form-control", @placeholder = "Tên tài khoản" })
             <div class="input-group-append">
                 <div class="input-group-text">
@@ -18,7 +18,7 @@
                 </div>
             </div>
         </div>
-        <div class="input-group mb-3">
+        <div class="input-group mb-3" style="width: 350px; margin-left: 63px;">
             @Html.PasswordFor(x => x.Password, new { @class = "form-control", @placeholder = "Mật khẩu" })
             <div class="input-group-append">
                 <div class="input-group-text">
@@ -27,7 +27,7 @@
             </div>
         </div>
         <div class="row">
-            <div class="col-8">
+            <div class="col-8" style="left: 62px;">
                 <div class="icheck-primary">
                     <input type="checkbox" id="remember">
                     <label for="remember">
@@ -36,7 +36,7 @@
                 </div>
             </div>
             <!-- /.col -->
-            <div class="col-4">
+            <div class="col-4" style="right: 48px;">
                 <button type="submit" class="btn btn-primary btn-block">Sign in</button>
             </div>
             <!-- /.col -->
@@ -45,7 +45,7 @@
 
     <!-- /.social-auth-links -->
 
-    <p class="mb-1">
-        <a href="#">I forgot my password</a>
+    <p class="mb-1" style="margin-left: 63px; margin-top: 15px;">
+        <a href="#">I forgot my password ?</a>
     </p>
 </div>
