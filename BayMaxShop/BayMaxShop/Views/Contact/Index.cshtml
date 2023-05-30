@@ -6,7 +6,7 @@
 <link rel="stylesheet" type="text/css" href="~/Content/assets/styles/categories_responsive.css">
 
 
-<div class="container contact_container">
+<div class="container contact_container" style="font-family:'Times New Roman', Times, serif;">
     <div class="row">
         <div class="col">
 
@@ -35,20 +35,37 @@
 
     <!-- Contact Us -->
 
-    <div class="row">
+    <div class="row" style=" margin-left: 250px; margin-top: 30px; font-family: 'Times New Roman', Times, serif;">
 
-        <div class="col-lg-6 contact_col">
+        <div class="col-lg-6 contact_col" style="margin-top: 40px; margin-left:-50px;">
             <div class="contact_contents">
-                <h2>Liên hệ</h2>
+                <h2>Liên Hệ</h2>
+                <div class="info-member" style="margin-top: 20px;">
+                    <h5>Nguyễn Nguyên Trung</h5>
+                    <h5>Nguyễn Hoàng Nguyên Vũ</h5>
+                    <h5>Phạm Minh Đức</h5>
+                </div>
+                
             </div>
 
             <!-- Follow Us -->
         </div>
-        <div class="col-lg-6 follow_us_contents">
-            <h2>Theo dõi</h2>
-            <ul class="social d-flex flex-row">
+        <div class="col-lg-6 follow_us_contents" style="margin-top: 40px; margin-left: 50px; font-family:'Times New Roman', Times, serif;">
+            <h2 style="font-family: 'Times New Roman', Times, serif;">Theo Dõi</h2>
+            <div class="social-links" style="margin-left: 8px; margin-top: 18px; word-spacing: 10px; ">
+                <a href="https://www.facebook.com/PhamMinhDuc.lacongchuakhocnhe/"><i class="fab fa-facebook-f"></i></a>
+                <a href="https://www.facebook.com/PhamMinhDuc.lacongchuakhocnhe/"><i class="fab fa-twitter"></i></a>
+                <a href="https://www.facebook.com/PhamMinhDuc.lacongchuakhocnhe/"><i class="fab fa-instagram"></i></a>
+            </div>
 
+            <ul class="social d-flex flex-row">
             </ul>
+        </div>
+
+        <div class="info-phone" style=" left: -36px; top: 40px; display: flex; justify-content: center; align-items: center; font-family: 'Times New Roman', Times, serif;">
+            
+            <a> <a style="color: red; font-family: 'Times New Roman', Times, serif;">HOTLINE: </a>  0963304506</a>
+            <a style="margin-left: 360px; font-family: 'Times New Roman', Times, serif;"> <a style="color:red;"> Email: </a> durdu02012002@gmail.com</a>
         </div>
     </div>
 </div>
@@ -58,6 +75,10 @@
 
 @section Css{
     <style>
+        * {
+            font-family: 'Times New Roman', Times, serif;
+        }
+
         .map_container {
             overflow: hidden;
             padding-bottom: 35%;
@@ -72,6 +93,26 @@
                 width: 100%;
                 position: absolute;
             }
+
+
+        .social-links a {
+            display: inline-block;
+            height: 40px;
+            width: 40px;
+            background-color: #949494;
+            margin: 0 10px 10px 0;
+            text-align: center;
+            line-height: 40px;
+            border-radius: 50%;
+            color: #ffffff;
+            transition: all 0.5s ease;
+        }
+
+          .social-links a:hover {
+                color: #24262b;
+                background-color: #ffffff;
+            }
+
     </style>
 }
 
