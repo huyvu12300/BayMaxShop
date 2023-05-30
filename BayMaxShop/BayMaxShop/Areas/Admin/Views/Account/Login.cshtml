@@ -4,30 +4,23 @@
     Layout = "~/Areas/Admin/Views/Shared/_LayoutLogin.cshtml";
 }
 
-<div class="card-body login-card-body"
-    <p class="login-box-msg">Đăng nhập để vào admin</p>
+<div class="card-body login-card-body" style="margin-top: 60px; margin-left: -20px;">
+    
     @using (Html.BeginForm("Login", "Account", FormMethod.Post))
     {
         @Html.AntiForgeryToken()
         @Html.ValidationSummary(true);
-        <div class="input-group mb-3" style="width: 350px; margin-left: 63px;">
+        <div class="input-group mb-3" style="width: 350px; margin-left: 63px; position: absolute; z-index: 10; margin-top: 30px;">
+
             @Html.TextBoxFor(x => x.UserName, new { @class = "form-control", @placeholder = "Tên tài khoản" })
-            <div class="input-group-append">
-                <div class="input-group-text">
-                    <span class="fas fa-envelope"></span>
-                </div>
-            </div>
+            
         </div>
-        <div class="input-group mb-3" style="width: 350px; margin-left: 63px;">
+        <div class="input-group mb-3" style="width: 350px; margin-left: 63px; position: absolute; z-index: 10; margin-top: 90px;">
             @Html.PasswordFor(x => x.Password, new { @class = "form-control", @placeholder = "Mật khẩu" })
-            <div class="input-group-append">
-                <div class="input-group-text">
-                    <span class="fas fa-lock"></span>
-                </div>
-            </div>
+            
         </div>
         <div class="row">
-            <div class="col-8" style="left: 62px;">
+            <div class="col-8" style="left: 75px; position: absolute; z-index: 10; margin-top: 150px; color: white;">
                 <div class="icheck-primary">
                     <input type="checkbox" id="remember">
                     <label for="remember">
@@ -36,8 +29,8 @@
                 </div>
             </div>
             <!-- /.col -->
-            <div class="col-4" style="right: 48px;">
-                <button type="submit" class="btn btn-primary btn-block">Sign in</button>
+            <div class="col-4" style="right: -10px; position: absolute; z-index: 10; margin-top: 150px;">
+                <button type="submit" class="btn btn-primary btn-block" style="background-color: whitesmoke; color: black; border-radius: 10px; border: 1px solid whitesmoke; width: 80px; ">Sign in</button>
             </div>
             <!-- /.col -->
         </div>
@@ -45,7 +38,7 @@
 
     <!-- /.social-auth-links -->
 
-    <p class="mb-1" style="margin-left: 63px; margin-top: 15px;">
-        <a href="#">I forgot my password ?</a>
+    <p class="mb-1" style="margin-left: 63px; margin-top: 200px; color: white; position: absolute; z-index: 10;">
+        <a href="https://localhost:44390/account/Register" style="color: whitesmoke; font-size: 20px; margin-left: 47px; ">Don't have a account Register</a>
     </p>
 </div>
