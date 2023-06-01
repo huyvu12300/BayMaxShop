@@ -10,12 +10,12 @@
     {
         @Html.AntiForgeryToken()
         @Html.ValidationSummary(true);
-        <div class="input-group mb-3" style="width: 350px; margin-left: 63px; position: absolute; z-index: 10; margin-top: 30px;">
+        <div class="input-group mb-3" style="width: 350px; margin-left: 63px; position: absolute; z-index: 10; margin-top: 30px; opacity: 0.6;">
 
             @Html.TextBoxFor(x => x.UserName, new { @class = "form-control", @placeholder = "Tên tài khoản" })
             
         </div>
-        <div class="input-group mb-3" style="width: 350px; margin-left: 63px; position: absolute; z-index: 10; margin-top: 90px;">
+        <div class="input-group mb-3" style="width: 350px; margin-left: 63px; position: absolute; z-index: 10; margin-top: 90px; opacity: 0.6; ">
             @Html.PasswordFor(x => x.Password, new { @class = "form-control", @placeholder = "Mật khẩu" })
             
         </div>
@@ -38,7 +38,4 @@
 
     <!-- /.social-auth-links -->
 
-    <p class="mb-1" style="margin-left: 63px; margin-top: 200px; color: white; position: absolute; z-index: 10;">
-        <a href="https://localhost:44390/account/Register" style="color: whitesmoke; font-size: 20px; margin-left: 47px; ">Don't have a account Register</a>
-    </p>
 </div>
