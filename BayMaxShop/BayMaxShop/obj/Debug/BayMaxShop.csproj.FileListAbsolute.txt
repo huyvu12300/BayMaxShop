@@ -1293,3 +1293,6 @@ D:\bfs_at\Duc\BayMaxShop\BayMaxShop\BayMaxShop\obj\Debug\BayMaxShop.csproj.CoreC
 D:\bfs_at\Duc\BayMaxShop\BayMaxShop\BayMaxShop\obj\Debug\BayMaxShop.csproj.CopyComplete
 D:\bfs_at\Duc\BayMaxShop\BayMaxShop\BayMaxShop\obj\Debug\BayMaxShop.dll
 D:\bfs_at\Duc\BayMaxShop\BayMaxShop\BayMaxShop\obj\Debug\BayMaxShop.pdb
+D:\bfs_at\pp\BayMaxShop\BayMaxShop\BayMaxShop\obj\Debug\BayMaxShop.Migrations.Update_Product_OriginalPrice.resources
+D:\bfs_at\pp\BayMaxShop\BayMaxShop\BayMaxShop\obj\Debug\BayMaxShop.Migrations.Update_Category_Link.resources
+D:\bfs_at\pp\BayMaxShop\BayMaxShop\BayMaxShop\obj\Debug\BayMaxShop.Migrations.Update_Subscribe.resources
