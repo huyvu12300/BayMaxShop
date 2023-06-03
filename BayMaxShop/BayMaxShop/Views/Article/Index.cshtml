@@ -34,13 +34,15 @@
             </div>
         </div>
         <div class="row">
-            <div class="col-md-12">
-                @Model.Description
+            <div class="col-md-12 text-center">
+                <h2>
+                    @Model.Description
+                </h2>
             </div>
-            <div class="col-md-12">
-                <img src="@Model.Image" width="50%"/>
+            <div class="col-md-4">
+                <img src="@Model.Image" width="100%"/>
             </div>
-            <div class="col-md-12">
+            <div class="col-md-8">
                 @Html.Raw(Model.Detail)
             </div>
         </div>

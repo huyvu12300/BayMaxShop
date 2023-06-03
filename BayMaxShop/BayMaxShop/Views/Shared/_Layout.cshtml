@@ -32,11 +32,11 @@
 <body style="background: linear-gradient(to right, #E8E8E8, #E6E6E6); ">
     <div class="super_container">
 
-       
+
         <!-- Header -->
 
         <header class="header trans_300">
-           
+
 
 
 
@@ -238,16 +238,29 @@
 </body>
 </html>
 
+@if (Request.IsAuthenticated)
+{
+    <div style="display:none">
+        @using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { @id = "logOffForm" }))
+        {
+            @Html.AntiForgeryToken();
+        }
+    </div>
+
+}
+
 <style>
 
     .fa fa-shopping-cart a i :hover {
         color: #B0B0B0;
     }
+
     .main_nav_container {
         width: 100%;
         background: black;
         box-shadow: 0 0 16px rgba(0, 0, 0, 0.15);
     }
+
     .navbar_menu li a {
         display: block;
         color: whitesmoke;
@@ -261,6 +274,7 @@
         -o-transition: color 0.3s ease;
         transition: color 0.3s ease;
     }
+
     .navbar_user li a {
         display: -webkit-box;
         display: -moz-box;
@@ -348,7 +362,4 @@
                 color: #24262b;
                 background-color: #ffffff;
             }
-
-    
-
 </style>
