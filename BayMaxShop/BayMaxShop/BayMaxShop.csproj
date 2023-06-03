@@ -286,10 +286,9 @@
     <Content Include="Content\assets\images\adminn.png" />
     <Content Include="Content\assets\images\as.jpg" />
     <Content Include="Content\assets\images\avatar8.png" />
-    <Content Include="Content\assets\images\banner_1.jpg" />
-    <Content Include="Content\assets\images\banner_2.jpg" />
-    <Content Include="Content\assets\images\banner_3.jpg" />
+    <Content Include="Content\assets\images\banner2.png" />
     <Content Include="Content\assets\images\banner_chinh.jpg" />
+    <Content Include="Content\assets\images\BigSale.png" />
     <Content Include="Content\assets\images\bms.jpg" />
     <Content Include="Content\assets\images\blog_1.jpg" />
     <Content Include="Content\assets\images\blog_2.jpg" />
@@ -331,6 +330,7 @@
     <Content Include="Content\assets\images\single_3.jpg" />
     <Content Include="Content\assets\images\single_3_thumb.jpg" />
     <Content Include="Content\assets\images\slider_1.jpg" />
+    <Content Include="Content\assets\images\ss.png" />
     <Content Include="Content\assets\images\sssssss.jpg" />
     <Content Include="Content\assets\images\success.png" />
     <Content Include="Content\assets\images\sunset.png" />
@@ -363,10 +363,12 @@
     <Content Include="Content\assets\styles\categories_styles.css" />
     <Content Include="Content\assets\styles\contact_responsive.css" />
     <Content Include="Content\assets\styles\contact_styles.css" />
+    <Content Include="Content\assets\styles\login.css" />
     <Content Include="Content\assets\styles\main_styles.css" />
     <Content Include="Content\assets\styles\responsive.css" />
     <Content Include="Content\assets\styles\single_responsive.css" />
     <Content Include="Content\assets\styles\single_styles.css" />
+    <Content Include="Content\assets\styles\Slider.css" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
