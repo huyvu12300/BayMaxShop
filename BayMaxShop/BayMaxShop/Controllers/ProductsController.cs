@@ -16,7 +16,9 @@ namespace BayMaxShop.Controllers
         // GET: Products
         public ActionResult Index(string Searchtext, int? page)
         {
-            var pageSize = 10;
+            
+
+            var pageSize = 12;
             if (page == null)
             {
                 page = 1;
@@ -35,6 +37,8 @@ namespace BayMaxShop.Controllers
         }
 
 
+
+
         public ActionResult Detail(string alias, int id)
         {
             var item = db.Products.Find(id);
@@ -42,8 +46,14 @@ namespace BayMaxShop.Controllers
         }
 
 
-        public ActionResult ProductCategory(string alias, int? id, string Searchtext)
+        public ActionResult ProductCategory(string alias, int? id, string Searchtext, int? page)
         {
+          
+            var pageSize = 12;
+            if (page == null)
+            {
+                page = 1;
+            }
             IEnumerable<Product> items = db.Products.OrderByDescending(x => x.Id);
             if (!string.IsNullOrEmpty(Searchtext))
             {
@@ -61,6 +71,10 @@ namespace BayMaxShop.Controllers
             }
 
             ViewBag.CateId = id;
+            var pageIndex = page.HasValue ? Convert.ToInt32(page) : 1;
+            items = items.ToPagedList(pageIndex, pageSize);
+            ViewBag.PageSize = pageSize;
+            ViewBag.Page = page;
             return View(items);
         }
         public ActionResult Partial_ItemsByCateId() 
