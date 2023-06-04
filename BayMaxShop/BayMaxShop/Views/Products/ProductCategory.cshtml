@@ -1,5 +1,9 @@
-﻿@model IEnumerable<BayMaxShop.Models.EF.Product>
-    
+﻿
+@model PagedList.PagedList<BayMaxShop.Models.EF.Product>
+@using PagedList.Mvc;
+@using PagedList;
+
+
     ViewBag.Title = "Danh sách sản phẩm";
 }
 
@@ -113,7 +117,12 @@
                                 }
                             </div>
                             <!-- Product Sorting -->
-
+                            <div class="row">
+                                <div class="col-9"></div>
+                                <div class="col-3" style="text-align:right;">
+                                    @Html.PagedListPager(Model, page => Url.Action("ProductCategory", new { page }))
+                                </div>
+                            </div>
 
 
                         </div>
