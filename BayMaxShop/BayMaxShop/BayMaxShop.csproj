@@ -287,6 +287,9 @@
     <Content Include="Content\assets\images\adminn.png" />
     <Content Include="Content\assets\images\as.jpg" />
     <Content Include="Content\assets\images\avatar8.png" />
+    <Content Include="Content\assets\images\back.png" />
+    <Content Include="Content\assets\images\back10.png" />
+    <Content Include="Content\assets\images\back11.png" />
     <Content Include="Content\assets\images\banner2.png" />
     <Content Include="Content\assets\images\banner_chinh.jpg" />
     <Content Include="Content\assets\images\BigSale.png" />

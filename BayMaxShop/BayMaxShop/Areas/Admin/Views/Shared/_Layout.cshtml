@@ -34,7 +34,7 @@
 <body class="hold-transition sidebar-mini" style="font-family: 'Times New Roman', Times, serif;">
     <div class="wrapper">
         <!-- Navbar -->
-        <nav style="background-color: #45464A " class="main-header navbar navbar-expand navbar-white navbar-light">
+        <nav style="background-color: #A19F9F; " class="main-header navbar navbar-expand navbar-white navbar-light">
             @RenderSection("naviheader", required: false)
             <!-- Right navbar links -->
             <ul class="navbar-nav ml-auto">
@@ -49,31 +49,35 @@
         <!-- Main Sidebar Container -->
         <aside class="main-sidebar sidebar-dark-primary elevation-4">
             <!-- Brand Logo -->
-            <a href="/admin/home" class="brand-link" style="display:flex; justify-content: center; align-items: center; margin-top: 10px; height: 46px;">
+            <a href="/admin/home" class="brand-link" style="display: flex; justify-content: center; align-items: center; margin-top: 10px; height: 46px; position: absolute; z-index: 10; margin-left: 50px; ">
                 <p>BayMax<span style="color:orangered"> Shop</span></p>
             </a>
-            <div class="user-panel mt-3 pb-3 mb-3 d-flex">
-                <div class="image">
+            <div class="user-panel mt-3 pb-3 mb-3 d-flex" style="position: absolute; z-index: 10; margin-left: 8px; ">
+                <div style=" margin-top: 60px;" class="image">
                     <img src="~/Content/assets/images/avatar8.png">
                 </div>
-                <div class="info">
-                    <a href="/admin/profile/profile/@User.Identity.Name">@User.Identity.Name</a>
+                <div style=" margin-top: 60px;" class="info">
+                    <a style="color: #F0F0F0; font: 15px; " href="/admin/profile/profile/@User.Identity.Name">@User.Identity.Name</a>
                 </div>
 
             </div>
 
+            <div class="img-nen" style="position: absolute; z-index: 3; margin-top: -20px; ">
+                <img style="width: 250px; height: 900px; opacity: 0.3;" src="~/Content/assets/images/back10.png" />
+            </div>
 
-
+            
             @Html.Partial("_PartialSideBar")
-           
+
         </aside>
 
         <!-- Content Wrapper. Contains page content -->
-        <div class="content-wrapper">
+        <div class="content-wrapper" style="background: linear-gradient(to right, #6B6969, #B3B1B1); ">
             @RenderBody()
         </div>
+      
         <!-- /.content-wrapper -->
-        <footer class="main-footer"  style="display: flex; justify-content: center; align-items: center; height: 10px; background: linear-gradient(to right, #E8E8E8, #FFFFF); " >
+        <footer class="main-footer"  style="display: flex; justify-content: center; align-items: center; height: 10px; background: linear-gradient(to right, #E8E8E8, #FFFFF);" >
             <p style="margin-top: 15px;" class="MuiTypography-root MuiTypography-body1 css-1nue457">Copyright © 2023 - Bản Quyền Thuộc BayMaxShop</p>
         </footer>
 

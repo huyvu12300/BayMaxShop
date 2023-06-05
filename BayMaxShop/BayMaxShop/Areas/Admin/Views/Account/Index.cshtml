@@ -23,7 +23,7 @@
     <div class="container-fluid">
         <div class="row mb-2">
             <div class="col-sm-6">
-                <h1>@ViewBag.Title</h1>
+                <h1 style="color: #CCCCCC;">@ViewBag.Title</h1>
             </div>
             <div class="col-sm-6">
                 <ol class="breadcrumb float-sm-right">
@@ -38,12 +38,12 @@
 <section class="content">
 
     <!-- Default box -->
-    <div class="card">
+    <div style="background: linear-gradient(to right, #6B6969, #B3B1B1);" class="card">
         <div class="card-header">
             <h3 class="card-title">Danh Sách Tài Khoản</h3>
 
             <div class="card-tools">
-                <a href="/admin/account/create" class="btn btn-primary">Thêm mới</a>
+                <a style="background-color: #848FB3;" href="/admin/account/create" class="btn btn-primary">Thêm mới</a>
             </div>
         </div>
         <div class="card-body">
@@ -68,8 +68,8 @@
                                 <td>@item.FullName</td>
                                 <td>@item.Email</td>
                                 <td>
-                                    <a href="/admin/account/edit/@item.UserName" class="btn btn-sm btn-primary">Sửa</a>
-                                    <a href="#" data-user="@item.UserName" class="btn btn-sm btn-danger btnDelete">Xoá</a>
+                                    <a style="background-color: #848FB3;" href="/admin/account/edit/@item.UserName" class="btn btn-sm btn-primary">Sửa</a>
+                                    <a style="background-color: #B58499;" href="#" data-user="@item.UserName" class="btn btn-sm btn-danger btnDelete">Xoá</a>
                                 </td>
                             </tr>
                             i++;
