@@ -27,7 +27,7 @@
     <div class="container-fluid">
         <div class="row mb-2">
             <div class="col-sm-6">
-                <h1>Quản lý sản phẩm</h1>
+                <h1 style="color: #CCCCCC;">Quản lý sản phẩm</h1>
             </div>
             <div class="col-sm-6">
                 <ol class="breadcrumb float-sm-right">
@@ -43,13 +43,13 @@
 <section class="content">
 
     <!-- Default box -->
-    <div class="card">
+    <div  style="background: linear-gradient(to right, #6B6969, #B3B1B1); " class="card">
         <div class="card-header">
             <h3 class="card-title">Danh sách @ViewBag.Title</h3>
 
             <div class="card-tools">
-                <a href="/admin/products/add" class="btn btn-primary">Thêm mới</a>
-                <a href="#" class="btn btn-danger" id="BtnDeleteAll">Xóa</a>
+                <a style="background-color: #848FB3;" style="background-color: #848FB3;" href="/admin/products/add" class="btn btn-primary">Thêm mới</a>
+                <a style="background-color: #B58499;" href="#" class="btn btn-danger" id="BtnDeleteAll">Xóa</a>
             </div>
         </div>
         <div class="card-body">
@@ -120,8 +120,8 @@
                                     <a href='#' data-id="@item.Id" class="btnActive">@Html.Raw(strCheck)</a>
                                 </td>
                                 <td>
-                                    <a href="/admin/Products/edit/@item.Id" class="btn btn-sm btn-primary">Sửa</a>
-                                    <a href="#" data-id="@item.Id" class="btn btn-sm btn-danger btnDelete">Xóa</a>
+                                    <a  style="background-color: #848FB3;" href="/admin/Products/edit/@item.Id" class="btn btn-sm btn-primary">Sửa</a>
+                                    <a  style="background-color: #B58499;" href="#" data-id="@item.Id" class="btn btn-sm btn-danger btnDelete">Xóa</a>
                                 </td>
                             </tr>
                             i++;

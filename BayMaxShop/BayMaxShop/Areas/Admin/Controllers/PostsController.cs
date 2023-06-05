@@ -47,7 +47,7 @@ namespace BayMaxShop.Areas.Admin.Controllers
         {
             if (ModelState.IsValid)
             {
-                model.CategoryId = 5;
+                model.CategoryId = 9;
                 model.CreatedDate = DateTime.Now;
                 model.ModifiedDate = DateTime.Now;
                 //model.Alias = BayMaxShop.Models.Commons.Filter.FilterChar(model.Title);
