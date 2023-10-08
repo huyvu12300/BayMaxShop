@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
 namespace BayMaxShop.Models
@@ -89,6 +90,15 @@ namespace BayMaxShop.Models
 
     public class RegisterViewModel
     {
+        public string UserName { get; set; }
+
+        public string FullName { get; set; }
+
+        public DateTime DateOfBirth { get; set; }
+        public string Sex { get; set; }
+        public string Phone { get; set; }
+
+
         [Required]
         [EmailAddress]
         [Display(Name = "Email")]

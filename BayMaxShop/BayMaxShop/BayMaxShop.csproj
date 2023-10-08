@@ -205,57 +205,9 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202304081406408_InitialCreate.cs" />
-    <Compile Include="Migrations\202304081406408_InitialCreate.designer.cs">
-      <DependentUpon>202304081406408_InitialCreate.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202304081751001_CreatedDatabase.cs" />
-    <Compile Include="Migrations\202304081751001_CreatedDatabase.designer.cs">
-      <DependentUpon>202304081751001_CreatedDatabase.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202304110954547_UpdateData.cs" />
-    <Compile Include="Migrations\202304110954547_UpdateData.designer.cs">
-      <DependentUpon>202304110954547_UpdateData.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202304130946218_UpdateActive.cs" />
-    <Compile Include="Migrations\202304130946218_UpdateActive.designer.cs">
-      <DependentUpon>202304130946218_UpdateActive.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202304131402168_UpdateProductCategory.cs" />
-    <Compile Include="Migrations\202304131402168_UpdateProductCategory.designer.cs">
-      <DependentUpon>202304131402168_UpdateProductCategory.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202304141639582_Update 1206.cs" />
-    <Compile Include="Migrations\202304141639582_Update 1206.designer.cs">
-      <DependentUpon>202304141639582_Update 1206.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202304151256122_Update 1207.cs" />
-    <Compile Include="Migrations\202304151256122_Update 1207.designer.cs">
-      <DependentUpon>202304151256122_Update 1207.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202304160933556_Update Order.cs" />
-    <Compile Include="Migrations\202304160933556_Update Order.designer.cs">
-      <DependentUpon>202304160933556_Update Order.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202304181745482_Updatadata.cs" />
-    <Compile Include="Migrations\202304181745482_Updatadata.designer.cs">
-      <DependentUpon>202304181745482_Updatadata.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202304211520054_Update.cs" />
-    <Compile Include="Migrations\202304211520054_Update.designer.cs">
-      <DependentUpon>202304211520054_Update.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202304301429397_Update_Product_OriginalPrice.cs" />
-    <Compile Include="Migrations\202304301429397_Update_Product_OriginalPrice.designer.cs">
-      <DependentUpon>202304301429397_Update_Product_OriginalPrice.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202304301511050_Update_Category_Link.cs" />
-    <Compile Include="Migrations\202304301511050_Update_Category_Link.designer.cs">
-      <DependentUpon>202304301511050_Update_Category_Link.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202304301907179_Update_Subscribe.cs" />
-    <Compile Include="Migrations\202304301907179_Update_Subscribe.designer.cs">
-      <DependentUpon>202304301907179_Update_Subscribe.cs</DependentUpon>
+    <Compile Include="Migrations\202310080910548_CreateDataBase.cs" />
+    <Compile Include="Migrations\202310080910548_CreateDataBase.designer.cs">
+      <DependentUpon>202310080910548_CreateDataBase.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -343,6 +295,7 @@
     <Content Include="Content\assets\js\contact_custom.js" />
     <Content Include="Content\assets\js\custom.js" />
     <Content Include="Content\assets\js\jquery-3.2.1.min.js" />
+    <Content Include="Content\assets\js\login.js" />
     <Content Include="Content\assets\js\single_custom.js" />
     <Content Include="Content\assets\plugins\easing\easing.js" />
     <Content Include="Content\assets\plugins\font-awesome-4.7.0\css\font-awesome.css" />
@@ -3416,44 +3369,8 @@
     <Content Include="Scripts\jquery-3.4.1.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202304081406408_InitialCreate.resx">
-      <DependentUpon>202304081406408_InitialCreate.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202304081751001_CreatedDatabase.resx">
-      <DependentUpon>202304081751001_CreatedDatabase.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202304110954547_UpdateData.resx">
-      <DependentUpon>202304110954547_UpdateData.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202304130946218_UpdateActive.resx">
-      <DependentUpon>202304130946218_UpdateActive.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202304131402168_UpdateProductCategory.resx">
-      <DependentUpon>202304131402168_UpdateProductCategory.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202304141639582_Update 1206.resx">
-      <DependentUpon>202304141639582_Update 1206.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202304151256122_Update 1207.resx">
-      <DependentUpon>202304151256122_Update 1207.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202304160933556_Update Order.resx">
-      <DependentUpon>202304160933556_Update Order.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202304181745482_Updatadata.resx">
-      <DependentUpon>202304181745482_Updatadata.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202304211520054_Update.resx">
-      <DependentUpon>202304211520054_Update.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202304301429397_Update_Product_OriginalPrice.resx">
-      <DependentUpon>202304301429397_Update_Product_OriginalPrice.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202304301511050_Update_Category_Link.resx">
-      <DependentUpon>202304301511050_Update_Category_Link.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202304301907179_Update_Subscribe.resx">
-      <DependentUpon>202304301907179_Update_Subscribe.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202310080910548_CreateDataBase.resx">
+      <DependentUpon>202310080910548_CreateDataBase.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

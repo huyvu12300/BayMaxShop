@@ -524,20 +524,10 @@ C:\Users\Admin\Desktop\BayMaxShop\BayMaxShop\BayMaxShop\bin\Microsoft.Owin.Secur
 C:\Users\Admin\Desktop\BayMaxShop\BayMaxShop\BayMaxShop\bin\Microsoft.Owin.Security.OAuth.xml
 C:\Users\Admin\Desktop\BayMaxShop\BayMaxShop\BayMaxShop\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
 C:\Users\Admin\Desktop\BayMaxShop\BayMaxShop\BayMaxShop\obj\Debug\BayMaxShop.csproj.AssemblyReference.cache
-C:\Users\Admin\Desktop\BayMaxShop\BayMaxShop\BayMaxShop\obj\Debug\BayMaxShop.Migrations.InitialCreate.resources
-C:\Users\Admin\Desktop\BayMaxShop\BayMaxShop\BayMaxShop\obj\Debug\BayMaxShop.Migrations.CreatedDatabase.resources
-C:\Users\Admin\Desktop\BayMaxShop\BayMaxShop\BayMaxShop\obj\Debug\BayMaxShop.Migrations.UpdateData.resources
-C:\Users\Admin\Desktop\BayMaxShop\BayMaxShop\BayMaxShop\obj\Debug\BayMaxShop.Migrations.UpdateActive.resources
-C:\Users\Admin\Desktop\BayMaxShop\BayMaxShop\BayMaxShop\obj\Debug\BayMaxShop.Migrations.UpdateProductCategory.resources
-C:\Users\Admin\Desktop\BayMaxShop\BayMaxShop\BayMaxShop\obj\Debug\BayMaxShop.Migrations.Update1206.resources
-C:\Users\Admin\Desktop\BayMaxShop\BayMaxShop\BayMaxShop\obj\Debug\BayMaxShop.Migrations.Update1207.resources
-C:\Users\Admin\Desktop\BayMaxShop\BayMaxShop\BayMaxShop\obj\Debug\BayMaxShop.Migrations.UpdateOrder.resources
-C:\Users\Admin\Desktop\BayMaxShop\BayMaxShop\BayMaxShop\obj\Debug\BayMaxShop.csproj.GenerateResource.cache
 C:\Users\Admin\Desktop\BayMaxShop\BayMaxShop\BayMaxShop\obj\Debug\BayMaxShop.csproj.CoreCompileInputs.cache
 C:\Users\Admin\Desktop\BayMaxShop\BayMaxShop\BayMaxShop\obj\Debug\BayMaxShop.csproj.CopyComplete
 C:\Users\Admin\Desktop\BayMaxShop\BayMaxShop\BayMaxShop\obj\Debug\BayMaxShop.dll
 C:\Users\Admin\Desktop\BayMaxShop\BayMaxShop\BayMaxShop\obj\Debug\BayMaxShop.pdb
-C:\Users\Admin\Desktop\BayMaxShop\BayMaxShop\BayMaxShop\obj\Debug\BayMaxShop.Migrations.Updatadata.resources
 D:\bài tập thực hành hdt\bai1\BayMaxShop\BayMaxShop\BayMaxShop\bin\BayMaxShop.dll.config
 D:\bài tập thực hành hdt\bai1\BayMaxShop\BayMaxShop\BayMaxShop\bin\BayMaxShop.dll
 D:\bài tập thực hành hdt\bai1\BayMaxShop\BayMaxShop\BayMaxShop\bin\BayMaxShop.pdb
@@ -704,7 +694,6 @@ C:\Users\Admin\Desktop\BayMaxShop\BayMaxShop\BayMaxShop\bin\roslyn\vbc.exe
 C:\Users\Admin\Desktop\BayMaxShop\BayMaxShop\BayMaxShop\bin\roslyn\vbc.exe.config
 C:\Users\Admin\Desktop\BayMaxShop\BayMaxShop\BayMaxShop\bin\roslyn\vbc.rsp
 C:\Users\Admin\Desktop\BayMaxShop\BayMaxShop\BayMaxShop\bin\roslyn\VBCSCompiler.exe.config
-C:\Users\Admin\Desktop\BayMaxShop\BayMaxShop\BayMaxShop\obj\Debug\BayMaxShop.Migrations.Update.resources
 D:\bfs_at\pp\BayMaxShop\BayMaxShop\BayMaxShop\bin\BayMaxShop.dll.config
 D:\bfs_at\pp\BayMaxShop\BayMaxShop\BayMaxShop\bin\BayMaxShop.dll
 D:\bfs_at\pp\BayMaxShop\BayMaxShop\BayMaxShop\bin\BayMaxShop.pdb
@@ -906,9 +895,6 @@ D:\bfs_at\w\BayMaxShop\BayMaxShop\BayMaxShop\obj\Debug\BayMaxShop.csproj.CoreCom
 D:\bfs_at\w\BayMaxShop\BayMaxShop\BayMaxShop\obj\Debug\BayMaxShop.csproj.CopyComplete
 D:\bfs_at\w\BayMaxShop\BayMaxShop\BayMaxShop\obj\Debug\BayMaxShop.dll
 D:\bfs_at\w\BayMaxShop\BayMaxShop\BayMaxShop\obj\Debug\BayMaxShop.pdb
-C:\Users\Admin\Desktop\BayMaxShop\BayMaxShop\BayMaxShop\obj\Debug\BayMaxShop.Migrations.Update_Product_OriginalPrice.resources
-C:\Users\Admin\Desktop\BayMaxShop\BayMaxShop\BayMaxShop\obj\Debug\BayMaxShop.Migrations.Update_Category_Link.resources
-C:\Users\Admin\Desktop\BayMaxShop\BayMaxShop\BayMaxShop\obj\Debug\BayMaxShop.Migrations.Update_Subscribe.resources
 D:\bfs_at\BayMaxShop\BayMaxShop\BayMaxShop\bin\BayMaxShop.dll.config
 D:\bfs_at\BayMaxShop\BayMaxShop\BayMaxShop\bin\BayMaxShop.dll
 D:\bfs_at\BayMaxShop\BayMaxShop\BayMaxShop\bin\BayMaxShop.pdb
@@ -1424,3 +1410,5 @@ D:\bfs_at\Servers\BayMaxShop\BayMaxShop\BayMaxShop\obj\Debug\BayMaxShop.csproj.C
 D:\bfs_at\Servers\BayMaxShop\BayMaxShop\BayMaxShop\obj\Debug\BayMaxShop.csproj.CopyComplete
 D:\bfs_at\Servers\BayMaxShop\BayMaxShop\BayMaxShop\obj\Debug\BayMaxShop.dll
 D:\bfs_at\Servers\BayMaxShop\BayMaxShop\BayMaxShop\obj\Debug\BayMaxShop.pdb
+C:\Users\Admin\Desktop\BayMaxShop\BayMaxShop\BayMaxShop\obj\Debug\BayMaxShop.Migrations.CreateDataBase.resources
+C:\Users\Admin\Desktop\BayMaxShop\BayMaxShop\BayMaxShop\obj\Debug\BayMaxShop.csproj.GenerateResource.cache

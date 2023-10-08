@@ -10,7 +10,6 @@
         public Configuration()
         {
             AutomaticMigrationsEnabled = false;
-            ContextKey = "BayMaxShop.Models.ApplicationDbContext";
         }
 
         protected override void Seed(BayMaxShop.Models.ApplicationDbContext context)

@@ -72,15 +72,28 @@ namespace BayMaxShop.Controllers
             {
                 return View(model);
             }
-
             // This doesn't count login failures towards account lockout
             // To enable password failures to trigger account lockout, change to shouldLockout: true
             var result = await SignInManager.PasswordSignInAsync(model.UserName, model.Password, model.RememberMe, shouldLockout: false);
             switch (result)
             {
                 case SignInStatus.Success:
+                    {
+                        var user = await UserManager.FindAsync(model.UserName, model.Password);
+                        user.LockoutEndDateUtc = DateTime.Now;
+                        UserManager.Update(user);
+                    }
+
                     return RedirectToLocal(returnUrl);
                 case SignInStatus.LockedOut:
+                    {
+                        var user = await UserManager.FindAsync(model.UserName, model.Password);
+                        if (user.EmailConfirmed == false)
+                        {
+                            user.LockoutEnabled = true;
+                            UserManager.Update(user);
+                        }
+                    }
                     return View("Lockout");
                 case SignInStatus.RequiresVerification:
                     return RedirectToAction("SendCode", new { ReturnUrl = returnUrl, RememberMe = model.RememberMe });
@@ -89,6 +102,16 @@ namespace BayMaxShop.Controllers
                     ModelState.AddModelError("", "Invalid login attempt.");
                     return View(model);
             }
+        }
+
+        public string ProcessUpload(HttpPostedFileBase file)
+        {
+            if (file == null)
+            {
+                return "";
+            }
+            file.SaveAs(Server.MapPath("~/Content/Image/" + file.FileName));
+            return "/Content/Image/" + file.FileName;
         }
 
         //
@@ -139,7 +162,8 @@ namespace BayMaxShop.Controllers
         [AllowAnonymous]
         public ActionResult Register()
         {
-            return View();
+
+            return PartialView();
         }
 
         //
@@ -151,7 +175,16 @@ namespace BayMaxShop.Controllers
         {
             if (ModelState.IsValid)
             {
-                var user = new ApplicationUser { UserName = model.Email, Email = model.Email };
+                var user = new ApplicationUser
+                {
+                    UserName = model.UserName,
+                    Email = model.Email,
+                    FullName = model.FullName,
+                    Phone = model.Phone,
+                    DateOfBirth = model.DateOfBirth,
+                    Sex = model.Sex,
+
+                };
                 var result = await UserManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {
@@ -169,7 +202,7 @@ namespace BayMaxShop.Controllers
             }
 
             // If we got this far, something failed, redisplay form
-            return View(model);
+            return PartialView(model);
         }
 
         //
