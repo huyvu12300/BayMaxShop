@@ -1,5 +1,6 @@
 ﻿using BayMaxShop.Models;
 using BayMaxShop.Models.EF;
+using Microsoft.AspNet.Identity;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
@@ -83,7 +84,8 @@ namespace BayMaxShop.Controllers
         public ActionResult CheckOut(OrderViewModel req)
         {
             var code = new { Success = false, Code = -1 };
-            if(ModelState.IsValid)
+            string id = User.Identity.GetUserId();
+            if (ModelState.IsValid)
             {
                 ShoppingCart cart = (ShoppingCart)Session["Cart"];
                 if (cart != null)
@@ -99,6 +101,14 @@ namespace BayMaxShop.Controllers
                         Price = x.Price,
                     }));
                     order.TotalAmount = cart.Items.Sum(x=>(x.Price*x.Quantity));
+                    if (User.Identity.GetUserId() == null)
+                    {
+                        order.IdUser = null;
+                    }
+                    else
+                    {
+                        order.IdUser = User.Identity.GetUserId();
+                    }
                     order.TypePayment = req.TypePayment;
                     order.CreatedDate= DateTime.Now;
                     order.ModifiedDate= DateTime.Now;

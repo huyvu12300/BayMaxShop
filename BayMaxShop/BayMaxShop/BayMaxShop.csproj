@@ -199,15 +199,16 @@
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\MenuController.cs" />
     <Compile Include="Controllers\NewsController.cs" />
+    <Compile Include="Controllers\OrdersController.cs" />
     <Compile Include="Controllers\PostsController.cs" />
     <Compile Include="Controllers\ProductsController.cs" />
     <Compile Include="Controllers\ShoppingCartController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202310080910548_CreateDataBase.cs" />
-    <Compile Include="Migrations\202310080910548_CreateDataBase.designer.cs">
-      <DependentUpon>202310080910548_CreateDataBase.cs</DependentUpon>
+    <Compile Include="Migrations\202310081330097_Update-database.cs" />
+    <Compile Include="Migrations\202310081330097_Update-database.designer.cs">
+      <DependentUpon>202310081330097_Update-database.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -3348,6 +3349,9 @@
     <Content Include="Views\ShoppingCart\CheckOutSuccess.cshtml" />
     <Content Include="Views\Posts\Index.cshtml" />
     <Content Include="Views\Posts\Detail.cshtml" />
+    <Content Include="Views\Orders\ListOrders.cshtml" />
+    <Content Include="Views\Orders\Index.cshtml" />
+    <Content Include="Views\Orders\Partial_SanPham.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -3369,8 +3373,8 @@
     <Content Include="Scripts\jquery-3.4.1.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202310080910548_CreateDataBase.resx">
-      <DependentUpon>202310080910548_CreateDataBase.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202310081330097_Update-database.resx">
+      <DependentUpon>202310081330097_Update-database.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

@@ -28,6 +28,7 @@ namespace BayMaxShop.Models.EF
         public string Email { get; set; }
         public decimal TotalAmount { get; set; }
         public int Quantity { get; set; }
+        public string IdUser { get; set; }
         public int TypePayment { get; set; }
         public ICollection<OrderDetail> OrderDetails { get; set;}
     }
