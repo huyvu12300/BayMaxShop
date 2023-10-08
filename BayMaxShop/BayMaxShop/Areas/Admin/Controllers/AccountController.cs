@@ -12,7 +12,7 @@ using System.Web.Mvc;
 
 namespace BayMaxShop.Areas.Admin.Controllers
 {
-    [Authorize(Roles ="Admin")]
+    //[Authorize(Roles ="Admin")]
     public class AccountController : Controller
     {
         private ApplicationSignInManager _signInManager;
