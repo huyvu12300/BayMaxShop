@@ -71,6 +71,8 @@ namespace BayMaxShop.Models
         public string Images { get; set; }
         public string Phone { get; set; }
         public string Role { get; set; }
+        public DateTime DateOfBirth { get; set; }
+        public string Sex { get; set; }
         [Required]
         [EmailAddress]
         [Display(Name = "Email")]

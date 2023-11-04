@@ -5,8 +5,8 @@
     <nav class="mt-2">
         <ul style="position: absolute; z-index: 10; margin-top: 150px; color: black; font-size: 20px; " class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
             <!-- Add icons to the links using the .nav-icon class
-            with font-awesome or any other icon font library -->
-            <li  class="nav-item">
+    with font-awesome or any other icon font library -->
+            <li class="nav-item">
                 <a " href="/admin/Category" class="nav-link">
                     <i class="nav-icon fas fa-tachometer-alt"></i>
                     <p>
@@ -45,7 +45,7 @@
                 </a>
             </li>
 
-            <li style="padding-top: 10px;"  class="nav-item">
+            <li style="padding-top: 10px;" class="nav-item">
                 <a href="#" class="nav-link">
                     <i class="nav-icon fas fa-store"></i>
                     <p>
@@ -78,17 +78,34 @@
                 </a>
             </li>
             <li style="padding-top: 10px;" class="nav-item">
-                <a href="/admin/account" class="nav-link">
+                <a href="#" class="nav-link">
                     <i class="nav-icon fas fa-user-alt "></i>
                     <p>
-                        Tài khoản
-
+                        Quản lý Tài khoản
+                        <i class="right fas fa-paperclip"></i>
                     </p>
                 </a>
+                <ul class="nav nav-treeview">
+                    <li style="padding-top: 10px;" class="nav-item">
+                        <a href="/admin/account" class="nav-link">
+                            <i class="nav-icon fas fa-user-alt "></i>
+                            <p>
+                                Tài khoản
+                            </p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="/admin/account/AdminProfile" class="nav-link">
+                            <i class="nav-icon fas fa-user-alt "></i>
+                            Profile Admin 
+                        </a>
+                    </li>
+                </ul>
             </li>
+            
 
             <li style="padding-top: 10px;" class="nav-item">
-                <a href="javascript:document.getElementById('logOffForm').submit()" class="nav-link" >
+                <a href="javascript:document.getElementById('logOffForm').submit()" class="nav-link">
                     <i class="nav-icon fas fa-sign-out-alt"></i>
                     Đăng xuất
                 </a>

@@ -12,7 +12,7 @@ using BayMaxShop.Models;
 
 namespace BayMaxShop.Controllers
 {
-    [Authorize]
+    //[Authorize(Roles = "Customer")]
     public class AccountController : Controller
     {
         private ApplicationSignInManager _signInManager;
@@ -52,6 +52,36 @@ namespace BayMaxShop.Controllers
             }
         }
 
+        public async Task<ActionResult> Profile()
+        {
+            var user = await UserManager.FindByNameAsync(User.Identity.Name);
+            var item = new CreateAccountViewModel();
+            item.Email = user.Email;
+            item.FullName = user.FullName;
+            item.Phone = user.Phone;
+            item.UserName = user.UserName;
+            item.Sex = user.Sex;
+            item.DateOfBirth = user.DateOfBirth;
+            return View(user);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<ActionResult> PostProfile(CreateAccountViewModel req)
+        {
+            var user = await UserManager.FindByEmailAsync(req.Email);
+            user.FullName = req.FullName;
+            user.Phone = req.Phone;
+            user.DateOfBirth = req.DateOfBirth;
+            user.Sex = req.Sex;
+            var rs = await UserManager.UpdateAsync(user);
+            if (rs.Succeeded)
+            {
+                return RedirectToAction("Profile");
+            }
+            return View(rs);
+        }
+
         //
         // GET: /Account/Login
         [AllowAnonymous]
@@ -85,16 +115,16 @@ namespace BayMaxShop.Controllers
                     }
 
                     return RedirectToLocal(returnUrl);
-                case SignInStatus.LockedOut:
-                    {
-                        var user = await UserManager.FindAsync(model.UserName, model.Password);
-                        if (user.EmailConfirmed == false)
-                        {
-                            user.LockoutEnabled = true;
-                            UserManager.Update(user);
-                        }
-                    }
-                    return View("Lockout");
+                //case SignInStatus.LockedOut:
+                //    {
+                //        var user = await UserManager.FindAsync(model.UserName, model.Password);
+                //        if (user.EmailConfirmed == false)
+                //        {
+                //            user.LockoutEnabled = true;
+                //            UserManager.Update(user);
+                //        }
+                //    }
+                //    return View("Lockout");
                 case SignInStatus.RequiresVerification:
                     return RedirectToAction("SendCode", new { ReturnUrl = returnUrl, RememberMe = model.RememberMe });
                 case SignInStatus.Failure:
@@ -189,7 +219,7 @@ namespace BayMaxShop.Controllers
                 if (result.Succeeded)
                 {
                     await SignInManager.SignInAsync(user, isPersistent:false, rememberBrowser:false);
-                    
+                    //UserManager.AddToRole(user.Id, "Customer");
                     // For more information on how to enable account confirmation and password reset please visit https://go.microsoft.com/fwlink/?LinkID=320771
                     // Send an email with this link
                     // string code = await UserManager.GenerateEmailConfirmationTokenAsync(user.Id);

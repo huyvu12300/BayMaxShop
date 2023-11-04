@@ -8,7 +8,7 @@ using BayMaxShop.Models.EF;
 
 namespace BayMaxShop.Areas.Admin.Controllers
 {
-    //[Authorize(Roles = "Admin, Staff")]
+    [Authorize(Roles = "Admin, Staff")]
     public class ProductCategoryController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();
