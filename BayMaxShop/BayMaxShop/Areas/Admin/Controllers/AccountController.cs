@@ -12,7 +12,7 @@ using System.Web.Mvc;
 
 namespace BayMaxShop.Areas.Admin.Controllers
 {
-    //[Authorize(Roles ="Admin")]
+    [Authorize(Roles = "Admin")]
     public class AccountController : Controller
     {
         private ApplicationSignInManager _signInManager;
@@ -52,6 +52,36 @@ namespace BayMaxShop.Areas.Admin.Controllers
             }
         }
 
+        public async Task<ActionResult> AdminProfile()
+        {
+            var user = await UserManager.FindByNameAsync(User.Identity.Name);
+            var item = new CreateAccountViewModel();
+            item.Email = user.Email;
+            item.FullName = user.FullName;
+            item.Phone = user.Phone;
+            item.UserName = user.UserName;
+            item.Sex = user.Sex;
+            item.DateOfBirth = user.DateOfBirth;
+            return View(user);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<ActionResult> UpdateProfile(CreateAccountViewModel req)
+        {
+            var user = await UserManager.FindByEmailAsync(req.Email);
+            user.FullName = req.FullName;
+            user.Phone = req.Phone;
+            user.DateOfBirth = req.DateOfBirth;
+            user.Sex = req.Sex;
+            var rs = await UserManager.UpdateAsync(user);
+            if (rs.Succeeded)
+            {
+                return RedirectToAction("AdminProfile");
+            }
+            return View(rs);
+        }
+
         // GET: Admin/Account
         public ActionResult Index()
         {
@@ -86,8 +116,8 @@ namespace BayMaxShop.Areas.Admin.Controllers
             {
                 case SignInStatus.Success:
                     return RedirectToLocal(returnUrl);
-                case SignInStatus.LockedOut:
-                    return View("Lockout");
+                //case SignInStatus.LockedOut:
+                //    return View("Lockout");
                 case SignInStatus.RequiresVerification:
                     return RedirectToAction("SendCode", new { ReturnUrl = returnUrl, RememberMe = model.RememberMe });
                 case SignInStatus.Failure:
@@ -130,7 +160,9 @@ namespace BayMaxShop.Areas.Admin.Controllers
                     Email = model.Email,
                     Images = model.Images,
                     FullName = model.FullName,
-                    Phone = model.Phone
+                    Phone = model.Phone,
+                    DateOfBirth = model.DateOfBirth,
+                    Sex = model.Sex
                 };
                 var result = await UserManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
