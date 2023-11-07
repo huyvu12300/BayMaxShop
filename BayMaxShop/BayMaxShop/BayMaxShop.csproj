@@ -192,6 +192,7 @@
     <Compile Include="Areas\Admin\Controllers\StatisticalController.cs" />
     <Compile Include="Common\Common.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\AddressController.cs" />
     <Compile Include="Controllers\ArticleController.cs" />
     <Compile Include="Controllers\ContactController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -206,14 +207,15 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202310081330097_Update-database.cs" />
-    <Compile Include="Migrations\202310081330097_Update-database.designer.cs">
-      <DependentUpon>202310081330097_Update-database.cs</DependentUpon>
+    <Compile Include="Migrations\202311061611488_Create-Database.cs" />
+    <Compile Include="Migrations\202311061611488_Create-Database.designer.cs">
+      <DependentUpon>202311061611488_Create-Database.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Commons\Filter.cs" />
     <Compile Include="Models\CustomerViewModel.cs" />
+    <Compile Include="Models\EF\AddressBook.cs" />
     <Compile Include="Models\EF\Adv.cs" />
     <Compile Include="Models\EF\Category.cs" />
     <Compile Include="Models\EF\CommonAbstract.cs" />
@@ -3355,6 +3357,9 @@
     <Content Include="Views\Profile\UserProfile.cshtml" />
     <Content Include="Views\Shared\_ProfileLayout.cshtml" />
     <Content Include="Views\Account\Profile.cshtml" />
+    <Content Include="Views\Address\Index.cshtml" />
+    <Content Include="Views\Address\Add.cshtml" />
+    <Content Include="Views\Address\Edit.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -3376,8 +3381,8 @@
     <Content Include="Scripts\jquery-3.4.1.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202310081330097_Update-database.resx">
-      <DependentUpon>202310081330097_Update-database.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202311061611488_Create-Database.resx">
+      <DependentUpon>202311061611488_Create-Database.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

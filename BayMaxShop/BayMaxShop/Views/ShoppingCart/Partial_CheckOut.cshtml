@@ -9,32 +9,77 @@
 {
     @Html.AntiForgeryToken()
     <h3>Thông tin khách hàng</h3>
-    <div class="form-group">
-        <label>Họ tên khách hàng</label>
-        <input type="text" name="CustomerName" required class="form-control" autocomplete="off" />
-    </div>
-    <div class="form-group">
-        <label>Số điện thoại</label>
-        <input type="text" name="Phone" class="form-control" autocomplete="off" />
-    </div>
-    <div class="form-group">
-        <label>Địa chỉ</label>
-        <input type="text" name="Address" class="form-control" autocomplete="off" />
-    </div>
-    <div class="form-group">
-        <label>Email</label>
-        <input type="text" name="Email" class="form-control" autocomplete="off" />
-    </div>
-    <div>
-        <label>Hình thức thanh toán</label>
-    </div>
-    <div class="form-group">
-        <input type="radio" name="TypePayment" value="1" checked="checked">
-        <img width="50" src="~/Content/assets/images/cod.jpg" /><label>COD</label><br>
-        <input type="radio" name="TypePayment" value="2">
-        <img width="50" src="~/Content/assets/images/chuyenkhoan.png" /><label>Chuyển Khoản</label><br>
-    </div>
-    <div class="form-group">
-        <button type="submit" class="btn btn-lg btn-primary">Đặt hàng</button>
-    </div>
+    if (!Request.IsAuthenticated)
+    {
+        <div class="form-group">
+            <label>Họ tên khách hàng</label>
+            <input type="text" name="CustomerName" required class="form-control" autocomplete="off" />
+        </div>
+        <div class="form-group">
+            <label>Số điện thoại</label>
+            <input type="text" name="Phone" class="form-control" autocomplete="off" />
+        </div>
+        <div class="form-group">
+            <label>Địa chỉ</label>
+            <input type="text" name="Address" class="form-control" autocomplete="off" />
+        </div>
+        <div class="form-group">
+            <label>Email</label>
+            <input type="text" name="Email" class="form-control" autocomplete="off" />
+        </div>
+        <div>
+            <label>Hình thức thanh toán</label>
+        </div>
+        <div class="form-group">
+            <input type="radio" name="TypePayment" value="1" checked="checked">
+            <img width="50" src="~/Content/assets/images/cod.jpg" /><label>COD</label><br>
+            <input type="radio" name="TypePayment" value="2">
+            <img width="50" src="~/Content/assets/images/chuyenkhoan.png" /><label>Chuyển Khoản</label><br>
+        </div>
+        <div class="form-group">
+            <button type="submit" class="btn btn-lg btn-primary">Đặt hàng</button>
+        </div>
+    }
+    else
+    {
+        foreach (var item in ViewBag.InfoOrder)
+        {
+            if (item.IsDefault)
+            {
+                <div class="col-lg-6 mt-2">
+                    <div class="card bg-de">
+                        <div style="background-color: #ff6565" class="card-header">
+                            <div class="row">
+                                <div class="col-8">
+                                    <a style="font-size:16px">Địa chỉ giao hàng</a>
+                                </div>
+                                <div class="col-4">
+                                    <a style="font-size:16px; text-align:right;" class="btn btn-lg btn-success" href="/address/index">Thay đổi</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <p style="color:black">Họ và tên: @item.CustomerName</p>
+                            <p style="color:black">Địa chỉ: @item.Address</p>
+                            <p style="color:black">E-Mail: @item.Email</p>
+                            <p style="color:black">Số điện thoại: @item.Phone</p>
+                        </div>
+                    </div>
+                    <div>
+                        <label>Hình thức thanh toán</label>
+                    </div>
+                    <div class="form-group">
+                        <input type="radio" name="TypePayment" value="1" checked="checked">
+                        <img width="50" src="~/Content/assets/images/cod.jpg" /><label>COD</label><br>
+                        <input type="radio" name="TypePayment" value="2">
+                        <img width="50" src="~/Content/assets/images/chuyenkhoan.png" /><label>Chuyển Khoản</label><br>
+                    </div>
+                    <div class="form-group">
+                        <button type="submit" class="btn btn-lg btn-primary">Đặt hàng</button>
+                    </div>
+                </div>
+            }
+        }
+    }
+
 }
