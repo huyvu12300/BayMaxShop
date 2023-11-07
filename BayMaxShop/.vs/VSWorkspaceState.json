@@ -1,8 +1,13 @@
 {
   "ExpandedNodes": [
     "",
-    "\\BayMaxShop"
+    "\\BayMaxShop",
+    "\\BayMaxShop\\Areas",
+    "\\BayMaxShop\\Areas\\Admin",
+    "\\BayMaxShop\\Areas\\Admin\\Controllers",
+    "\\BayMaxShop\\Views",
+    "\\BayMaxShop\\Views\\Address"
   ],
-  "SelectedNode": "\\BayMaxShop.sln",
+  "SelectedNode": "\\BayMaxShop\\Views\\Address\\Index.cshtml",
   "PreviewInSolutionExplorer": false
 }

@@ -39,19 +39,19 @@ namespace BayMaxShop.Controllers
             return PartialView(items);
         }
 
-        /*        [HttpPost]
-                public ActionResult UpdateTT(int id, int trangthai)
-                {
-                    var item = db.Orders.Find(id);
-                    if (item != null)
-                    {
-                        db.Orders.Attach(item);
-                        item.TypePayment = trangthai;
-                        db.Entry(item).Property(x => x.TypePayment).IsModified = true;
-                        db.SaveChanges();
-                        return Json(new { message = "Thành công", Success = true });
-                    }
-                    return Json(new { message = "Thất bại!", Success = false });
-                }*/
+        [HttpPost]
+        public ActionResult UpdateTT(int id, int trangthai)
+        {
+            var item = db.Orders.Find(id);
+            if (item != null)
+            {
+                db.Orders.Attach(item);
+                item.TypePayment = trangthai;
+                db.Entry(item).Property(x => x.TypePayment).IsModified = true;
+                db.SaveChanges();
+                return Json(new { message = "Thành công", Success = true });
+            }
+            return Json(new { message = "Thất bại!", Success = false });
+        }
     }
 }

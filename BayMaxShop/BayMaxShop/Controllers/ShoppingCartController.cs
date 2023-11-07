@@ -76,6 +76,9 @@ namespace BayMaxShop.Controllers
          
         public ActionResult Partial_CheckOut()
         {
+            string id = User.Identity.GetUserId();
+            var listAddress = db.AddressBooks.Where(x => x.UserID.Contains(id));
+            ViewBag.InfoOrder = listAddress;
             return PartialView();
         }
 
@@ -85,15 +88,30 @@ namespace BayMaxShop.Controllers
         {
             var code = new { Success = false, Code = -1 };
             string id = User.Identity.GetUserId();
-            if (ModelState.IsValid)
-            {
-                ShoppingCart cart = (ShoppingCart)Session["Cart"];
+            var listAddress = db.AddressBooks.Where(x => x.UserID.Contains(id));
+            ShoppingCart cart = (ShoppingCart)Session["Cart"];
                 if (cart != null)
                 {
-                    Order order = new Order();
-                    order.CustomerName= req.CustomerName;
-                    order.Phone= req.Phone;
-                    order.Address= req.Address;
+                    var order = new BayMaxShop.Models.EF.Order();
+                    if (id!= null)
+                    {
+                       foreach (var item in listAddress)
+                            if(item.IsDefault)
+                            {
+                                order.CustomerName = item.CustomerName;
+                                order.Phone= item.Phone;
+                                order.Address = item.Address;
+                                order.Email = item.Email;
+                            }    
+                    }   
+                    else
+                    {
+                        order.CustomerName = req.CustomerName;
+                        order.Phone = req.Phone;
+                        order.Address = req.Address;
+                        order.Email= req.Email;                 
+                    }    
+
                     cart.Items.ForEach(x => order.OrderDetails.Add(new OrderDetail
                     {
                         ProductId = x.ProductId,
@@ -172,7 +190,6 @@ namespace BayMaxShop.Controllers
                     cart.ClearCart();
                     return RedirectToAction("CheckOutSuccess");
                 }
-            }
             return Json(code);
         }
 

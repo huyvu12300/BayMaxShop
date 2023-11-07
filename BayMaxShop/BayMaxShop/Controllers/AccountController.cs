@@ -113,18 +113,17 @@ namespace BayMaxShop.Controllers
                         user.LockoutEndDateUtc = DateTime.Now;
                         UserManager.Update(user);
                     }
-
                     return RedirectToLocal(returnUrl);
-                //case SignInStatus.LockedOut:
-                //    {
-                //        var user = await UserManager.FindAsync(model.UserName, model.Password);
-                //        if (user.EmailConfirmed == false)
-                //        {
-                //            user.LockoutEnabled = true;
-                //            UserManager.Update(user);
-                //        }
-                //    }
-                //    return View("Lockout");
+                case SignInStatus.LockedOut:
+                    {
+                        var user = await UserManager.FindAsync(model.UserName, model.Password);
+                        if (user.EmailConfirmed == false)
+                        {
+                            user.LockoutEnabled = false;
+                            UserManager.Update(user);
+                        }
+                    }
+                    return View("Lockout");
                 case SignInStatus.RequiresVerification:
                     return RedirectToAction("SendCode", new { ReturnUrl = returnUrl, RememberMe = model.RememberMe });
                 case SignInStatus.Failure:
