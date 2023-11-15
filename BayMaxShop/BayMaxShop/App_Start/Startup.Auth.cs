@@ -54,15 +54,15 @@ namespace BayMaxShop
             //   consumerKey: "",
             //   consumerSecret: "");
 
-            //app.UseFacebookAuthentication(
-            //   appId: "",
-            //   appSecret: "");
+            app.UseFacebookAuthentication(
+               appId: "368504605565999",
+               appSecret: "e35fba00af3ea04d007cb273f82dd197");
 
-            //app.UseGoogleAuthentication(new GoogleOAuth2AuthenticationOptions()
-            //{
-            //    ClientId = "",
-            //    ClientSecret = ""
-            //});
+            app.UseGoogleAuthentication(new GoogleOAuth2AuthenticationOptions()
+            {
+                ClientId = "160886045569-vbh0gac67vn5c339ou5u5vilmr71nupu.apps.googleusercontent.com",
+                ClientSecret = "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"
+            });
         }
     }
 }

@@ -334,17 +334,6 @@ namespace BayMaxShop.Controllers
         }
 
         //
-        // POST: /Account/ExternalLogin
-        [HttpPost]
-        [AllowAnonymous]
-        [ValidateAntiForgeryToken]
-        public ActionResult ExternalLogin(string provider, string returnUrl)
-        {
-            // Request a redirect to the external login provider
-            return new ChallengeResult(provider, Url.Action("ExternalLoginCallback", "Account", new { ReturnUrl = returnUrl }));
-        }
-
-        //
         // GET: /Account/SendCode
         [AllowAnonymous]
         public async Task<ActionResult> SendCode(string returnUrl, bool rememberMe)
@@ -380,6 +369,17 @@ namespace BayMaxShop.Controllers
         }
 
         //
+        // POST: /Account/ExternalLogin
+        [HttpPost]
+        [AllowAnonymous]
+        [ValidateAntiForgeryToken]
+        public ActionResult ExternalLogin(string provider, string returnUrl)
+        {
+            // Request a redirect to the external login provider
+            return new ChallengeResult(provider, Url.Action("ExternalLoginCallback", "Account", new { ReturnUrl = returnUrl }));
+        }
+
+        //
         // GET: /Account/ExternalLoginCallback
         [AllowAnonymous]
         public async Task<ActionResult> ExternalLoginCallback(string returnUrl)
@@ -389,24 +389,84 @@ namespace BayMaxShop.Controllers
             {
                 return RedirectToAction("Login");
             }
+            ApplicationUser user = null;
 
-            // Sign in the user with this external login provider if the user already has a login
-            var result = await SignInManager.ExternalSignInAsync(loginInfo, isPersistent: false);
-            switch (result)
+            if (loginInfo.Login.LoginProvider == "Google")
             {
-                case SignInStatus.Success:
-                    return RedirectToLocal(returnUrl);
-                case SignInStatus.LockedOut:
-                    return View("Lockout");
-                case SignInStatus.RequiresVerification:
-                    return RedirectToAction("SendCode", new { ReturnUrl = returnUrl, RememberMe = false });
-                case SignInStatus.Failure:
-                default:
-                    // If the user does not have an account, then prompt the user to create an account
-                    ViewBag.ReturnUrl = returnUrl;
-                    ViewBag.LoginProvider = loginInfo.Login.LoginProvider;
-                    return View("ExternalLoginConfirmation", new ExternalLoginConfirmationViewModel { Email = loginInfo.Email });
+                // lấy thông tin từ google
+                var email = loginInfo.Email;
+                var fulname = loginInfo.DefaultUserName;
+
+                // kiểm tra xem tài khoản người dùng đã tồn tại chưa
+                var userManager = HttpContext.GetOwinContext().GetUserManager<ApplicationUserManager>();
+                user = userManager.FindByEmail(email);
+                if (user == null)
+                {
+                    int atIndex = email.IndexOf('@');
+                    string userNameByEmail = email.Substring(0, atIndex);
+
+                    var userSave = new ApplicationUser
+                    {
+                        UserName = userNameByEmail,
+                        Email = email,
+                        FullName = fulname,
+                        Phone = "01111111111",
+                        DateOfBirth = DateTime.Now,
+                        Sex = "Nam"
+                    };
+                    var result = await userManager.CreateAsync(userSave, "123456aA@");
+                    if (!result.Succeeded)
+                    {
+                        return RedirectToAction("Login");
+                    }
+                    await SignInManager.SignInAsync(userSave, isPersistent: false, rememberBrowser: false);
+                    return RedirectToAction("Index", "Home");
+                }
             }
+
+            if (loginInfo.Login.LoginProvider == "Facebook")
+            {
+                // lấy thông tin từ facebook
+                var email = loginInfo.Email;
+                var fulname = loginInfo.DefaultUserName;
+
+                // kiểm tra xem tài khoản người dùng đã tồn tại chưa
+                var userManager = HttpContext.GetOwinContext().GetUserManager<ApplicationUserManager>();
+                user = userManager.FindByEmail(email);
+                int atIndex = email.IndexOf('@');
+                string userNameByEmail = email.Substring(0, atIndex);
+
+                if (user == null)
+                {
+                    var userSave = new ApplicationUser
+                    {
+                        UserName = userNameByEmail,
+                        Email = email,
+                        FullName = fulname,
+                        Phone= "01111111111",
+                        DateOfBirth= DateTime.Now,
+                        Sex = "Nam"
+                    };
+                    var result = await userManager.CreateAsync(userSave, "123456aA@"); 
+                    if(!result.Succeeded)
+                    {
+                        return RedirectToAction("Login");
+                    }
+                    await SignInManager.SignInAsync(userSave, isPersistent: false, rememberBrowser:  false);
+                    return RedirectToAction("Index", "Home");
+                }    
+
+            }   
+            if(user != null)
+            {
+                var signInManager = HttpContext.GetOwinContext().GetUserManager<ApplicationUserManager>();
+                await SignInManager.SignInAsync(user, isPersistent: false, rememberBrowser: false);
+                return RedirectToAction("Index", "Home");
+            }
+            await SignInManager.SignInAsync(user, isPersistent: false, rememberBrowser: false);
+            return RedirectToAction("Index", "Home");
+            // Sign in the user with this external login provider if the user already has a login
+
         }
 
         //

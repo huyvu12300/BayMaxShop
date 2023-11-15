@@ -47,6 +47,7 @@ namespace BayMaxShop.Models
         public DbSet<OrderDetail> OrderDetails { get; set; }
         public DbSet<Subscribe> Subscribes { get; set; }
         public DbSet<AddressBook> AddressBooks { get; set; }
+        public DbSet<Wishlist> Wishlists { get; set; }
 
         public static ApplicationDbContext Create()
         {

@@ -219,5 +219,10 @@ namespace BayMaxShop.Areas.Admin.Controllers
             file.SaveAs(Server.MapPath("~/Content/Image/" + file.FileName));
             return "/Content/Image/" + file.FileName;
         }
+
+        protected override void Dispose(bool disposing)
+        {
+            base.Dispose(disposing);
+        }
     }
 }

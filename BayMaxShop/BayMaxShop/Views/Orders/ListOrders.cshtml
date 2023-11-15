@@ -61,13 +61,12 @@
                                     }
                                     <td>@item.CreatedDate.ToString("dd/MM/yyyy")</td>
                                     <td>
-
                                         @{
                                             TimeSpan time = DateTime.Now - item.CreatedDate;
                                             int countDate = time.Days;
                                             if (countDate <= 2 && item.TypePayment != 3)
                                             {
-                                                <a href="/orders/index/@item.Id" class="btn btn-lg btn-info">Chi tiết</a>
+                                                <a href="/orders/view/@item.Id" class="btn btn-lg btn-info">Chi tiết</a>
                                                 <a href="/orders/refund" class="btn btn-lg btn-warning">Trả hàng/Hoàn tiền</a>
                                                 <a href="#" class="btn btn-lg btn-danger btnCapNhat" data-id="@item.Id" id="btnCapNhat">Hủy Đơn hàng</a>
                                             }

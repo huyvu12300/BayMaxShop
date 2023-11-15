@@ -14,7 +14,8 @@ namespace BayMaxShop.Controllers
     {
         // GET: Orders
         private ApplicationDbContext db = new ApplicationDbContext();
-        public ActionResult Index(int id)
+
+        public ActionResult View(int id)
         {
             var item = db.Orders.Find(id);
             return View(item);

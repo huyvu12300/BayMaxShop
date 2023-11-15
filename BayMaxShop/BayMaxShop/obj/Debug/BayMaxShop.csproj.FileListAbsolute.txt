@@ -1528,3 +1528,4 @@ C:\Users\Admin\Desktop\New folder (2)\BayMaxShop\BayMaxShop\BayMaxShop\obj\Debug
 C:\Users\Admin\Desktop\New folder (2)\BayMaxShop\BayMaxShop\BayMaxShop\obj\Debug\BayMaxShop.pdb
 C:\Users\Admin\Desktop\BayMaxShop\BayMaxShop\BayMaxShop\obj\Debug\BayMaxShop.Migrations.CreateDatabase.resources
 C:\Users\Admin\Desktop\BayMaxShop\BayMaxShop\BayMaxShop\obj\Debug\BayMaxShop.csproj.GenerateResource.cache
+C:\Users\Admin\Desktop\BayMaxShop\BayMaxShop\BayMaxShop\obj\Debug\BayMaxShop.Migrations.UpdateWishlist.resources
