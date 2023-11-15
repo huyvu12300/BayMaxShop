@@ -180,6 +180,7 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
     <Compile Include="Areas\Admin\Controllers\AccountController.cs" />
+    <Compile Include="Areas\Admin\Controllers\BookingController.cs" />
     <Compile Include="Areas\Admin\Controllers\CategoryController.cs" />
     <Compile Include="Areas\Admin\Controllers\HomeController.cs" />
     <Compile Include="Areas\Admin\Controllers\NewsController.cs" />
@@ -204,12 +205,17 @@
     <Compile Include="Controllers\ProductsController.cs" />
     <Compile Include="Controllers\ProfileController.cs" />
     <Compile Include="Controllers\ShoppingCartController.cs" />
+    <Compile Include="Controllers\WishlistController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Migrations\202311061611488_Create-Database.cs" />
     <Compile Include="Migrations\202311061611488_Create-Database.designer.cs">
       <DependentUpon>202311061611488_Create-Database.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202311131201592_Update-Wishlist.cs" />
+    <Compile Include="Migrations\202311131201592_Update-Wishlist.designer.cs">
+      <DependentUpon>202311131201592_Update-Wishlist.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -229,6 +235,7 @@
     <Compile Include="Models\EF\ProductImage.cs" />
     <Compile Include="Models\EF\Subscribe.cs" />
     <Compile Include="Models\EF\SystemSetting.cs" />
+    <Compile Include="Models\EF\Wishlist.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\OrderViewModel.cs" />
@@ -3284,6 +3291,8 @@
     <Content Include="Areas\Admin\Views\Posts\Edit.cshtml" />
     <Content Include="Areas\Admin\Views\Statistical\Index.cshtml" />
     <Content Include="Areas\Admin\Views\Account\AdminProfile.cshtml" />
+    <Content Include="Areas\Admin\Views\Booking\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Booking\View.cshtml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
@@ -3352,7 +3361,6 @@
     <Content Include="Views\Posts\Index.cshtml" />
     <Content Include="Views\Posts\Detail.cshtml" />
     <Content Include="Views\Orders\ListOrders.cshtml" />
-    <Content Include="Views\Orders\Index.cshtml" />
     <Content Include="Views\Orders\Partial_SanPham.cshtml" />
     <Content Include="Views\Profile\UserProfile.cshtml" />
     <Content Include="Views\Shared\_ProfileLayout.cshtml" />
@@ -3360,6 +3368,8 @@
     <Content Include="Views\Address\Index.cshtml" />
     <Content Include="Views\Address\Add.cshtml" />
     <Content Include="Views\Address\Edit.cshtml" />
+    <Content Include="Views\Orders\View.cshtml" />
+    <Content Include="Views\Wishlist\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -3383,6 +3393,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\202311061611488_Create-Database.resx">
       <DependentUpon>202311061611488_Create-Database.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202311131201592_Update-Wishlist.resx">
+      <DependentUpon>202311131201592_Update-Wishlist.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

@@ -46,8 +46,14 @@
                                 <input type="submit" value="Đăng Nhập" class="btna bkg" />
                             </div>
                         </div>
-
                     }
+                </section>
+                <h5 style="padding-top:10px">Đăng nhập với</h5>
+                <section id="socialLoginForm">
+                    @{ 
+                        var externalLoginListViewModel = new ExternalLoginListViewModel { ReturnUrl = "/Account/ExternalLogin" };
+                    }
+                    @Html.Partial("_ExternalLoginsListPartial", externalLoginListViewModel)
                 </section>
             </div>
 

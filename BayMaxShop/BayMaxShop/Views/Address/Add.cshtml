@@ -13,9 +13,8 @@
     @Html.AntiForgeryToken()
 
     <div style="margin-top: 130px" class="form-horizontal">
-        <h3 class="text-center">Thêm mới địa chỉ</h3>
+        <h4 class="text-center">Thêm mới địa chỉ</h4>
         <hr />
-
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         <div class="form-group">
             @Html.LabelFor(model => model.CustomerName, "Tên người nhận", htmlAttributes: new { @class = "control-label col-md-2" })

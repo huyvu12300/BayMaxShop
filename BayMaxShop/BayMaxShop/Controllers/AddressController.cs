@@ -31,11 +31,10 @@ namespace BayMaxShop.Controllers
         {
             if (ModelState.IsValid)
             {
-                // lấy mã người dùng hiện tại đang đăng nhập
                 string id = User.Identity.GetUserId();
                 model.UserID = id;
                 db.AddressBooks.Add(model);
-
+                db.SaveChanges();
                 return RedirectToAction("Index");
             }
             return View(model);
