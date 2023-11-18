@@ -42,40 +42,49 @@
     }
 </style>
 
-<div class="container news_section_container"
+
+
+<div style="margin-left: 100px; margin-top: 300px;" class="container news_section_container"
     <div class="row">
         @using (Html.BeginForm("PostProfile", "Account"))
         {
             @Html.ValidationSummary(false)
             @Html.AntiForgeryToken()
-        <div class="form">
-            <h2>Profile Cá Nhân</h2>
-            <div class="form-group">
-                <label for="exampleInputEmail1">Họ tên</label>
-                <input type="text" class="form-control" aria-describedby="emailHelp" name="FullName" placeholder="Nhập Họ tên" value="@Model.FullName">
+            <div style="float: left; text-align:center; padding-top: -30px;" class="form">
+                <h2 style="font-family: Cursive; font-size: 50px; color: #AB506D;">Profile</h2>
+                <div style="margin-top:20px; margin-left: 10px; padding-top: 30px;" class="form-group">
+                    <label style="margin-right: 245px; " for="exampleInputEmail1">Họ tên</label>
+                    <input style="width: 500px; height: 45px; border-radius: 30px; font-size: 15px; opacity: 0.8; " type="text" class="form-control" aria-describedby="emailHelp" name="FullName" placeholder="Nhập Họ tên" value="@Model.FullName">
+                </div>
+                <div  style="margin-top: 20px; margin-left: 10px; padding-top: 30px;" class="form-group">
+                    <label style="margin-right: 225px; " for="exampleInputEmail1">Tài khoản</label>
+                    <input style="width: 500px; height: 45px; border-radius: 30px; font-size: 15px; opacity: 0.8; " type="text" class="form-control" aria-describedby="emailHelp" name="UserName" placeholder="Nhập tài khoản" value="@Model.UserName" readonly>
+                </div>
+                <div  style="margin-top: 20px; margin-left: 10px; padding-top: 25px;" class="form-group">
+                    <label style="margin-right: 195px; " for="exampleInputEmail1">Số điện thoại</label>
+                    <input style="width: 500px; height: 45px; border-radius: 30px; font-size: 15px; opacity: 0.8; " type="number" class="form-control" aria-describedby="emailHelp" name="Phone" placeholder="Nhập Số điện thoại" value="@Model.Phone">
+                </div>
+
             </div>
-            <div class="form-group">
-                <label for="exampleInputEmail1">Tài khoản</label>
-                <input type="text" class="form-control" aria-describedby="emailHelp" name="UserName" placeholder="Nhập tài khoản" value="@Model.UserName" readonly>
+
+            <div style="float: left; text-align:center;" class="form">
+                <div class="img-avatar-profile">
+                    <img src="~/Content/Image/account.png" style="width: 90px; height: 90px; margin-top: -20px; border-radius: 100px; " />
+                </div>
+                <div style="margin-top: -50px; margin-left: 20px; padding-top: 90px;" class="form-group">
+                    <label style="margin-right:245px;" for="exampleInputEmail1">Email</label>
+                    <input style="width: 500px; height:45px; border-radius: 30px; font-size: 15px; opacity:0.8; " type="email" class="form-control" aria-describedby="emailHelp" name="Email" placeholder="Nhập Email" value="@Model.Email" readonly>
+                </div>
+                <div  style=" margin-left: 20px; padding-top: 40px;" class="form-group">
+                    <label style="margin-right:225px;" for="exampleInputEmail1">Giới tính</label>
+                    <input style="width: 500px; height: 45px; border-radius: 30px; font-size: 15px; opacity: 0.8; " type="text" class="form-control" aria-describedby="emailHelp" name="Sex" placeholder=" Giới tính" value="@Model.Sex">
+                </div>
+                <div  style=" margin-left: 20px; padding-top: 35px;" class="form-group">
+                    <label style="margin-right:215px;" for="exampleInputEmail1">Ngày sinh</label>
+                    <input style="width: 500px; height: 45px; border-radius: 30px; font-size: 15px; opacity: 0.8; " type="datetime" class="form-control" aria-describedby="emailHelp" name="DateOfBirth" placeholder="Ngày sinh" value="@Model.DateOfBirth">
+                </div>
+                <button style="margin-top: 25px; width: 150px; height: 40px; font-size: 20px; border-radius: 30px;" type="submit" class="btn btn-primary btn-lg">Cập nhật</button>
             </div>
-            <div class="form-group">
-                <label for="exampleInputEmail1">Số điện thoại</label>
-                <input type="number" class="form-control" aria-describedby="emailHelp" name="Phone" placeholder="Nhập Số điện thoại" value="@Model.Phone">
-            </div>
-            <div class="form-group">
-                <label for="exampleInputEmail1">Email</label>
-                <input type="email" class="form-control" aria-describedby="emailHelp" name="Email" placeholder="Nhập Email" value="@Model.Email" readonly>
-            </div>
-            <div class="form-group">
-                <label for="exampleInputEmail1">Giới tính</label>
-                <input type="text" class="form-control" aria-describedby="emailHelp" name="Sex" placeholder=" Giới tính" value="@Model.Sex">
-            </div>
-            <div class="form-group">
-                <label for="exampleInputEmail1">Ngày sinh</label>
-                <input type="datetime" class="form-control" aria-describedby="emailHelp" name="DateOfBirth" placeholder="Ngày sinh" value="@Model.DateOfBirth">
-            </div>
-            <button type="submit" class="btn btn-primary btn-lg">Cập nhật</button>
-        </div>
         }
     </div>
   </div>

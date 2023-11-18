@@ -203,7 +203,7 @@
     <Compile Include="Controllers\OrdersController.cs" />
     <Compile Include="Controllers\PostsController.cs" />
     <Compile Include="Controllers\ProductsController.cs" />
-    <Compile Include="Controllers\ProfileController.cs" />
+    <Compile Include="Controllers\ReviewController.cs" />
     <Compile Include="Controllers\ShoppingCartController.cs" />
     <Compile Include="Controllers\WishlistController.cs" />
     <Compile Include="Global.asax.cs">
@@ -216,6 +216,10 @@
     <Compile Include="Migrations\202311131201592_Update-Wishlist.cs" />
     <Compile Include="Migrations\202311131201592_Update-Wishlist.designer.cs">
       <DependentUpon>202311131201592_Update-Wishlist.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202311180420340_tb_Review.cs" />
+    <Compile Include="Migrations\202311180420340_tb_Review.designer.cs">
+      <DependentUpon>202311180420340_tb_Review.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -233,6 +237,7 @@
     <Compile Include="Models\EF\Product.cs" />
     <Compile Include="Models\EF\ProductCategory.cs" />
     <Compile Include="Models\EF\ProductImage.cs" />
+    <Compile Include="Models\EF\ReviewProduct.cs" />
     <Compile Include="Models\EF\Subscribe.cs" />
     <Compile Include="Models\EF\SystemSetting.cs" />
     <Compile Include="Models\EF\Wishlist.cs" />
@@ -3124,6 +3129,7 @@
     <Content Include="Content\clients\plugins\uplot\uPlot.iife.js" />
     <Content Include="Content\clients\plugins\uplot\uPlot.iife.min.js" />
     <Content Include="Content\clients\plugins\uplot\uPlot.min.css" />
+    <Content Include="Content\Image\account.png" />
     <Content Include="Content\PagedList.css" />
     <Content Include="Content\templates\send1.html" />
     <Content Include="Content\templates\send2.html" />
@@ -3370,12 +3376,14 @@
     <Content Include="Views\Address\Edit.cshtml" />
     <Content Include="Views\Orders\View.cshtml" />
     <Content Include="Views\Wishlist\Index.cshtml" />
+    <Content Include="Views\Review\_Review.cshtml" />
+    <Content Include="Views\Review\_LoadReview.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Areas\Admin\Data\" />
     <Folder Include="Content\ckfinder\userfiles\" />
-    <Folder Include="Content\Image\" />
+    <Folder Include="Views\UserProfile\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
@@ -3396,6 +3404,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202311131201592_Update-Wishlist.resx">
       <DependentUpon>202311131201592_Update-Wishlist.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202311180420340_tb_Review.resx">
+      <DependentUpon>202311180420340_tb_Review.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

@@ -6,8 +6,6 @@ using System.Globalization;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-using BayMaxShop.Models;
-
 namespace BayMaxShop.Areas.Admin.Controllers
 {
     [Authorize(Roles = "Admin, Staff")]
