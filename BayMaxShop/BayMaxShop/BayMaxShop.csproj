@@ -250,6 +250,9 @@
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\assets\images\0000.jpg" />
+    <Content Include="Content\assets\images\1222.jpg" />
+    <Content Include="Content\assets\images\555.png" />
     <Content Include="Content\assets\images\admin.png" />
     <Content Include="Content\assets\images\adminn.png" />
     <Content Include="Content\assets\images\as.jpg" />
@@ -292,6 +295,7 @@
     <Content Include="Content\assets\images\product_7.png" />
     <Content Include="Content\assets\images\product_8.png" />
     <Content Include="Content\assets\images\product_9.png" />
+    <Content Include="Content\assets\images\qe1.jpg" />
     <Content Include="Content\assets\images\rain.png" />
     <Content Include="Content\assets\images\rdesign.png" />
     <Content Include="Content\assets\images\single_1.jpg" />

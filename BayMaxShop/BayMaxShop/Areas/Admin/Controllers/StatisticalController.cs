@@ -8,7 +8,7 @@ using System.Web;
 using System.Web.Mvc;
 namespace BayMaxShop.Areas.Admin.Controllers
 {
-    [Authorize(Roles = "Admin, Staff")]
+    //[Authorize(Roles = "Admin, Staff")]
     public class StatisticalController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();
