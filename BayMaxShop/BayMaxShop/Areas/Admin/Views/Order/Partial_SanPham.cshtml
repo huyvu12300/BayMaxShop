@@ -18,8 +18,8 @@
             {
                 <tr>
                     <td>@i</td>
-                    <td>@item.Product.Title</td>
-                    <td>@item.Price</td>
+                    <td>@item.Product.ProductName</td>
+                    <td>@BayMaxShop.Common.Common.FormatNumber(item.Price)</td>
                     <td>@item.Quantity</td>
                     <td>@BayMaxShop.Common.Common.FormatNumber((item.Price * item.Quantity), 0)</td>
                 </tr>

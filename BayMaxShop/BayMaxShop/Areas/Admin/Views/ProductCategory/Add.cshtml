@@ -58,8 +58,8 @@
                         <div id="logins-part" class="content" role="tabpanel" aria-labelledby="logins-part-trigger">
                             <div class="form-group">
                                 <label for="exampleInputEmail1">Tiêu đề</label>
-                                @Html.TextBoxFor(x => x.Title, new { @class = "form-control", @placehoder = "Tên danh mục" })
-                                @Html.ValidationMessageFor(x => x.Title, null, new { @class = "text-danger" })
+                                @Html.TextBoxFor(x => x.ProductCategoryName, new { @class = "form-control", @placehoder = "Tên danh mục" })
+                                @Html.ValidationMessageFor(x => x.ProductCategoryName, null, new { @class = "text-danger" })
                             </div>
                             <div class="form-group">
                                 <label for="exampleInputEmail1">Alias</label>
@@ -77,18 +77,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="form-group">
-                                <label for="exampleInputPassword1">Seo title</label>
-                                @Html.TextAreaFor(x => x.SeoTitle, new { @class = "form-control" })
-                            </div>
-                            <div class="form-group">
-                                <label for="exampleInputPassword1">Seo Description</label>
-                                @Html.TextAreaFor(x => x.SeoDescription, new { @class = "form-control" })
-                            </div>
-                            <div class="form-group">
-                                <label for="exampleInputPassword1">Seo Keyword</label>
-                                @Html.TextAreaFor(x => x.SeoKeywords, new { @class = "form-control" })
-                            </div>
+
                             <div class="form-group">
                                 <a style="background-color: #B58499;" href="/admin/category" class="btn btn-danger">Quay lại</a>
                                 <button style="background-color: #848FB3;" type="submit" class="btn btn-primary">Submit</button>

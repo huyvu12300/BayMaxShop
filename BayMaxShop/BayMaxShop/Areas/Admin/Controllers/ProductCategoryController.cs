@@ -32,7 +32,7 @@ namespace BayMaxShop.Areas.Admin.Controllers
             {
                 model.CreatedDate = DateTime.Now;
                 model.ModifiedDate = DateTime.Now;
-                model.Alias = BayMaxShop.Models.Commons.Filter.FilterChar(model.Title);
+                model.Alias = BayMaxShop.Models.Commons.Filter.FilterChar(model.ProductCategoryName);
                 db.ProductCategories.Add(model);
                 db.SaveChanges();
                 return RedirectToAction("Index");
@@ -53,7 +53,7 @@ namespace BayMaxShop.Areas.Admin.Controllers
             {
                 model.CreatedDate = DateTime.Now;
                 model.ModifiedDate = DateTime.Now;
-                model.Alias = BayMaxShop.Models.Commons.Filter.FilterChar(model.Title);
+                model.Alias = BayMaxShop.Models.Commons.Filter.FilterChar(model.ProductCategoryName);
                 db.ProductCategories.Attach(model);
                 db.Entry(model).State = System.Data.Entity.EntityState.Modified;
                 db.SaveChanges();

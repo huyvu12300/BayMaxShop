@@ -7,7 +7,7 @@ using System.Web;
 
 namespace BayMaxShop.Models.EF
 {
-    [Table("tb_AddressBook")]
+    [Table("AddressBook")]
     public class AddressBook 
     {
         [Key]

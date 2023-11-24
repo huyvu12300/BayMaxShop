@@ -1526,10 +1526,6 @@ C:\Users\Admin\Desktop\New folder (2)\BayMaxShop\BayMaxShop\BayMaxShop\obj\Debug
 C:\Users\Admin\Desktop\New folder (2)\BayMaxShop\BayMaxShop\BayMaxShop\obj\Debug\BayMaxShop.csproj.CopyComplete
 C:\Users\Admin\Desktop\New folder (2)\BayMaxShop\BayMaxShop\BayMaxShop\obj\Debug\BayMaxShop.dll
 C:\Users\Admin\Desktop\New folder (2)\BayMaxShop\BayMaxShop\BayMaxShop\obj\Debug\BayMaxShop.pdb
-C:\Users\Admin\Desktop\BayMaxShop\BayMaxShop\BayMaxShop\obj\Debug\BayMaxShop.Migrations.CreateDatabase.resources
-C:\Users\Admin\Desktop\BayMaxShop\BayMaxShop\BayMaxShop\obj\Debug\BayMaxShop.csproj.GenerateResource.cache
-C:\Users\Admin\Desktop\BayMaxShop\BayMaxShop\BayMaxShop\obj\Debug\BayMaxShop.Migrations.UpdateWishlist.resources
-C:\Users\Admin\Desktop\BayMaxShop\BayMaxShop\BayMaxShop\obj\Debug\BayMaxShop.Migrations.tb_Review.resources
 D:\bfs_at\ảnh\BayMaxShop\BayMaxShop\BayMaxShop\bin\BayMaxShop.dll.config
 D:\bfs_at\ảnh\BayMaxShop\BayMaxShop\BayMaxShop\bin\BayMaxShop.dll
 D:\bfs_at\ảnh\BayMaxShop\BayMaxShop\BayMaxShop\bin\BayMaxShop.pdb
@@ -1648,3 +1644,17 @@ D:\bfs_at\ảnh\BayMaxShop\BayMaxShop\BayMaxShop\obj\Debug\BayMaxShop.csproj.Cor
 D:\bfs_at\ảnh\BayMaxShop\BayMaxShop\BayMaxShop\obj\Debug\BayMaxShop.csproj.CopyComplete
 D:\bfs_at\ảnh\BayMaxShop\BayMaxShop\BayMaxShop\obj\Debug\BayMaxShop.dll
 D:\bfs_at\ảnh\BayMaxShop\BayMaxShop\BayMaxShop\obj\Debug\BayMaxShop.pdb
+C:\Users\Admin\Desktop\BayMaxShop\BayMaxShop\BayMaxShop\obj\Debug\BayMaxShop.Migrations.CreateDatabase.resources
+C:\Users\Admin\Desktop\BayMaxShop\BayMaxShop\BayMaxShop\obj\Debug\BayMaxShop.csproj.GenerateResource.cache
+C:\Users\Admin\Desktop\BayMaxShop\BayMaxShop\BayMaxShop\obj\Debug\BayMaxShop.Migrations.UpdateCategory.resources
+C:\Users\Admin\Desktop\BayMaxShop\BayMaxShop\BayMaxShop\obj\Debug\BayMaxShop.Migrations.UpdateMenu.resources
+C:\Users\Admin\Desktop\BayMaxShop\BayMaxShop\BayMaxShop\obj\Debug\BayMaxShop.Migrations.updatenews.resources
+C:\Users\Admin\Desktop\BayMaxShop\BayMaxShop\BayMaxShop\obj\Debug\BayMaxShop.Migrations.updatedatabase.resources
+C:\Users\Admin\Desktop\BayMaxShop\BayMaxShop\BayMaxShop\obj\Debug\BayMaxShop.Migrations.CreateBrand.resources
+C:\Users\Admin\Desktop\BayMaxShop\BayMaxShop\BayMaxShop\obj\Debug\BayMaxShop.Migrations.Updatebrand.resources
+C:\Users\Admin\Desktop\BayMaxShop\BayMaxShop\BayMaxShop\obj\Debug\BayMaxShop.Migrations.Updatedatabaes.resources
+C:\Users\Admin\Desktop\BayMaxShop\BayMaxShop\BayMaxShop\obj\Debug\BayMaxShop.Migrations.updatenews1.resources
+C:\Users\Admin\Desktop\BayMaxShop\BayMaxShop\BayMaxShop\obj\Debug\BayMaxShop.Migrations.updatept.resources
+C:\Users\Admin\Desktop\BayMaxShop\BayMaxShop\BayMaxShop\obj\Debug\BayMaxShop.Migrations.updatapr.resources
+C:\Users\Admin\Desktop\BayMaxShop\BayMaxShop\BayMaxShop\obj\Debug\BayMaxShop.Migrations.updatecate.resources
+C:\Users\Admin\Desktop\BayMaxShop\BayMaxShop\BayMaxShop\obj\Debug\BayMaxShop.Migrations.updatecate2.resources

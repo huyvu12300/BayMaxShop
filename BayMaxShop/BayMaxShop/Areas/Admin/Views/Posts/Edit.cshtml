@@ -56,14 +56,14 @@
                         @Html.AntiForgeryToken()
                         @Html.ValidationSummary(true)
                         @Html.HiddenFor(x => x.Id)
-                        @Html.HiddenFor(x => x.CategoryId)
+                        @Html.HiddenFor(x => x.MenuId)
                         @Html.HiddenFor(x => x.CreatedDate)
                         <!-- your steps content here -->
                     <div id="logins-part" class="content" role="tabpanel" aria-labelledby="logins-part-trigger">
                         <div class="form-group">
-                            <label for="exampleInputEmail1">Tiêu đề</label>
-                            @Html.TextBoxFor(x => x.Title, new { @class = "form-control", @placehoder = "Tên danh mục" })
-                            @Html.ValidationMessageFor(x => x.Title, null, new { @class = "text-danger" })
+                            <label for="exampleInputEmail1">Tên Bài Viết</label>
+                            @Html.TextBoxFor(x => x.PostName, new { @class = "form-control", @placehoder = "Tên danh mục" })
+                            @Html.ValidationMessageFor(x => x.PostName, null, new { @class = "text-danger" })
                         </div>
                         <div class="form-group">
                             <label for="exampleInputEmail1">Alias</label>
@@ -93,17 +93,6 @@
                             <label for="exampleInputPassword1">Hiển thị</label>
                             @Html.CheckBoxFor(x => x.IsActive)
                         </div>
-                        <div class="form-group">
-                            <label for="exampleInputPassword1">Seo title</label>
-                            @Html.TextAreaFor(x => x.SeoTitle, new { @class = "form-control" })
-                        </div>
-                        <div class="form-group">
-                            <label for="exampleInputPassword1">Seo Description</label>
-                            @Html.TextAreaFor(x => x.SeoDescription, new { @class = "form-control" })
-                        </div>
-
-
-
                         <div class="form-group">
                             <button style="background-color: #848FB3;" type="submit" class="btn btn-primary">Lưu</button>
                             <a style="background-color: #B58499;" href="/admin/posts" class="btn btn-danger">Quay lại</a>

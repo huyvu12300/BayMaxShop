@@ -7,7 +7,7 @@ using System.Web;
 
 namespace BayMaxShop.Models.EF
 {
-    [Table("tb_SystemSetting")]
+    [Table("SystemSetting")]
     public class SystemSetting
     {
         [Key]

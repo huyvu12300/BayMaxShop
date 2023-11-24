@@ -31,7 +31,8 @@ namespace BayMaxShop.Areas.Admin.Controllers
 
         public ActionResult Add()
         {
-            ViewBag.ProductCategory = new SelectList(db.ProductCategories.ToList(), "Id", "Title");
+            ViewBag.ProductCategory = new SelectList(db.ProductCategories.ToList(), "Id", "ProductCategoryName");
+            ViewBag.Brand = new SelectList(db.Brands.ToList(),"Id","BrandName");
             return View();
         }
 
@@ -70,21 +71,23 @@ namespace BayMaxShop.Areas.Admin.Controllers
                 model.ModifiedDate = DateTime.Now;
                 if (string.IsNullOrEmpty(model.SeoTitle))
                 {
-                    model.SeoTitle = model.Title;
+                    model.SeoTitle = model.ProductName;
                 }
                 if (string.IsNullOrEmpty(model.Alias))
-                    model.Alias = BayMaxShop.Models.Commons.Filter.FilterChar(model.Title);
+                    model.Alias = BayMaxShop.Models.Commons.Filter.FilterChar(model.ProductName);
                 db.Products.Add(model);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.ProductCategory = new SelectList(db.ProductCategories.ToList(), "Id", "Title");
+            ViewBag.ProductCategory = new SelectList(db.ProductCategories.ToList(), "Id", "ProductCategoryName");
+            ViewBag.Brand = new SelectList(db.Brands.ToList(), "Id", "BrandName");
             return View(model);
         }
 
         public ActionResult Edit(int id)
         {
-            ViewBag.ProductCategory = new SelectList(db.ProductCategories.ToList(), "Id", "Title");
+            ViewBag.ProductCategory = new SelectList(db.ProductCategories.ToList(), "Id", "ProductCategoryName");
+            ViewBag.Brand = new SelectList(db.Brands.ToList(), "Id", "BrandName");
             var item = db.Products.Find(id);
             return View(item);
         }
@@ -96,7 +99,7 @@ namespace BayMaxShop.Areas.Admin.Controllers
             if (ModelState.IsValid)
             {
                 model.ModifiedDate = DateTime.Now;
-                model.Alias = BayMaxShop.Models.Commons.Filter.FilterChar(model.Title);
+                model.Alias = BayMaxShop.Models.Commons.Filter.FilterChar(model.ProductName);
                 db.Products.Attach(model);
                 db.Entry(model).State = System.Data.Entity.EntityState.Modified;
                 db.SaveChanges();

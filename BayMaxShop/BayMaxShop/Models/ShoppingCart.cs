@@ -13,6 +13,35 @@ namespace BayMaxShop.Models
         {
             this.Items = new List<ShoppingCartItem>();
         }
+
+        public bool CheckQuantityAddtoCart(int productQuantity, ShoppingCartItem item, int Quantity)
+        {
+            var checkExits = Items.FirstOrDefault(x => x.ProductId == item.ProductId);
+            if (checkExits != null)
+            {
+                if ((checkExits.Quantity + Quantity) > productQuantity)
+                {
+                    return false;
+                }
+                else
+                {
+                    return true;
+                }
+
+            }
+            else
+            {
+                if (Quantity > productQuantity)
+                {
+                    return false;
+                }
+                else
+                {
+                    return true;
+                }
+            }
+
+        }
         public void AddToCart(ShoppingCartItem item, int Quantity)
         {
             var checkExits = Items.FirstOrDefault(x => x.ProductId == item.ProductId);
