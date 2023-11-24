@@ -68,7 +68,7 @@
                                 <td>@item.Code</td>
                                 <td>@item.CustomerName</td>
                                 <td>@item.Phone</td>
-                                <td>@item.TotalAmount</td>
+                                <td>@BayMaxShop.Common.Common.FormatNumber(item.TotalAmount)</td>
                                 <td>@(item.TypePayment==1?"Chờ thành toán":"Đã thanh toán")</td>
                                 <td>@item.CreatedDate.ToString("dd/MM/yyyy")</td>
                                 <td>

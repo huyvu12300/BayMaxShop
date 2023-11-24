@@ -3,7 +3,7 @@
 @using PagedList.Mvc;
 @using PagedList;
 
-
+@{ 
     ViewBag.Title = "Danh sách sản phẩm";
 }
 
@@ -38,13 +38,9 @@
                 <!-- Price Range Filtering -->
                 <div class="sidebar_section">
                     <div class="sidebar_title">
-                        <h5>Filter by Price</h5>
+                        <h4>Thương hiệu</h4>
                     </div>
-                    <p>
-                        <input type="text" id="amount" readonly style="border:0; color:#f6931f; font-weight:bold;background-color:#E8E8E8;">
-                    </p>
-                    <div id="slider-range"></div>
-                    <div class="filter_button"><span>filter</span></div>
+                    @Html.Action("MenuBrand", "Menu")
                 </div>
 
             </div>
@@ -64,7 +60,7 @@
                                 <!-- Product Grid -->
                                 <div class="pages d-flex flex-row align-items-center">
                                     <form>
-                                        @using (Html.BeginForm("index", "News", FormMethod.Get, new { }))
+                                        @using (Html.BeginForm("ProductCategory", "Products", FormMethod.Get, new { }))
                                         {
                                             <div class="input-group input-group-sm">
                                                 @Html.TextBox("Searchtext")
@@ -91,7 +87,7 @@
                                     <div class="product-item @item.ProductCategory.Alias">
                                         <div class="product discount product_filter">
                                             <div class="product_image">
-                                                <img src="@strImge" alt="@item.Title">
+                                                <img src="@strImge" alt="@item.ProductName">
                                             </div>
                                             <div class="favorite favorite_left"></div>
                                             @if (item.PriceSale > 0)
@@ -99,7 +95,7 @@
                                                 <div class="product_bubble product_bubble_right product_bubble_red d-flex flex-column align-items-center"><span>sale</span></div>
                                             }
                                             <div class="product_info">
-                                                <h6 class="product_name"><a href="/chi-tiet/@item.Alias-p@(item.Id)">@item.Title</a></h6>
+                                                <h6 class="product_name"><a href="/chi-tiet/@item.Alias-p@(item.Id)">@item.ProductName</a></h6>
                                                 @if (item.PriceSale > 0)
                                                 {
                                                     <div class="product_price">@BayMaxShop.Common.Common.FormatNumber(item.PriceSale, 0)<span>@BayMaxShop.Common.Common.FormatNumber(item.Price, 0)</span></div>
@@ -111,8 +107,14 @@
                                                 }
                                             </div>
                                         </div>
-                                        <div class="red_button add_to_cart_button"><a href="#" class="btnAddToCart" data-id="@item.Id">add to cart</a></div>
-
+                                        @if (item.Quantity <= 0)
+                                        {
+                                            <div class="red_button add_to_cart_button"><a href="#" class="btnAddToCart" data-id="@item.Id">Hết hàng</a></div>
+                                        }
+                                        else
+                                        {
+                                            <div class="red_button add_to_cart_button"><a href="#" class="btnAddToCart" data-id="@item.Id">Thêm vào giỏ hàng</a></div>
+                                        }
                                     </div>
                                 }
                             </div>

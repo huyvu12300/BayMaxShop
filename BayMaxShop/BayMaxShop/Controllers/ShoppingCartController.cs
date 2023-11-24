@@ -10,6 +10,11 @@ using System.Web.Mvc;
 
 namespace BayMaxShop.Controllers
 {
+
+    class GetInfo
+    {
+        public static string Email;
+    }
     public class ShoppingCartController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();
@@ -36,7 +41,7 @@ namespace BayMaxShop.Controllers
         }
 
         public ActionResult CheckOutSuccess()
-        {
+        {   
             return View();
         }
 
@@ -96,13 +101,15 @@ namespace BayMaxShop.Controllers
                     if (id!= null)
                     {
                        foreach (var item in listAddress)
-                            if(item.IsDefault)
+                       {
+                            if (item.IsDefault)
                             {
                                 order.CustomerName = item.CustomerName;
-                                order.Phone= item.Phone;
+                                order.Phone = item.Phone;
                                 order.Address = item.Address;
                                 order.Email = item.Email;
-                            }    
+                            }
+                       }    
                     }   
                     else
                     {
@@ -134,63 +141,93 @@ namespace BayMaxShop.Controllers
                     order.Email= req.Email;
                     Random rd = new Random();
                     order.Code = "DH" + rd.Next(0, 9) + rd.Next(0, 9) + rd.Next(0, 9) + rd.Next(0, 9);
-                    db.Orders.Add(order);
-                    db.SaveChanges();
-                    var strSanPham = "";
-                    var thanhtien = decimal.Zero;
-                    var TongTien = decimal.Zero;
-                    foreach(var sp in cart.Items)
-                    {
-                        strSanPham += "<tr>";
-                        strSanPham += "<td>"+sp.ProductName+"</td>";
-                        strSanPham += "<td>" + sp.Quantity + "</td>";
-                        strSanPham += "<td>" + BayMaxShop.Common.Common.FormatNumber(sp.TotalPrice,0) + "</td>";
-                        strSanPham += "</tr>"; 
-                        thanhtien = sp.Price * sp.Quantity;
-                    }
-                    TongTien = thanhtien;
-                    string contentcustomer = System.IO.File.ReadAllText(Server.MapPath("~/Content/templates/send2.html"));
-                    contentcustomer = contentcustomer.Replace("{{MaDon}}",order.Code);
-                    contentcustomer = contentcustomer.Replace("{{SanPham}}", strSanPham);
-                    contentcustomer = contentcustomer.Replace("{{NgayDat}}", DateTime.Now.ToString("dd/MM/yyyy"));
-                    contentcustomer = contentcustomer.Replace("{{TenKhachHang}}", order.CustomerName);
-                    contentcustomer = contentcustomer.Replace("{{Phone}}", order.Phone);
-                    contentcustomer = contentcustomer.Replace("{{Email}}", req.Email);
-                    contentcustomer = contentcustomer.Replace("{{DiaChiNhanHang}}", "Địa Chỉ Nhận Hàng: " + order.Address);
-                    if (order.TypePayment == 1)
-                    {
-                        contentcustomer = contentcustomer.Replace("{{HinhThucThanhToan}}", "Hình Thức Thanh Toán: COD");
-                    }
-                    if (order.TypePayment == 2)
-                    {
-                        contentcustomer = contentcustomer.Replace("{{HinhThucThanhToan}}", "Hình Thức Thanh Toán: Chuyển Khoản");
-                    }
-                    contentcustomer = contentcustomer.Replace("{{ThanhTien}}", BayMaxShop.Common.Common.FormatNumber(thanhtien,0));
-                    contentcustomer = contentcustomer.Replace("{{TongTien}}", BayMaxShop.Common.Common.FormatNumber(TongTien,0));
-                    BayMaxShop.Common.Common.SendMail("BayMaxShop","Đơn hàng #" + order.Code,contentcustomer.ToString(),req.Email);
-                    string contentAdmin = System.IO.File.ReadAllText(Server.MapPath("~/Content/templates/send1.html"));
-                    contentAdmin = contentAdmin.Replace("{{MaDon}}", order.Code);
-                    contentAdmin = contentAdmin.Replace("{{SanPham}}", strSanPham);
-                    contentAdmin = contentAdmin.Replace("{{NgayDat}}", DateTime.Now.ToString("dd/MM/yyyy"));
-                    contentAdmin = contentAdmin.Replace("{{TenKhachHang}}", order.CustomerName);
-                    contentAdmin = contentAdmin.Replace("{{Phone}}", order.Phone);
-                    contentAdmin = contentAdmin.Replace("{{Email}}", req.Email);
-                    contentAdmin = contentAdmin.Replace("{{DiaChiNhanHang}}", order.Address);
-                    contentAdmin = contentAdmin.Replace("{{ThanhTien}}", BayMaxShop.Common.Common.FormatNumber(thanhtien, 0));
-                    contentAdmin = contentAdmin.Replace("{{TongTien}}", BayMaxShop.Common.Common.FormatNumber(TongTien, 0));
-                    BayMaxShop.Common.Common.SendMail("BayMaxShop", "Đơn hàng mới #" + order.Code, contentAdmin.ToString(), ConfigurationManager.AppSettings["EmailAdmin"]);
-                    if (order.TypePayment == 1)
-                    {
-                        contentcustomer = contentcustomer.Replace("{{HinhThucThanhToan}}", "Hình Thức Thanh Toán: COD");
-                    }
-                    if (order.TypePayment == 2)
-                    {
-                        contentcustomer = contentcustomer.Replace("{{HinhThucThanhToan}}", "Hình Thức Thanh Toán: Chuyển Khoản");
-                    }
-                    cart.ClearCart();
+                    SendMail(GetInfo.Email,cart, order);
                     return RedirectToAction("CheckOutSuccess");
                 }
             return Json(code);
+        }
+
+        private void SendMail(string email, ShoppingCart cart, Models.EF.Order order)
+        {
+            List<Product> products = db.Products.ToList();
+            List<OrderDetail> orderDetails = order.OrderDetails.ToList();
+            foreach (var itemProduct in products)
+            {
+                foreach (var itemOrderDetail in orderDetails)
+                {
+                    if (itemProduct.Id == itemOrderDetail.ProductId)
+                    {
+                        itemProduct.Quantity -= itemOrderDetail.Quantity;
+                        db.Products.Attach(itemProduct);
+                        db.Entry(itemProduct).State = System.Data.Entity.EntityState.Modified;
+                        db.SaveChanges();
+                    }
+                }
+            }
+            db.Orders.Add(order);
+            db.SaveChanges();
+            var strSanPham = "";
+            var thanhtien = decimal.Zero;
+            var phiVanChuyen = decimal.Zero;
+            var TongTien = decimal.Zero;
+            foreach (var sp in cart.Items)
+            {
+                strSanPham += "<tr>";
+                strSanPham += "<td>" + sp.ProductName + "</td>";
+                strSanPham += "<td>" + sp.Quantity + "</td>";
+                strSanPham += "<td>" + BayMaxShop.Common.Common.FormatNumber(sp.TotalPrice) + "</td>";
+                strSanPham += "</tr>";
+                thanhtien += sp.Quantity * sp.Price;
+            }
+            TongTien = thanhtien + phiVanChuyen;
+            string contentCustomer = System.IO.File.ReadAllText(Server.MapPath("~/Content/templates/send2.html"));
+            contentCustomer = contentCustomer.Replace("{{MaDon}}", order.Code);
+            contentCustomer = contentCustomer.Replace("{{SanPham}}", strSanPham);
+            contentCustomer = contentCustomer.Replace("{{NgayDat}}", DateTime.Now.ToString("dd/MM/yyyy"));
+            contentCustomer = contentCustomer.Replace("{{TenKhachHang}}", "Tên Người Nhận: " + order.CustomerName);
+            contentCustomer = contentCustomer.Replace("{{Phone}}", "Số Điện Thoại: " + order.Phone);
+            contentCustomer = contentCustomer.Replace("{{Email}}", "Email: " + email);
+            contentCustomer = contentCustomer.Replace("{{DiaChiNhanHang}}", "Địa Chỉ Nhận Hàng: " + order.Address);
+            switch (order.TypePayment)
+            {
+                case 1:
+                    contentCustomer = contentCustomer.Replace("{{HinhThucThanhToan}}", "Hình Thức Thanh Toán: COD");
+                    break;
+                case 2:
+                    contentCustomer = contentCustomer.Replace("{{HinhThucThanhToan}}", "Hình Thức Thanh Toán: Chuyển Khoản");
+                    break;
+                default:
+                    break;
+            }
+            contentCustomer = contentCustomer.Replace("{{ThanhTien}}", BayMaxShop.Common.Common.FormatNumber(thanhtien, 0));
+            contentCustomer = contentCustomer.Replace("{{PhiVanChuyen}}", BayMaxShop.Common.Common.FormatNumber(phiVanChuyen, 0));
+            contentCustomer = contentCustomer.Replace("{{TongTien}}", BayMaxShop.Common.Common.FormatNumber(TongTien, 0));
+            BayMaxShop.Common.Common.SendMail("BayMaxShop", "Đơn hàng #" + order.Code, contentCustomer.ToString(), email);
+
+            string contentAdmin = System.IO.File.ReadAllText(Server.MapPath("~/Content/templates/send1.html"));
+            contentAdmin = contentAdmin.Replace("{{MaDon}}", order.Code);
+            contentAdmin = contentAdmin.Replace("{{SanPham}}", strSanPham);
+            contentAdmin = contentAdmin.Replace("{{NgayDat}}", DateTime.Now.ToString("dd/MM/yyyy"));
+            contentAdmin = contentAdmin.Replace("{{TenKhachHang}}", "Tên Người Nhận: " + order.CustomerName);
+            contentAdmin = contentAdmin.Replace("{{Phone}}", "Số Điện Thoại: " + order.Phone);
+            contentAdmin = contentAdmin.Replace("{{Email}}", "Emaili: " + email);
+            contentAdmin = contentAdmin.Replace("{{DiaChiNhanHang}}", "Địa Chỉ Nhận Hàng: " + order.Address);
+            switch (order.TypePayment)
+            {
+                case 1:
+                    contentAdmin = contentAdmin.Replace("{{HinhThucThanhToan}}", "Hình Thức Thanh Toán: COD");
+                    break;
+                case 2:
+                    contentAdmin = contentAdmin.Replace("{{HinhThucThanhToan}}", "Hình Thức Thanh Toán: Chuyển Khoản");
+                    break;
+                default:
+                    break;
+            }
+            contentAdmin = contentAdmin.Replace("{{ThanhTien}}", BayMaxShop.Common.Common.FormatNumber(thanhtien, 0));
+            contentAdmin = contentAdmin.Replace("{{PhiVanChuyen}}", BayMaxShop.Common.Common.FormatNumber(phiVanChuyen, 0));
+            contentAdmin = contentAdmin.Replace("{{TongTien}}", BayMaxShop.Common.Common.FormatNumber(TongTien, 0));
+            BayMaxShop.Common.Common.SendMail("BayMaxShop", "Đơn hàng mới #" + order.Code, contentAdmin.ToString(), ConfigurationManager.AppSettings["EmailAdmin"]);
+            cart.ClearCart();
         }
 
         [HttpPost]
@@ -199,31 +236,25 @@ namespace BayMaxShop.Controllers
             var code = new { Success = false, msg = "", code = -1, Count = 0 };
             var db = new ApplicationDbContext();
             var checkProduct = db.Products.FirstOrDefault(x => x.Id == id);
+
             if (checkProduct != null)
             {
-                ShoppingCart cart = ( ShoppingCart)Session["Cart"];
+                ShoppingCart cart = (ShoppingCart)Session["Cart"];
                 if (cart == null)
                 {
                     cart = new ShoppingCart();
                 }
-
-
-
                 ShoppingCartItem item = new ShoppingCartItem
                 {
                     ProductId = checkProduct.Id,
-                    ProductName = checkProduct.Title,
-                    CategoryName = checkProduct.ProductCategory.Title,
-                    Alias= checkProduct.Alias,
+                    ProductName = checkProduct.ProductName,
+                    CategoryName = checkProduct.ProductCategory.ProductCategoryName,
+                    Alias = checkProduct.Alias,
                     Quantity = quantity
                 };
-
-
-
                 if (checkProduct.ProductImage.FirstOrDefault(x => x.IsDefault) != null)
                 {
                     item.ProductImg = checkProduct.ProductImage.FirstOrDefault(x => x.IsDefault).Image;
-
                 }
                 item.Price = checkProduct.Price;
                 if (checkProduct.PriceSale > 0)
@@ -231,11 +262,17 @@ namespace BayMaxShop.Controllers
                     item.Price = (decimal)checkProduct.PriceSale;
                 }
                 item.TotalPrice = item.Quantity * item.Price;
-                cart.AddToCart(item, quantity);
-                Session["Cart"] = cart;
-                code = new { Success = true, msg = "thêm sản phẩm vào giỏ hàng thành công", code = 1, Count = cart.Items.Count };
+                if (cart.CheckQuantityAddtoCart(checkProduct.Quantity, item, quantity))
+                {
+                    cart.AddToCart(item, quantity);
+                    Session["Cart"] = cart;
+                    code = new { Success = true, msg = "Thêm sản phẩm thành công!", code = 1, Count = cart.Items.Count };
+                }
+                else
+                {
+                    code = new { Success = false, msg = "", code = -1, Count = 0 };
+                }
 
-               
             }
             return Json(code);
         }

@@ -7,7 +7,7 @@ using System.Web;
 
 namespace BayMaxShop.Models.EF
 {
-    [Table("tb_Order")]
+    [Table("Order")]
     public class Order : CommonAbstract
     {
         public Order()

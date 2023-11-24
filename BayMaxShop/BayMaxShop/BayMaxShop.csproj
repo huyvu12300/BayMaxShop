@@ -181,6 +181,7 @@
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
     <Compile Include="Areas\Admin\Controllers\AccountController.cs" />
     <Compile Include="Areas\Admin\Controllers\BookingController.cs" />
+    <Compile Include="Areas\Admin\Controllers\BrandController.cs" />
     <Compile Include="Areas\Admin\Controllers\CategoryController.cs" />
     <Compile Include="Areas\Admin\Controllers\HomeController.cs" />
     <Compile Include="Areas\Admin\Controllers\NewsController.cs" />
@@ -209,27 +210,66 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202311061611488_Create-Database.cs" />
-    <Compile Include="Migrations\202311061611488_Create-Database.designer.cs">
-      <DependentUpon>202311061611488_Create-Database.cs</DependentUpon>
+    <Compile Include="Migrations\202311221616445_Create-Database.cs" />
+    <Compile Include="Migrations\202311221616445_Create-Database.designer.cs">
+      <DependentUpon>202311221616445_Create-Database.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202311131201592_Update-Wishlist.cs" />
-    <Compile Include="Migrations\202311131201592_Update-Wishlist.designer.cs">
-      <DependentUpon>202311131201592_Update-Wishlist.cs</DependentUpon>
+    <Compile Include="Migrations\202311221630457_Update-Category.cs" />
+    <Compile Include="Migrations\202311221630457_Update-Category.designer.cs">
+      <DependentUpon>202311221630457_Update-Category.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202311180420340_tb_Review.cs" />
-    <Compile Include="Migrations\202311180420340_tb_Review.designer.cs">
-      <DependentUpon>202311180420340_tb_Review.cs</DependentUpon>
+    <Compile Include="Migrations\202311221640374_Update-Menu.cs" />
+    <Compile Include="Migrations\202311221640374_Update-Menu.designer.cs">
+      <DependentUpon>202311221640374_Update-Menu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202311221652108_update news.cs" />
+    <Compile Include="Migrations\202311221652108_update news.designer.cs">
+      <DependentUpon>202311221652108_update news.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202311221658233_update-database.cs" />
+    <Compile Include="Migrations\202311221658233_update-database.designer.cs">
+      <DependentUpon>202311221658233_update-database.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202311221721182_Create-Brand.cs" />
+    <Compile Include="Migrations\202311221721182_Create-Brand.designer.cs">
+      <DependentUpon>202311221721182_Create-Brand.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202311221729489_Update-brand.cs" />
+    <Compile Include="Migrations\202311221729489_Update-brand.designer.cs">
+      <DependentUpon>202311221729489_Update-brand.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202311231523467_Update-databaes.cs" />
+    <Compile Include="Migrations\202311231523467_Update-databaes.designer.cs">
+      <DependentUpon>202311231523467_Update-databaes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202311231530153_update-news1.cs" />
+    <Compile Include="Migrations\202311231530153_update-news1.designer.cs">
+      <DependentUpon>202311231530153_update-news1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202311231542475_update-pt.cs" />
+    <Compile Include="Migrations\202311231542475_update-pt.designer.cs">
+      <DependentUpon>202311231542475_update-pt.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202311231556491_updata-pr.cs" />
+    <Compile Include="Migrations\202311231556491_updata-pr.designer.cs">
+      <DependentUpon>202311231556491_updata-pr.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202311231613437_update-cate.cs" />
+    <Compile Include="Migrations\202311231613437_update-cate.designer.cs">
+      <DependentUpon>202311231613437_update-cate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202311231727326_update-cate2.cs" />
+    <Compile Include="Migrations\202311231727326_update-cate2.designer.cs">
+      <DependentUpon>202311231727326_update-cate2.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Commons\Filter.cs" />
     <Compile Include="Models\CustomerViewModel.cs" />
     <Compile Include="Models\EF\AddressBook.cs" />
-    <Compile Include="Models\EF\Adv.cs" />
-    <Compile Include="Models\EF\Category.cs" />
+    <Compile Include="Models\EF\Brand.cs" />
     <Compile Include="Models\EF\CommonAbstract.cs" />
-    <Compile Include="Models\EF\Contact.cs" />
+    <Compile Include="Models\EF\Menu.cs" />
     <Compile Include="Models\EF\News.cs" />
     <Compile Include="Models\EF\Order.cs" />
     <Compile Include="Models\EF\OrderDetail.cs" />
@@ -3303,6 +3343,9 @@
     <Content Include="Areas\Admin\Views\Account\AdminProfile.cshtml" />
     <Content Include="Areas\Admin\Views\Booking\Index.cshtml" />
     <Content Include="Areas\Admin\Views\Booking\View.cshtml" />
+    <Content Include="Areas\Admin\Views\Brand\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Brand\Add.cshtml" />
+    <Content Include="Areas\Admin\Views\Brand\Edit.cshtml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
@@ -3382,6 +3425,8 @@
     <Content Include="Views\Wishlist\Index.cshtml" />
     <Content Include="Views\Review\_Review.cshtml" />
     <Content Include="Views\Review\_LoadReview.cshtml" />
+    <Content Include="Views\Menu\MenuBrand.cshtml" />
+    <Content Include="Views\Products\ProductBrand.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -3403,14 +3448,44 @@
     <Content Include="Scripts\jquery-3.4.1.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202311061611488_Create-Database.resx">
-      <DependentUpon>202311061611488_Create-Database.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202311221616445_Create-Database.resx">
+      <DependentUpon>202311221616445_Create-Database.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202311131201592_Update-Wishlist.resx">
-      <DependentUpon>202311131201592_Update-Wishlist.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202311221630457_Update-Category.resx">
+      <DependentUpon>202311221630457_Update-Category.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202311180420340_tb_Review.resx">
-      <DependentUpon>202311180420340_tb_Review.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202311221640374_Update-Menu.resx">
+      <DependentUpon>202311221640374_Update-Menu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202311221652108_update news.resx">
+      <DependentUpon>202311221652108_update news.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202311221658233_update-database.resx">
+      <DependentUpon>202311221658233_update-database.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202311221721182_Create-Brand.resx">
+      <DependentUpon>202311221721182_Create-Brand.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202311221729489_Update-brand.resx">
+      <DependentUpon>202311221729489_Update-brand.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202311231523467_Update-databaes.resx">
+      <DependentUpon>202311231523467_Update-databaes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202311231530153_update-news1.resx">
+      <DependentUpon>202311231530153_update-news1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202311231542475_update-pt.resx">
+      <DependentUpon>202311231542475_update-pt.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202311231556491_updata-pr.resx">
+      <DependentUpon>202311231556491_updata-pr.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202311231613437_update-cate.resx">
+      <DependentUpon>202311231613437_update-cate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202311231727326_update-cate2.resx">
+      <DependentUpon>202311231727326_update-cate2.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

@@ -26,7 +26,7 @@ namespace BayMaxShop.Areas.Admin.Controllers
             if (!string.IsNullOrEmpty(Searchtext))
             {
 
-                items = items.Where(x => x.Alias.Contains(Searchtext) || x.Title.Contains(Searchtext));
+                items = items.Where(x => x.Alias.Contains(Searchtext) || x.PostName.Contains(Searchtext));
             }
             var pageIndex = page.HasValue ? Convert.ToInt32(page) : 1;
             items = items.ToPagedList(pageIndex, pageSize);
@@ -45,7 +45,7 @@ namespace BayMaxShop.Areas.Admin.Controllers
         {
             if (ModelState.IsValid)
             {
-                model.CategoryId = 9;
+                model.MenuId = 9;
                 model.CreatedDate = DateTime.Now;
                 model.ModifiedDate = DateTime.Now;
                 //model.Alias = BayMaxShop.Models.Commons.Filter.FilterChar(model.Title);

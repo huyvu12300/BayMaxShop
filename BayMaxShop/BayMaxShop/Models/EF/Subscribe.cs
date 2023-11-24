@@ -7,7 +7,7 @@ using System.Web;
 
 namespace BayMaxShop.Models.EF
 {
-    [Table("tb_Subscribe")]
+    [Table("Subscribe")]
     public class Subscribe
     {
         [Key]

@@ -16,7 +16,7 @@ namespace BayMaxShop.Areas.Admin.Controllers
         // GET: Admin/Category
         public ActionResult Index()
         {
-            var items = db.Categories;
+            var items = db.Menus;
             return View(items);
         }
         public ActionResult Add()
@@ -26,14 +26,14 @@ namespace BayMaxShop.Areas.Admin.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Add(Category model)
+        public ActionResult Add(Menu model)
         {
             if(ModelState.IsValid)
             {
                 model.CreatedDate= DateTime.Now;
                 model.ModifiedDate= DateTime.Now;
-                model.Alias = BayMaxShop.Models.Commons.Filter.FilterChar(model.Title);
-                db.Categories.Add(model);
+                model.Alias = BayMaxShop.Models.Commons.Filter.FilterChar(model.MenuName);
+                db.Menus.Add(model);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
@@ -41,20 +41,19 @@ namespace BayMaxShop.Areas.Admin.Controllers
         }
         public ActionResult Edit(int id) 
         {
-            var items = db.Categories.Find(id);
+            var items = db.Menus.Find(id);
             return View(items);
         }
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit(Category model)
+        public ActionResult Edit(Menu model)
         {
             if (ModelState.IsValid)
             {
-                db.Categories.Attach(model);
+                db.Menus.Attach(model);
                 model.ModifiedDate = DateTime.Now;
-                model.Alias = BayMaxShop.Models.Commons.Filter.FilterChar(model.Title);
-                db.Entry(model).Property(x => x.Title).IsModified = true;
-                db.Entry(model).Property(x => x.Description).IsModified = true;
+                model.Alias = BayMaxShop.Models.Commons.Filter.FilterChar(model.MenuName);
+                db.Entry(model).Property(x => x.MenuName).IsModified = true;
                 db.Entry(model).Property(x => x.Link).IsModified = true;
                 db.Entry(model).Property(x => x.Alias).IsModified = true;
                 db.Entry(model).Property(x => x.SeoDescription).IsModified = true;
@@ -70,10 +69,10 @@ namespace BayMaxShop.Areas.Admin.Controllers
         }
         public ActionResult Delete(int id)
         {
-            var items = db.Categories.Find(id);
+            var items = db.Menus.Find(id);
             if ( items != null )
             {
-                db.Categories.Remove(items);
+                db.Menus.Remove(items);
                 db.SaveChanges();
                 return Json(new { success = true });
             }    

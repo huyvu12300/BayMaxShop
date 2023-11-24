@@ -7,7 +7,7 @@ using System.Web;
 
 namespace BayMaxShop.Models.EF
 {
-    [Table("tb_Product")]
+    [Table("Product")]
     public class Product: CommonAbstract
     {
         public Product(){
@@ -20,9 +20,9 @@ namespace BayMaxShop.Models.EF
         [DatabaseGeneratedAttribute(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
         public string Image { get; set; }
-        [Required(ErrorMessage = "Bạn không để trống tiêu đề sản phẩm")]
+        [Required(ErrorMessage = "Không để trống tên sản phẩm")]
         [StringLength(150)]
-        public string Title { get; set; }
+        public string ProductName { get; set; }
         public string Alias { get; set; }
         public string ProductCode { get; set; }
         public string Description { get; set; }
@@ -37,10 +37,10 @@ namespace BayMaxShop.Models.EF
         public bool IsSale { get; set; }
         public bool IsActive { get; set; }
         public int ProductCategoryId { get; set; }
+        public int BrandId { get; set; }
         public string SeoTitle { get; set; }
-        public string SeoDescription { get; set; }
-        public string SeoKeywords { get; set; }
         public virtual ProductCategory ProductCategory { get; set; }
+        public virtual Brand Brand { get; set; }
         public virtual ICollection<ProductImage> ProductImage { get; set; }
         public virtual ICollection<OrderDetail> OrderDetails { get; set; }
         public virtual ICollection<Wishlist> Wishlists { get; set; }

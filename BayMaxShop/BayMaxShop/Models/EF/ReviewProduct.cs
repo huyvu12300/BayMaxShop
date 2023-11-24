@@ -7,7 +7,7 @@ using System.Web;
 
 namespace BayMaxShop.Models.EF
 {
-    [Table("tb_Review")]
+    [Table("Review")]
     public class ReviewProduct
     {
         [Key]

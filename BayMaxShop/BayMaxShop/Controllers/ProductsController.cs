@@ -27,7 +27,7 @@ namespace BayMaxShop.Controllers
             if (!string.IsNullOrEmpty(Searchtext))
             {
 
-                items = items.Where(x => x.Alias.Contains(Searchtext) || x.Title.Contains(Searchtext));
+                items = items.Where(x => x.Alias.Contains(Searchtext) || x.ProductName.Contains(Searchtext));
             }
             var pageIndex = page.HasValue ? Convert.ToInt32(page) : 1;
             items = items.ToPagedList(pageIndex, pageSize);
@@ -36,15 +36,11 @@ namespace BayMaxShop.Controllers
             return View(items);
         }
 
-
-
-
         public ActionResult Detail(string alias, int id)
         {
             var item = db.Products.Find(id);
             return View(item);
         }
-
 
         public ActionResult ProductCategory(string alias, int? id, string Searchtext, int? page)
         {
@@ -58,7 +54,7 @@ namespace BayMaxShop.Controllers
             if (!string.IsNullOrEmpty(Searchtext))
             {
 
-                items = items.Where(x => x.Alias.Contains(Searchtext) || x.Title.Contains(Searchtext));
+                items = items.Where(x => x.Alias.Contains(Searchtext) || x.ProductName.Contains(Searchtext));
             }
             if (id > 0)
             {
@@ -67,10 +63,42 @@ namespace BayMaxShop.Controllers
             var cate = db.ProductCategories.Find(id);
             if (cate != null)
             {
-                ViewBag.CateName = cate.Title;
+                ViewBag.CateName = cate.ProductCategoryName;
             }
 
             ViewBag.CateId = id;
+            var pageIndex = page.HasValue ? Convert.ToInt32(page) : 1;
+            items = items.ToPagedList(pageIndex, pageSize);
+            ViewBag.PageSize = pageSize;
+            ViewBag.Page = page;
+            return View(items);
+        }
+
+        public ActionResult ProductBrand(string alias, int? id, string Searchtext, int? page)
+        {
+
+            var pageSize = 12;
+            if (page == null)
+            {
+                page = 1;
+            }
+            IEnumerable<Product> items = db.Products.OrderByDescending(x => x.Id);
+            if (!string.IsNullOrEmpty(Searchtext))
+            {
+
+                items = items.Where(x => x.Alias.Contains(Searchtext) || x.ProductName.Contains(Searchtext));
+            }
+            if (id > 0)
+            {
+                items = items.Where(x => x.BrandId == id).ToList();
+            }
+            var cate = db.Brands.Find(id);
+            if (cate != null)
+            {
+                ViewBag.CateName = cate.BrandName;
+            }
+
+            ViewBag.BrandId = id;
             var pageIndex = page.HasValue ? Convert.ToInt32(page) : 1;
             items = items.ToPagedList(pageIndex, pageSize);
             ViewBag.PageSize = pageSize;

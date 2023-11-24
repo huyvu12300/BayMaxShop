@@ -18,7 +18,7 @@
                     <ul>
                         <li><a href="/">Home</a></li>
                         <li><a href="/danh-muc-san-pham/@Model.ProductCategory.Alias-@Model.ProductCategoryId"><i class="fa fa-angle-right" aria-hidden="true"></i>@Model.ProductCategory.Title</a></li>
-                        <li class="active"><a href="#"><i class="fa fa-angle-right" aria-hidden="true"></i>@Model.Title</a></li>
+                        <li class="active"><a href="#"><i class="fa fa-angle-right" aria-hidden="true"></i>@Model.ProductName</a></li>
                     </ul>
                 </div>
 
@@ -68,8 +68,9 @@
             <div class="col-lg-5">
                 <div class="product_details">
                     <div class="product_details_title">
-                        <h2>@Model.Title</h2>
+                        <h2>@Model.ProductName</h2>
                         <p>@Model.Description</p>
+                        <p>Còn lại: <b>@Model.Quantity sản phẩm</b></p>
                     </div>
                     @if (Model.PriceSale > 0)
                     {
@@ -97,7 +98,14 @@
                             <span id="quantity_value">1</span>
                             <span class="plus"><i class="fa fa-plus" aria-hidden="true"></i></span>
                         </div>
-                        <div class="red_button add_to_cart_button"><a href="#" class="btnAddToCart" data-id="@Model.Id">add to cart</a></div>
+                        @if (Model.Quantity <= 0)
+                        {
+                            <div class="red_button add_to_cart_button"><a href="#" class="btnAddToCart" data-id="@Model.Id">Hết hàng</a></div>
+                        }
+                        else
+                        {
+                            <div class="red_button add_to_cart_button"><a href="#" class="btnAddToCart" data-id="@Model.Id">Thêm vào giỏ hàng</a></div>
+                        }
                         <div class="product_favorite d-flex flex-column align-items-center justify-content-center"></div>
                     </div>
                 </div>

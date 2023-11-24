@@ -7,7 +7,7 @@ using System.Web;
 
 namespace BayMaxShop.Models.EF
 {
-    [Table("tb_ProductCategory")]
+    [Table("ProductCategory")]
     public class ProductCategory: CommonAbstract
     {
         public ProductCategory()
@@ -19,7 +19,7 @@ namespace BayMaxShop.Models.EF
         public int Id { get; set; }
         [Required(ErrorMessage = "Tên danh mục không được để trống")]
         [StringLength(150)]
-        public string Title { get; set; }
+        public string ProductCategoryName { get; set; }
         [Required]
         [StringLength(150)]
         public string Alias { get; set; }
@@ -28,11 +28,6 @@ namespace BayMaxShop.Models.EF
         [StringLength(250)]
         public string Icon { get; set; }
         [StringLength(250)]
-        public string SeoTitle { get; set; }
-        [StringLength(500)]
-        public string SeoDescription { get; set; }
-        [StringLength(250)]
-        public string SeoKeywords { get; set; }
         public ICollection<Product> Products { get;set; }
 
     }

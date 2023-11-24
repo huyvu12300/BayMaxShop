@@ -73,7 +73,7 @@
                         <th><input type="checkbox" id="SelectAll" /></th>
                         <th>STT</th>
                         <th>Hình ảnh</th>
-                        <th>Tiêu đề tin</th>
+                        <th>Tên tin tức</th>
                         <th>Ngày tạo</th>
                         <th>Hiển thị</th>
                         <th style="width:150px;"></th>
@@ -90,7 +90,7 @@
                                 <td><input type="checkbox" class="cbkItem" value="@item.Id" /></td>
                                 <td>@i</td>
                                 <td><img src="@item.Image" width="50" /></td>
-                                <td>@item.Title</td>
+                                <td>@item.NewsName</td>
                                 <td>@item.CreatedDate.ToString("dd/MM/yyyy")</td>
                                 <td class="text-center">
                                     <a href='#' data-id="@item.Id" class="btnActive">@Html.Raw(strCheck)</a>

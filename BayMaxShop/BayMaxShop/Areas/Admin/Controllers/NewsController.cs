@@ -25,7 +25,7 @@ namespace BayMaxShop.Areas.Admin.Controllers
             if (!string.IsNullOrEmpty(Searchtext))
             {
 
-                items = items.Where(x => x.Alias.Contains(Searchtext) || x.Title.Contains(Searchtext));
+                items = items.Where(x => x.Alias.Contains(Searchtext) || x.NewsName.Contains(Searchtext));
             }
             var pageIndex = page.HasValue ? Convert.ToInt32(page) : 1;
             items = items.ToPagedList(pageIndex, pageSize);
@@ -44,9 +44,9 @@ namespace BayMaxShop.Areas.Admin.Controllers
             if (ModelState.IsValid)
             {
                 model.CreatedDate = DateTime.Now;
-                model.CategoryId = 10;
+                model.MenuId = 10;
                 model.ModifiedDate = DateTime.Now;
-                model.Alias = BayMaxShop.Models.Commons.Filter.FilterChar(model.Title);
+                model.Alias = BayMaxShop.Models.Commons.Filter.FilterChar(model.NewsName);
                 db.News.Add(model);
                 db.SaveChanges();
                 return RedirectToAction("Index");
@@ -67,7 +67,7 @@ namespace BayMaxShop.Areas.Admin.Controllers
                 model.CreatedDate = DateTime.Now;
                 // cái này chừng nào đủ danh mục thì sẽ thay đổi sau
                 model.ModifiedDate = DateTime.Now;
-                model.Alias = BayMaxShop.Models.Commons.Filter.FilterChar(model.Title);
+                model.Alias = BayMaxShop.Models.Commons.Filter.FilterChar(model.NewsName);
                 db.News.Attach(model);
                 db.Entry(model).State = System.Data.Entity.EntityState.Modified;
                 db.SaveChanges();

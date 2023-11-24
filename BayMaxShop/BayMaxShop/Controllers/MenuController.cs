@@ -18,7 +18,7 @@ namespace BayMaxShop.Controllers
 
         public ActionResult MenuTop() 
         {
-            var items = db.Categories.OrderByDescending(x => x.Position).ToList();
+            var items = db.Menus.OrderByDescending(x => x.Position).ToList();
             return PartialView("MenuTop",items);
         }
         public ActionResult MenuProductCategory()
@@ -39,6 +39,15 @@ namespace BayMaxShop.Controllers
             }
             var items = db.ProductCategories.ToList();
             return PartialView("MenuLeft", items);
+        }
+        public ActionResult MenuBrand(int? id) 
+        {
+            if (id != null) 
+            {
+                ViewBag.BrId = id;
+            }
+            var items = db.Brands.ToList();
+            return PartialView("MenuBrand", items);
         }
     }
 }

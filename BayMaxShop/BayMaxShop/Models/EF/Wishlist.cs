@@ -7,7 +7,7 @@ using System.Web;
 
 namespace BayMaxShop.Models.EF
 {
-    [Table("tb_Wishlist")]
+    [Table("Wishlist")]
     public class Wishlist
     {
         [Key]

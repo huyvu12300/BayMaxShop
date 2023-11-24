@@ -45,6 +45,13 @@ namespace BayMaxShop
           );
 
             routes.MapRoute(
+              name: "Brand",
+              url: "thuong-hieu/{alias}-{id}",
+              defaults: new { controller = "Products", action = "ProductBrand", id = UrlParameter.Optional },
+              namespaces: new[] { "BayMaxShop.Controllers" }
+            );
+
+            routes.MapRoute(
                name: "DetailPosts",
                url: "bai-viet/{alias}-n{id}",
                defaults: new { controller = "Posts", action = "Detail", id = UrlParameter.Optional },

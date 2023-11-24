@@ -1,4 +1,4 @@
-﻿@model IEnumerable<BayMaxShop.Models.EF.Category>
+﻿@model IEnumerable<BayMaxShop.Models.EF.Menu>
 
 @if (Model != null && Model.Any())
 {
@@ -13,7 +13,7 @@
             {
                 item.Alias = item.Link;
             }
-            <li><a href="/@item.Alias">@item.Title</a></li>
+            <li><a href="/@item.Alias">@item.MenuName</a></li>
         }
     </ul>
 }
