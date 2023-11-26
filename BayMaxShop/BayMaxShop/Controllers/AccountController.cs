@@ -62,6 +62,7 @@ namespace BayMaxShop.Controllers
             item.UserName = user.UserName;
             item.Sex = user.Sex;
             item.DateOfBirth = user.DateOfBirth;
+            item.Images = user.Images;
             return View(user);
         }
 
@@ -74,6 +75,7 @@ namespace BayMaxShop.Controllers
             user.Phone = req.Phone;
             user.DateOfBirth = req.DateOfBirth;
             user.Sex = req.Sex;
+            user.Images = req.Images;
             var rs = await UserManager.UpdateAsync(user);
             if (rs.Succeeded)
             {
@@ -603,5 +605,6 @@ namespace BayMaxShop.Controllers
             }
         }
         #endregion
+
     }
 }

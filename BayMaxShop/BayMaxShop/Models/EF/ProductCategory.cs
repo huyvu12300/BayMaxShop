@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BayMaxShop.Models.EF;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
@@ -8,7 +9,7 @@ using System.Web;
 namespace BayMaxShop.Models.EF
 {
     [Table("ProductCategory")]
-    public class ProductCategory: CommonAbstract
+    public class ProductCategory : CommonAbstract
     {
         public ProductCategory()
         {
@@ -17,18 +18,17 @@ namespace BayMaxShop.Models.EF
         [Key]
         [DatabaseGeneratedAttribute(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
-        [Required(ErrorMessage = "Tên danh mục không được để trống")]
+        [Required]
         [StringLength(150)]
         public string ProductCategoryName { get; set; }
         [Required]
         [StringLength(150)]
         public string Alias { get; set; }
-        [StringLength(150)]
         public string Description { get; set; }
-        [StringLength(250)]
         public string Icon { get; set; }
-        [StringLength(250)]
-        public ICollection<Product> Products { get;set; }
-
+        public string SeoTitle { get; set; }
+        public string SeoDescription { get; set; }
+        public string SeoKeywords { get; set; }
+        public ICollection<Product> Products { get; set; }
     }
 }
