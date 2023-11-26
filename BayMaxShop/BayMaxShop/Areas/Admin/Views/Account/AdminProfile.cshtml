@@ -40,33 +40,47 @@
     {
         @Html.ValidationSummary(false)
         @Html.AntiForgeryToken()
-        <div class="col-md-12">
-            <div class="form-group">
-                <label for="exampleInputEmail1">Họ tên</label>
-                <input type="text" class="form-control" aria-describedby="emailHelp" name="FullName" placeholder=" Họ tên" value="@Model.FullName">
-            </div>
-            <div class="form-group">
-                <label for="exampleInputEmail1">Tài khoản</label>
-                <input type="text" class="form-control" aria-describedby="emailHelp" name="UserName" placeholder=" Tài khoản" value="@Model.UserName" readonly>
-            </div>
-            <div class="form-group">
-                <label for="exampleInputEmail1">Số điện thoại</label>
-                <input type="number" class="form-control" aria-describedby="emailHelp" name="Phone" placeholder=" Số điện thoại" value="@Model.Phone">
-            </div>
-            <div class="form-group">
-                <label for="exampleInputEmail1">Email</label>
-                <input type="email" class="form-control" aria-describedby="emailHelp" name="Email" placeholder=" Email" value="@Model.Email" readonly>
-            </div>
-            <div class="form-group">
-                <label for="exampleInputEmail1">Giới tính</label>
-                <input type="text" class="form-control" aria-describedby="emailHelp" name="Sex" placeholder=" Giới tính" value="@Model.Sex">
-            </div>
-            <div class="form-group">
-                <label for="exampleInputEmail1">Ngày sinh</label>
-                <input type="datetime" class="form-control" aria-describedby="emailHelp" name="DateOfBirth" placeholder="Ngày sinh" value="@Model.DateOfBirth">
-            </div>
-            <button type="submit" class="btn btn-success">Cập nhật</button>
+    <div class="col-md-12">
+        <div class="form-group">
+            <label for="exampleInputEmail1">Họ tên</label>
+            <input type="text" class="form-control" aria-describedby="emailHelp" name="FullName" placeholder=" Họ tên" value="@Model.FullName">
         </div>
+        <div class="form-group">
+            <label for="exampleInputEmail1">Tài khoản</label>
+            <input type="text" class="form-control" aria-describedby="emailHelp" name="UserName" placeholder=" Tài khoản" value="@Model.UserName" readonly>
+        </div>
+        <div class="form-group">
+            <label for="exampleInputEmail1">Số điện thoại</label>
+            <input type="number" class="form-control" aria-describedby="emailHelp" name="Phone" placeholder=" Số điện thoại" value="@Model.Phone">
+        </div>
+        <div class="form-group">
+            <label for="exampleInputEmail1">Email</label>
+            <input type="email" class="form-control" aria-describedby="emailHelp" name="Email" placeholder=" Email" value="@Model.Email" readonly>
+        </div>
+        <div class="form-group">
+            <label for="exampleInputEmail1">Giới tính</label>
+            <input type="text" class="form-control" aria-describedby="emailHelp" name="Sex" placeholder=" Giới tính" value="@Model.Sex">
+        </div>
+        <div class="form-group">
+            <label for="exampleInputEmail1">Ngày sinh</label>
+            <input type="datetime" class="form-control" aria-describedby="emailHelp" name="DateOfBirth" placeholder="Ngày sinh" value="@Model.DateOfBirth">
+        </div>
+        <div class="form-group">
+           <img src="@Model.Images" alt="@Model.UserName" style="width:10%"/>
+        </div>
+        <div class="form-group">
+            <div class="custom-file">
+                @Html.EditorFor(model => model.Images, "Hình ảnh", new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Images, "", new { @class = "text-danger" })
+            </div>
+            <div class="input-group-append">
+                <input type="file" name="fileUpload" id="fileUpload" accept="image/*"
+                       style="display:none;" />
+                <input type="button" id="btnUpload" value="Chọn" class="btn btn-success" />
+            </div>
+        </div>
+        <button type="submit" class="btn btn-success">Cập nhật</button>
+    </div>
     }
 </section>
 
@@ -77,3 +91,41 @@
     </div>
 <!-- /.card -->
 </section>
+@section upload
+{
+    <script>
+        $(function () {
+            $('#btnUpload').click(function () {
+                $('#fileUpload').trigger('click');
+            });
+        });
+        $('#fileUpload').change(function () {
+            if (window.FormData !== undefined) {
+                var fileUpload = $('#fileUpload').get(0);
+                var files = fileUpload.files;
+                var formData = new FormData();
+                formData.append('file', files[0]);
+                $.ajax(
+                    {
+                        type: 'POST',
+                        url: '/Admin/Account/ProcessUpload',
+                        contentType: false,
+                        processData: false,
+                        data: formData,
+                        success: function (urlImage) {
+                            $('#pictureUpload').attr('src', urlImage);
+                            $('#Images').val(urlImage);
+                        },
+                        error: function (err) {
+                            alert('Error ', err.statusText);
+                        }
+                    });
+            }
+        });
+    </script>
+}
+
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

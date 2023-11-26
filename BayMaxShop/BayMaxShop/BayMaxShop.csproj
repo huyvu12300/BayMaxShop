@@ -3173,6 +3173,7 @@
     <Content Include="Content\clients\plugins\uplot\uPlot.iife.js" />
     <Content Include="Content\clients\plugins\uplot\uPlot.iife.min.js" />
     <Content Include="Content\clients\plugins\uplot\uPlot.min.css" />
+    <Content Include="Content\Image\41477.jpg" />
     <Content Include="Content\Image\account.png" />
     <Content Include="Content\PagedList.css" />
     <Content Include="Content\templates\send1.html" />
@@ -3415,7 +3416,6 @@
     <Content Include="Views\Posts\Detail.cshtml" />
     <Content Include="Views\Orders\ListOrders.cshtml" />
     <Content Include="Views\Orders\Partial_SanPham.cshtml" />
-    <Content Include="Views\Profile\UserProfile.cshtml" />
     <Content Include="Views\Shared\_ProfileLayout.cshtml" />
     <Content Include="Views\Account\Profile.cshtml" />
     <Content Include="Views\Address\Index.cshtml" />
@@ -3432,7 +3432,6 @@
     <Folder Include="App_Data\" />
     <Folder Include="Areas\Admin\Data\" />
     <Folder Include="Content\ckfinder\userfiles\" />
-    <Folder Include="Views\UserProfile\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
