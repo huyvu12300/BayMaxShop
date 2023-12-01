@@ -262,6 +262,10 @@
     <Compile Include="Migrations\202311231727326_update-cate2.designer.cs">
       <DependentUpon>202311231727326_update-cate2.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202312011605043_update-cate3.cs" />
+    <Compile Include="Migrations\202312011605043_update-cate3.designer.cs">
+      <DependentUpon>202312011605043_update-cate3.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Commons\Filter.cs" />
@@ -3353,6 +3357,7 @@
     <Content Include="Scripts\jquery-3.4.1.slim.js" />
     <Content Include="Scripts\jquery-3.4.1.slim.min.js" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery.unobtrusive-ajax.min.js" />
     <Content Include="Scripts\jquery.validate.js" />
     <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
@@ -3485,6 +3490,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202311231727326_update-cate2.resx">
       <DependentUpon>202311231727326_update-cate2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202312011605043_update-cate3.resx">
+      <DependentUpon>202312011605043_update-cate3.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
