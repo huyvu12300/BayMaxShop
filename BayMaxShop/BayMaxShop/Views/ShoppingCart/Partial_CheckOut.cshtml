@@ -4,9 +4,29 @@
     HttpMethod = "POST",
     UpdateTargetId = "load_data",
     OnComplete = "OnSuccessCO",
-    OnFailure = "OnFailure"
+    OnFailure = "OnFailure",
+    OnBegin = "OnBeginCO"
 }, new { @Id = "myForm" }))
 {
+    <script>
+    function OnBeginCO() {
+        $('#btnCheckOut').attr("disabled", "disabled");
+        $('#load_send').html('<h2>Đang gửi....</h2>');
+    }
+    function OnSuccessCO(res) {
+        if (res.Success) {
+            if (res.Code == 1) {
+                location.href = "/ShoppingCart/CheckOutSuccess";
+            }
+            else {
+                location.href = res.Url;
+            }
+        }
+    }
+        //function OnFailure() {
+
+        //}
+    </script>
     @Html.AntiForgeryToken()
     <h3>Thông tin khách hàng</h3>
     if (!Request.IsAuthenticated)

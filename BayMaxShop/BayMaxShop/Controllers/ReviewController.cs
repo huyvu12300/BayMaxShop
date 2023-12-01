@@ -50,7 +50,8 @@ namespace BayMaxShop.Controllers
                 req.CreatedDate = DateTime.Now;
                 _db.Reviews.Add(req);
                 _db.SaveChanges();
-                return Redirect(ControllerContext.HttpContext.Request.UrlReferrer.ToString());
+                return Json(new { Success = true });
+                //return Redirect(ControllerContext.HttpContext.Request.UrlReferrer.ToString());
             }
             return Json(new { Success = false });
         }
