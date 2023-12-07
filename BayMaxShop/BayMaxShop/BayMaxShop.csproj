@@ -266,6 +266,10 @@
     <Compile Include="Migrations\202312011605043_update-cate3.designer.cs">
       <DependentUpon>202312011605043_update-cate3.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202312070159263_add-Status.cs" />
+    <Compile Include="Migrations\202312070159263_add-Status.designer.cs">
+      <DependentUpon>202312070159263_add-Status.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Commons\Filter.cs" />
@@ -288,6 +292,7 @@
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\OrderViewModel.cs" />
+    <Compile Include="Models\Payments\VnPayLibrary.cs" />
     <Compile Include="Models\ShoppingCart.cs" />
     <Compile Include="Models\ViewModels\RevenueStatisticViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -3432,6 +3437,7 @@
     <Content Include="Views\Review\_LoadReview.cshtml" />
     <Content Include="Views\Menu\MenuBrand.cshtml" />
     <Content Include="Views\Products\ProductBrand.cshtml" />
+    <Content Include="Views\ShoppingCart\VnpayReturn.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -3493,6 +3499,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202312011605043_update-cate3.resx">
       <DependentUpon>202312011605043_update-cate3.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202312070159263_add-Status.resx">
+      <DependentUpon>202312070159263_add-Status.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

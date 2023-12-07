@@ -30,6 +30,7 @@ namespace BayMaxShop.Models.EF
         public int Quantity { get; set; }
         public string IdUser { get; set; }
         public int TypePayment { get; set; }
+        public int Status { get; set; }
         public ICollection<OrderDetail> OrderDetails { get; set;}
     }
 }
