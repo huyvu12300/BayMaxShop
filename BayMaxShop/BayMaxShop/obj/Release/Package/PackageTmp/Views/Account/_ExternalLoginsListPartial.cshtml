@@ -1,0 +1,39 @@
+﻿@model BayMaxShop.Models.ExternalLoginListViewModel
+@using Microsoft.Owin.Security
+
+
+    
+
+    @{
+        var loginProviders = Context.GetOwinContext().Authentication.GetExternalAuthenticationTypes();
+        if (loginProviders.Count() == 0)
+        {
+
+@*            <div class="img-register">
+                <img style="width: 280px; height: 280px; margin-top: -40px; " src="~/Content/assets/images/e.jpg" />
+            </div>*@
+
+        }
+        else
+        {
+            using (Html.BeginForm("ExternalLogin", "Account", new { ReturnUrl = Model.ReturnUrl }))
+            {
+                @Html.AntiForgeryToken()
+                <div id="socialLoginList">
+                    <p>
+                        @foreach (AuthenticationDescription p in loginProviders)
+                        {
+                            if (p.AuthenticationType == "Facebook")
+                            {
+                                <button type="submit" class="btn btn-info" style="background-color: #3a61c9" id="@p.AuthenticationType" name="provider" value="@p.AuthenticationType" title="Log in using your @p.Caption account">@p.AuthenticationType</button>
+                            }
+                            else if (p.AuthenticationType == "Google")
+                            {
+                                <button type="submit" class="btn btn-danger" id="@p.AuthenticationType" name="provider" value="@p.AuthenticationType" title="Log in using your @p.Caption account">@p.AuthenticationType</button>
+                            }
+                        }
+                    </p>
+                </div>
+            }
+        }
+    }

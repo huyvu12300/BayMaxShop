@@ -270,6 +270,10 @@
     <Compile Include="Migrations\202312070159263_add-Status.designer.cs">
       <DependentUpon>202312070159263_add-Status.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202312070820148_Deploy.cs" />
+    <Compile Include="Migrations\202312070820148_Deploy.designer.cs">
+      <DependentUpon>202312070820148_Deploy.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Commons\Filter.cs" />
@@ -3502,6 +3506,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202312070159263_add-Status.resx">
       <DependentUpon>202312070159263_add-Status.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202312070820148_Deploy.resx">
+      <DependentUpon>202312070820148_Deploy.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

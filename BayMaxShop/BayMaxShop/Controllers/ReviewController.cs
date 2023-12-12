@@ -32,6 +32,7 @@ namespace BayMaxShop.Controllers
                 var user = userManager.FindByName(User.Identity.Name);
                 if (user != null)
                 {
+                    item.Avatar = user.Images;
                     item.Email = user.Email;
                     item.FullName = user.FullName;
                     item.UserName = user.UserName;

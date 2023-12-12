@@ -1917,3 +1917,5 @@ C:\Users\DELL\Desktop\New folder\BayMaxShop\BayMaxShop\BayMaxShop\obj\Debug\BayM
 C:\Users\DELL\Desktop\New folder\BayMaxShop\BayMaxShop\BayMaxShop\obj\Debug\BayMaxShop.dll
 C:\Users\DELL\Desktop\New folder\BayMaxShop\BayMaxShop\BayMaxShop\obj\Debug\BayMaxShop.pdb
 C:\Users\DELL\Desktop\New folder\BayMaxShop\BayMaxShop\BayMaxShop\obj\Debug\BayMaxShop.Migrations.addStatus.resources
+C:\Users\DELL\Desktop\BayMaxShop\BayMaxShop\BayMaxShop\obj\Debug\BayMaxShop.Migrations.addStatus.resources
+C:\Users\DELL\Desktop\BayMaxShop\BayMaxShop\BayMaxShop\obj\Debug\BayMaxShop.Migrations.Deploy.resources
