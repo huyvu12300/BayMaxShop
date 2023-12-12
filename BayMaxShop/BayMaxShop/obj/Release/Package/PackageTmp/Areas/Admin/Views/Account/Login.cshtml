@@ -1,0 +1,46 @@
+﻿@model BayMaxShop.Models.LoginViewModel
+@{
+    ViewBag.Title = "Login";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutLogin.cshtml";
+}
+
+<div class="card-body login-card-body" style="margin-top: 60px; margin-left: -20px;">
+    
+    @using (Html.BeginForm("Login", "Account", FormMethod.Post))
+    {
+        @Html.AntiForgeryToken()
+        @Html.ValidationSummary(true);
+        <div class="input-group mb-3" style="width: 350px; margin-left: 63px; position: absolute; z-index: 10; margin-top: 30px; opacity: 0.6;">
+
+            @Html.TextBoxFor(x => x.UserName, new { @class = "form-control", @placeholder = "Tên tài khoản" })
+            
+        </div>
+        <div class="input-group mb-3" style="width: 350px; margin-left: 63px; position: absolute; z-index: 10; margin-top: 90px; opacity: 0.6; ">
+            @Html.PasswordFor(x => x.Password, new { @class = "form-control", @placeholder = "Mật khẩu" })
+            
+        </div>
+        <div class="row">
+            <div class="col-8" style="left: 55px; position: absolute; z-index: 10; margin-top: 150px; color: white;">
+                <div class="icheck-primary">
+                    <input type="checkbox" id="remember">
+                    <label for="remember">
+                        Nhớ mật khẩu
+                    </label>
+                </div>
+            </div>
+            <!-- /.col -->
+            <div class="col-4" style="right: 10px; position: absolute; z-index: 10; margin-top: 150px;">
+                <button type="submit" class="btn btn-primary btn-block" style="background-color: whitesmoke; color: black; border-radius: 10px; border: 1px solid whitesmoke; width: 80px; ">Sign in</button>
+            </div>
+            <!-- /.col -->
+        </div>
+    }
+
+    <!-- /.social-auth-links -->
+
+
+@*    <p class="mb-1" style="margin-left: 63px; margin-top: 200px; color: white; position: absolute; z-index: 10;">
+        <a href="#" style="color: whitesmoke; font-size: 20px; margin-left: 47px; ">Don't have a account Register</a>
+    </p>*@
+
+</div>

@@ -1,0 +1,22 @@
+﻿@model IEnumerable<BayMaxShop.Models.EF.ProductCategory>
+
+@if (Model != null && Model.Any())
+{
+    <ul class="sidebar_categories">
+        <li ><a href="/san-pham">Tất cả sản phẩm</a></li>
+        @foreach (var item in Model)
+        {
+            if (ViewBag.CateId == item.Id)
+
+            {
+                <li class="active"><a href="/danh-muc-san-pham/@item.Alias-@(item.Id)"><span><i class="fa fa-angle-double-right" aria-hidden="true"></i></span>@item.ProductCategoryName</a></li>
+            }
+            else
+            {
+                <li><a href="/danh-muc-san-pham/@item.Alias-@(item.Id)">@item.ProductCategoryName</a></li>
+            }
+
+        }
+    </ul>
+}
+

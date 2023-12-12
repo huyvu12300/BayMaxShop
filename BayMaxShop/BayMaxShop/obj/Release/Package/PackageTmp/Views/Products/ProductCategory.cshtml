@@ -1,0 +1,140 @@
+﻿
+@model PagedList.PagedList<BayMaxShop.Models.EF.Product>
+@using PagedList.Mvc;
+@using PagedList;
+
+@{ 
+    ViewBag.Title = "Danh sách sản phẩm";
+}
+
+<link rel="stylesheet" type="text/css" href="~/Content/assets/styles/categories_styles.css">
+<link rel="stylesheet" type="text/css" href="~/Content/assets/styles/categories_responsive.css">
+
+<div class="container product_section_container">
+    <div class="row">
+        <div class="col product_section clearfix">
+            <div class="img-quangcao">
+                <img src="~/Content/assets/images/BigSale.png" style="height:250px; width: 1100px; margin-top: -70px;" />
+            </div>
+            <!-- Breadcrumbs -->
+
+            <div class="breadcrumbs d-flex flex-row align-items-center">
+                <ul>
+                    <li><a href="/">Trang chủ</a></li>
+                    <li class="active"><a href="#"><i class="fa fa-angle-right" aria-hidden="true"></i>@ViewBag.CateName</a></li>
+                </ul>
+            </div>
+
+            <!-- Sidebar -->
+
+            <div class="sidebar">
+                <div class="sidebar_section">
+                    <div class="sidebar_title">
+                        <h4>Danh mục</h4>
+                    </div>
+                    @Html.Action("MenuLeft", "Menu")
+                </div>
+
+                <!-- Price Range Filtering -->
+                <div class="sidebar_section">
+                    <div class="sidebar_title">
+                        <h4>Thương hiệu</h4>
+                    </div>
+                    @Html.Action("MenuBrand", "Menu")
+                </div>
+
+            </div>
+
+            <!-- Main Content -->
+
+            <div class="main_content">
+
+                <!-- Products -->
+
+                <div class="products_iso">
+                    <div class="row">
+                        <div class="col">
+                            <div class="col-6" style="margin-left: 580px;">
+
+                                <!-- Product Sorting -->
+                                <!-- Product Grid -->
+                                <div class="pages d-flex flex-row align-items-center">
+                                    <form>
+                                        @using (Html.BeginForm("ProductCategory", "Products", FormMethod.Get, new { }))
+                                        {
+                                            <div class="input-group input-group-sm">
+                                                @Html.TextBox("Searchtext")
+                                                @*<input type="text" name="searchText" class="form-control">*@
+                                                <span class="input-group-append">
+                                                    <button type="submit" class="btn btn-info btn-flat">Tìm Kiếm</button>
+                                                </span>
+                                            </div>
+                                        }
+                                    </form>
+                                </div>
+                            </div>
+                            <div class="product-grid">
+
+                                <!-- Product 1 -->
+                                @foreach (var item in Model)
+                                {
+                                    var strImge = "";
+                                    var img = item.ProductImage.FirstOrDefault(x => x.IsDefault);
+                                    if (img != null)
+                                    {
+                                        strImge = img.Image;
+                                    }
+                                    <div class="product-item @item.ProductCategory.Alias">
+                                        <div class="product discount product_filter">
+                                            <div class="product_image">
+                                                <img src="@strImge" alt="@item.ProductName">
+                                            </div>
+                                            <div class="favorite favorite_left"></div>
+                                            @if (item.PriceSale > 0)
+                                            {
+                                                <div class="product_bubble product_bubble_right product_bubble_red d-flex flex-column align-items-center"><span>sale</span></div>
+                                            }
+                                            <div class="product_info">
+                                                <h6 class="product_name"><a href="/chi-tiet/@item.Alias-p@(item.Id)">@item.ProductName</a></h6>
+                                                @if (item.PriceSale > 0)
+                                                {
+                                                    <div class="product_price">@BayMaxShop.Common.Common.FormatNumber(item.PriceSale, 0)<span>@BayMaxShop.Common.Common.FormatNumber(item.Price, 0)</span></div>
+
+                                                }
+                                                else
+                                                {
+                                                    <div class="product_price">@BayMaxShop.Common.Common.FormatNumber(item.Price, 0)</div>
+                                                }
+                                            </div>
+                                        </div>
+                                        @if (item.Quantity <= 0)
+                                        {
+                                            <div class="red_button add_to_cart_button"><a href="#" class="btnAddToCart" data-id="@item.Id">Hết hàng</a></div>
+                                        }
+                                        else
+                                        {
+                                            <div class="red_button add_to_cart_button"><a href="#" class="btnAddToCart" data-id="@item.Id">Thêm vào giỏ hàng</a></div>
+                                        }
+                                    </div>
+                                }
+                            </div>
+                            <!-- Product Sorting -->
+                            <div class="row">
+                                <div class="col-9"></div>
+                                <div class="col-3" style="text-align:right;">
+                                    @Html.PagedListPager(Model, page => Url.Action("ProductCategory", new { page }))
+                                </div>
+                            </div>
+
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section scripts{
+    <script src="~/Content/assets/js/categories_custom.js"></script>
+}
