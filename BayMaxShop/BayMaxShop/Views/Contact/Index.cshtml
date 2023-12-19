@@ -45,25 +45,33 @@
                     <h5>Nguyễn Hoàng Nguyên Vũ</h5>
                     <h5>Phạm Minh Đức</h5>
                 </div>
-                
+
             </div>
 
             <!-- Follow Us -->
         </div>
-        <div class="col-lg-6 follow_us_contents" style="margin-top: 40px; margin-left: 50px; font-family:'Times New Roman', Times, serif;">
-            <h2 style="font-family: 'Times New Roman', Times, serif;">Theo Dõi</h2>
-            <div class="social-links" style="margin-left: 8px; margin-top: 18px; word-spacing: 10px; ">
-                <a href="https://www.facebook.com/PhamMinhDuc.lacongchuakhocnhe/"><i class="fab fa-facebook-f"></i></a>
-                <a href="https://www.facebook.com/PhamMinhDuc.lacongchuakhocnhe/"><i class="fab fa-twitter"></i></a>
-                <a href="https://www.facebook.com/PhamMinhDuc.lacongchuakhocnhe/"><i class="fab fa-instagram"></i></a>
+        <div class="col-lg-6 get_in_touch_col">
+            <div class="get_in_touch_contents">
+                <h1>Get In Touch With Us!</h1>
+                <p>Fill out the form below to recieve a free and confidential.</p>
+                @using (Html.BeginForm("Index", "Contact", FormMethod.Post, new { }))
+                {
+                    @Html.AntiForgeryToken()
+                    @Html.ValidationSummary(true)
+                    <div>
+                        <input id="input_name" class="form_input input_name input_ph" type="text" name="name" placeholder="Name" required="required" data-error="Name is required.">
+                        <input id="input_email" class="form_input input_email input_ph" type="email" name="email" placeholder="Email" required="required" data-error="Valid email is required.">
+                        <textarea id="input_message" class="input_ph input_message" name="message" placeholder="Message" rows="3" required data-error="Please, write us a message."></textarea>
+                    </div>
+                    <div>
+                        <button id="review_submit" type="submit" class="red_button message_submit_btn trans_300" value="Submit">send message</button>
+                    </div>
+                }
             </div>
-
-            <ul class="social d-flex flex-row">
-            </ul>
         </div>
 
         <div class="info-phone" style=" left: -36px; top: 40px; display: flex; justify-content: center; align-items: center; font-family: 'Times New Roman', Times, serif;">
-            
+
             <a> <a style="color: red; font-family: 'Times New Roman', Times, serif;">HOTLINE: </a>  0963304506</a>
             <a style="margin-left: 360px; font-family: 'Times New Roman', Times, serif;"> <a style="color:red;"> Email: </a> durdu02012002@gmail.com</a>
         </div>

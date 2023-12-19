@@ -170,8 +170,8 @@ namespace BayMaxShop.Controllers
                                 order.Address = item.Address;
                                 order.Email = item.Email;
                                 order.Status = 1;//chưa thanh toán / 2/đã thanh toán, 3/Hoàn thành, 4/hủy
-                        }
-                    }    
+                            }
+                       }    
                     }   
                     else
                     {
@@ -239,7 +239,6 @@ namespace BayMaxShop.Controllers
             db.SaveChanges();
             var strSanPham = "";
             var thanhtien = decimal.Zero;
-            var phiVanChuyen = decimal.Zero;
             var TongTien = decimal.Zero;
             foreach (var sp in cart.Items)
             {
@@ -250,7 +249,7 @@ namespace BayMaxShop.Controllers
                 strSanPham += "</tr>";
                 thanhtien += sp.Quantity * sp.Price;
             }
-            TongTien = thanhtien + phiVanChuyen;
+            TongTien = thanhtien;
             string contentCustomer = System.IO.File.ReadAllText(Server.MapPath("~/Content/templates/send2.html"));
             contentCustomer = contentCustomer.Replace("{{MaDon}}", order.Code);
             contentCustomer = contentCustomer.Replace("{{SanPham}}", strSanPham);
@@ -271,10 +270,8 @@ namespace BayMaxShop.Controllers
                     break;
             }
             contentCustomer = contentCustomer.Replace("{{ThanhTien}}", BayMaxShop.Common.Common.FormatNumber(thanhtien, 0));
-            contentCustomer = contentCustomer.Replace("{{PhiVanChuyen}}", BayMaxShop.Common.Common.FormatNumber(phiVanChuyen, 0));
             contentCustomer = contentCustomer.Replace("{{TongTien}}", BayMaxShop.Common.Common.FormatNumber(TongTien, 0));
             BayMaxShop.Common.Common.SendMail("BayMaxShop", "Đơn hàng #" + order.Code, contentCustomer.ToString(), email);
-
             string contentAdmin = System.IO.File.ReadAllText(Server.MapPath("~/Content/templates/send1.html"));
             contentAdmin = contentAdmin.Replace("{{MaDon}}", order.Code);
             contentAdmin = contentAdmin.Replace("{{SanPham}}", strSanPham);
@@ -295,7 +292,6 @@ namespace BayMaxShop.Controllers
                     break;
             }
             contentAdmin = contentAdmin.Replace("{{ThanhTien}}", BayMaxShop.Common.Common.FormatNumber(thanhtien, 0));
-            contentAdmin = contentAdmin.Replace("{{PhiVanChuyen}}", BayMaxShop.Common.Common.FormatNumber(phiVanChuyen, 0));
             contentAdmin = contentAdmin.Replace("{{TongTien}}", BayMaxShop.Common.Common.FormatNumber(TongTien, 0));
             BayMaxShop.Common.Common.SendMail("BayMaxShop", "Đơn hàng mới #" + order.Code, contentAdmin.ToString(), ConfigurationManager.AppSettings["EmailAdmin"]);
             cart.ClearCart();

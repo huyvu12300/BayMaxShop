@@ -1,0 +1,199 @@
+﻿@model IEnumerable<BayMaxShop.Models.EF.Contact>
+@{
+    ViewBag.Title = "Liên hệ";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+@section naviheader{
+    <!-- Left navbar links -->
+    <ul class="navbar-nav">
+        <li class="nav-item">
+            <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
+        </li>
+        <li class="nav-item d-none d-sm-inline-block">
+            <a href="/admin/home" class="nav-link">Trang Chủ</a>
+        </li>
+        <li class="nav-item d-none d-sm-inline-block">
+            <a href="/admin/brand" class="nav-link">@ViewBag.Title</a>
+        </li>
+    </ul>
+}
+
+<!-- Content Header (Page header) -->
+<section class="content-header">
+    <div class="container-fluid">
+        <div class="row mb-2">
+            <div class="col-sm-6">
+                <h1 style="color: #CCCCCC;">Quản lý Liên Hệ</h1>
+            </div>
+            <div class="col-sm-6">
+                <ol class="breadcrumb float-sm-right">
+                    <li class="breadcrumb-item"><a href="/admin/index">Trang chủ</a></li>
+                    <li class="breadcrumb-item active">@ViewBag.Title</li>
+                </ol>
+            </div>
+        </div>
+    </div><!-- /.container-fluid -->
+</section>
+
+<!-- Main content -->
+<section class="content">
+    <!-- Default box -->
+    <div style="background: linear-gradient(to right, #F2F2F2, #DBDBDB);" class="card">
+        <div class="card-header">
+            <h3 class="card-title">@ViewBag.Title</h3>
+        </div>
+        <div class="card-body">
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th>STT</th>
+                        <th>Tên khách hàng</th>
+                        <th>Email khách hàng</th>
+                        <th>Tin nhắn</th>
+                        @*<th>Hiển thị</th>*@
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody id="ListContact"></tbody>
+            </table>
+        </div>
+    </div>
+    <div class="modal" tabindex="-1" role="dialog" id="modalLop">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header" style="background: #5f76e8; color: white;">
+                    <h5 class="modal-title">Gửi mail</h5>
+                </div>
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label>Name</label>
+                        <input type="text" class="form-control" id="name">
+                    </div>
+                    <div class="form-group">
+                        <label>Email</label>
+                        <input type="text" class="form-control" id="email">
+                    </div>
+                    <div class="form-group">
+                        <label>Reply</label>
+                        <input type="text" class="form-control" id="subject">
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" id="btnSubmit">Gửi mail</button>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Đóng</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+@section scripts{
+    <script>
+
+        $(document).ready(function () {
+            LoadContact();
+        });
+
+        $(document).ready(function () {
+            $('body').on('click', '.btnDelete', function () {
+                var id = $(this).data("id");
+                var conf = confirm('Bạn có muốn xoá không?');
+                if (conf == true) {
+                    $.ajax({
+                        url: '/admin/contact/delete',
+                        type: 'POST',
+                        data: { id: id },
+                        success: function (rs) {
+                            if (rs.success) {
+                                $('#trow_' + id).remove();
+                            }
+                        }
+                    })
+                }
+            })
+        })
+
+        function LoadContact() {
+            $.ajax({
+                url: '/admin/contact/DsContact',
+                type: 'get',
+                success: function (data) {
+                    if (data.code == 200) {
+                        $('#ListContact').empty();
+                        var stt = 1;
+                        $.each(data.dsContact, function (k, v) {
+                            let tr = '<tr id = "' + v.id + '">'
+                            tr += '<td>' + stt + '</td>';
+                            tr += '<td>' + v.name + '</td>';
+                            tr += '<td>' + v.email + '</td>';
+                            tr += '<td>' + v.message + '</td>';
+                            tr += '<td class="text-center">';
+                            tr += '<button class="btn waves-effect waves-light btn-primary" name ="reply">Trả lời tin nhắn</button> &nbsp;';
+                            tr += '<button class="btn waves-effect waves-light btn-danger" name ="delete">Xoá</button>';
+                            tr += '</td>';
+                            tr += '</tr > ';
+                            $('#ListContact').append(tr);
+                            stt++;
+                        });
+                    }
+                }
+
+            });
+        }
+
+        $(document).on('click', "button[name= 'reply']", function () {
+            let id = $(this).closest('tr').attr('id');
+            $.ajax({
+                url: '/admin/contact/reply',
+                type: 'get',
+                data: {
+                    id: id
+                },
+                success: function (data) {
+                    if (data.code == 200) {
+                        $('#name').val(data.detail.name);
+                        $('#email').val(data.detail.email);
+                        $('#name').prop('readonly', true);
+                        $('#email').prop('readonly', true);
+                        $('#modalLop').modal();
+                    }
+                    else {
+                        alert(data.msg);
+                    }
+                }
+            });
+        });
+
+        $('#btnSubmit').click(function () {
+            let subject = $('#subject').val();
+            // Ràng buộc dữ liệu
+            if (subject.length == 0) {
+                alert('Không có giá trị');
+                return;
+            }
+
+            let email = $('#email').val().trim();
+            let name = $('#name').val().trim();
+            $.ajax({
+                url: '/admin/contact/sendmail',
+                type: 'post',
+                data: {
+                    name: name,
+                    email: email,
+                    subject: subject
+                },
+                success: function (data) {
+                    if (data == true) {
+                        alert("Gửi mail thành công");
+                        $('#modalLop').modal('hide');
+                    }
+                    else {
+                        alert("Gửi mail thất bại");
+                    }
+                }
+            })
+        })
+    </script>
+}
+
+
