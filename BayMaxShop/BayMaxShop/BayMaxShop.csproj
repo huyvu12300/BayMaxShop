@@ -183,6 +183,7 @@
     <Compile Include="Areas\Admin\Controllers\BookingController.cs" />
     <Compile Include="Areas\Admin\Controllers\BrandController.cs" />
     <Compile Include="Areas\Admin\Controllers\CategoryController.cs" />
+    <Compile Include="Areas\Admin\Controllers\ContactController.cs" />
     <Compile Include="Areas\Admin\Controllers\HomeController.cs" />
     <Compile Include="Areas\Admin\Controllers\NewsController.cs" />
     <Compile Include="Areas\Admin\Controllers\OrderController.cs" />
@@ -266,17 +267,22 @@
     <Compile Include="Migrations\202312011605043_update-cate3.designer.cs">
       <DependentUpon>202312011605043_update-cate3.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202312070159263_add-Status.cs" />
-    <Compile Include="Migrations\202312070159263_add-Status.designer.cs">
-      <DependentUpon>202312070159263_add-Status.cs</DependentUpon>
+    <Compile Include="Migrations\202312181330305_update-dt.cs" />
+    <Compile Include="Migrations\202312181330305_update-dt.designer.cs">
+      <DependentUpon>202312181330305_update-dt.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202312070820148_Deploy.cs" />
-    <Compile Include="Migrations\202312070820148_Deploy.designer.cs">
-      <DependentUpon>202312070820148_Deploy.cs</DependentUpon>
+    <Compile Include="Migrations\202312191526438_Update-contact.cs" />
+    <Compile Include="Migrations\202312191526438_Update-contact.designer.cs">
+      <DependentUpon>202312191526438_Update-contact.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202312191728314_fix-contact.cs" />
+    <Compile Include="Migrations\202312191728314_fix-contact.designer.cs">
+      <DependentUpon>202312191728314_fix-contact.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Commons\Filter.cs" />
+    <Compile Include="Models\ContactViewModel.cs" />
     <Compile Include="Models\CustomerViewModel.cs" />
     <Compile Include="Models\EF\AddressBook.cs" />
     <Compile Include="Models\EF\Brand.cs" />
@@ -289,8 +295,9 @@
     <Compile Include="Models\EF\Product.cs" />
     <Compile Include="Models\EF\ProductCategory.cs" />
     <Compile Include="Models\EF\ProductImage.cs" />
+    <Compile Include="Models\EF\ProductVariant.cs" />
     <Compile Include="Models\EF\ReviewProduct.cs" />
-    <Compile Include="Models\EF\Subscribe.cs" />
+    <Compile Include="Models\EF\Contact.cs" />
     <Compile Include="Models\EF\SystemSetting.cs" />
     <Compile Include="Models\EF\Wishlist.cs" />
     <Compile Include="Models\IdentityModels.cs" />
@@ -3360,6 +3367,7 @@
     <Content Include="Areas\Admin\Views\Brand\Index.cshtml" />
     <Content Include="Areas\Admin\Views\Brand\Add.cshtml" />
     <Content Include="Areas\Admin\Views\Brand\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\Contact\Index.cshtml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
@@ -3504,11 +3512,14 @@
     <EmbeddedResource Include="Migrations\202312011605043_update-cate3.resx">
       <DependentUpon>202312011605043_update-cate3.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202312070159263_add-Status.resx">
-      <DependentUpon>202312070159263_add-Status.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202312181330305_update-dt.resx">
+      <DependentUpon>202312181330305_update-dt.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202312070820148_Deploy.resx">
-      <DependentUpon>202312070820148_Deploy.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202312191526438_Update-contact.resx">
+      <DependentUpon>202312191526438_Update-contact.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202312191728314_fix-contact.resx">
+      <DependentUpon>202312191728314_fix-contact.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

@@ -69,7 +69,20 @@
                                 <td>@item.CustomerName</td>
                                 <td>@item.Phone</td>
                                 <td>@BayMaxShop.Common.Common.FormatNumber(item.TotalAmount)</td>
-                                <td>@(item.TypePayment==1?"Chờ thành toán":"Đã thanh toán")</td>
+                                @switch (item.TypePayment)
+                                {
+                                    case 1:
+                                        <td>Chờ Thanh Toán</td>
+                                        break;
+                                    case 2:
+                                        <td>Đã Thanh Toán</td>
+                                        break;
+                                    case 3:
+                                        <td>Hủy Đơn Hàng</td>
+                                        break;
+                                    default:
+                                        break;
+                                }
                                 <td>@item.CreatedDate.ToString("dd/MM/yyyy")</td>
                                 <td>
                                     <a href="/admin/order/view/@item.Id" class="btn btn-sm btn-success">Xem</a>

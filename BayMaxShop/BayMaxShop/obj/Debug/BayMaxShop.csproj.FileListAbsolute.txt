@@ -1919,3 +1919,7 @@ C:\Users\DELL\Desktop\New folder\BayMaxShop\BayMaxShop\BayMaxShop\obj\Debug\BayM
 C:\Users\DELL\Desktop\New folder\BayMaxShop\BayMaxShop\BayMaxShop\obj\Debug\BayMaxShop.Migrations.addStatus.resources
 C:\Users\DELL\Desktop\BayMaxShop\BayMaxShop\BayMaxShop\obj\Debug\BayMaxShop.Migrations.addStatus.resources
 C:\Users\DELL\Desktop\BayMaxShop\BayMaxShop\BayMaxShop\obj\Debug\BayMaxShop.Migrations.Deploy.resources
+C:\Users\Admin\Desktop\BayMaxShop\BayMaxShop\BayMaxShop\obj\Debug\BayMaxShop.Migrations.updatecate3.resources
+C:\Users\Admin\Desktop\BayMaxShop\BayMaxShop\BayMaxShop\obj\Debug\BayMaxShop.Migrations.updatedt.resources
+C:\Users\Admin\Desktop\BayMaxShop\BayMaxShop\BayMaxShop\obj\Debug\BayMaxShop.Migrations.Updatecontact.resources
+C:\Users\Admin\Desktop\BayMaxShop\BayMaxShop\BayMaxShop\obj\Debug\BayMaxShop.Migrations.fixcontact.resources

@@ -44,7 +44,7 @@ namespace BayMaxShop.Models
         public DbSet<ProductImage> ProductImages { get; set; }
         public DbSet<Order> Orders { get; set; }
         public DbSet<OrderDetail> OrderDetails { get; set; }
-        public DbSet<Subscribe> Subscribes { get; set; }
+        public DbSet<Contact> Contacts { get; set; }
         public DbSet<AddressBook> AddressBooks { get; set; }
         public DbSet<Wishlist> Wishlists { get; set; }
 

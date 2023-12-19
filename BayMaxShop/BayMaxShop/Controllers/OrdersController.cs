@@ -50,9 +50,9 @@ namespace BayMaxShop.Controllers
                 item.TypePayment = trangthai;
                 db.Entry(item).Property(x => x.TypePayment).IsModified = true;
                 db.SaveChanges();
-                return Json(new { message = "Thành công", Success = true });
+                return Json(new { message = "Success", Success = true });
             }
-            return Json(new { message = "Thất bại!", Success = false });
+            return Json(new { message = "Unsuccess", Success = false });
         }
     }
 }
