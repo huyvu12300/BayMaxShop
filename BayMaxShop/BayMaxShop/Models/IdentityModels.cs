@@ -1,4 +1,5 @@
 ﻿using System;
+using System.ComponentModel.DataAnnotations;
 using System.Data.Entity;
 using System.Security.Claims;
 using System.Threading.Tasks;
@@ -13,7 +14,9 @@ namespace BayMaxShop.Models
     public class ApplicationUser : IdentityUser
     {
         public string FullName { get; set; }
-        public string Images { get; set; }  
+        public string Images { get; set; }
+        [Required]
+        [RegularExpression(@"^\d{10,11}$", ErrorMessage = "Số điện thoại phải có đủ 10 hay 11 số")]
         public string Phone { get; set; }
         public DateTime DateOfBirth { get; set; }
         public string Sex { get; set; }
@@ -36,7 +39,6 @@ namespace BayMaxShop.Models
         public DbSet<Brand> Brands { get; set; }
         public DbSet<Menu> Menus { get; set; }
         public DbSet<ReviewProduct> Reviews { get; set; }
-        public DbSet<Posts> Posts { get; set; }
         public DbSet<News> News { get; set; }
         public DbSet<SystemSetting> SystemSettings { get; set; }
         public DbSet<ProductCategory> ProductCategories { get; set; }
@@ -46,8 +48,6 @@ namespace BayMaxShop.Models
         public DbSet<OrderDetail> OrderDetails { get; set; }
         public DbSet<Contact> Contacts { get; set; }
         public DbSet<AddressBook> AddressBooks { get; set; }
-        public DbSet<Wishlist> Wishlists { get; set; }
-
         public static ApplicationDbContext Create()
         {
             return new ApplicationDbContext();

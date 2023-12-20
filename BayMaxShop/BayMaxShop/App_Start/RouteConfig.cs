@@ -57,21 +57,21 @@ namespace BayMaxShop
               namespaces: new[] { "BayMaxShop.Controllers" }
             );
 
-            routes.MapRoute(
-               name: "DetailPosts",
-               url: "bai-viet/{alias}-n{id}",
-               defaults: new { controller = "Posts", action = "Detail", id = UrlParameter.Optional },
-               namespaces: new[] { "BayMaxShop.Controllers" }
+            //routes.MapRoute(
+            //   name: "DetailPosts",
+            //   url: "bai-viet/{alias}-n{id}",
+            //   defaults: new { controller = "Posts", action = "Detail", id = UrlParameter.Optional },
+            //   namespaces: new[] { "BayMaxShop.Controllers" }
 
-            );
+            //);
 
-            routes.MapRoute(
-               name: "NewsPost",
-               url: "bai-viet",
-               defaults: new { controller = "Posts", action = "Index", alias = UrlParameter.Optional },
-               namespaces: new[] { "BayMaxShop.Controllers" }
+            //routes.MapRoute(
+            //   name: "NewsPost",
+            //   url: "bai-viet",
+            //   defaults: new { controller = "Posts", action = "Index", alias = UrlParameter.Optional },
+            //   namespaces: new[] { "BayMaxShop.Controllers" }
 
-            );
+            //);
 
             routes.MapRoute(
                name: "detailProducts",

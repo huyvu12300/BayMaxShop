@@ -1,5 +1,4 @@
-﻿
-@{
+﻿@{
     ViewBag.Title = "VnpayReturn";
     Layout = "~/Views/Shared/_Layout.cshtml";
 
@@ -17,7 +16,7 @@
             <div class="breadcrumbs d-flex flex-row align-items-center">
                 <ul>
                     <li><a href="index.html">Home</a></li>
-                    <li class="active"><a href="/"><i class="fa fa-angle-right" aria-hidden="true"></i>Thanh toán</a></li>
+                    <li class="active"><a href="/"><i class="fa fa-angle-right" aria-hidden="true"></i>Thanh Toán</a></li>
                 </ul>
             </div>
 
@@ -26,12 +25,15 @@
             <div class="row">
 
                 <div class="col-md-12 text-center">
-                    <h1 class="">Thanh toán</h1>
+
+                    <h1 style="position: absolute; z-index: 3; margin-left: 360px; margin-top: 10px; font-size: 55px; font-family: Lucida Handwriting; " class="">Thanh Toán</h1>
+
+
                     @if (ViewBag.ThanhToanThanhCong != null)
                     {
-                        <p>Bạn đã thanh toán thành công với @ViewBag.ThanhToanThanhCong!</p>
+                        <p style="position: absolute; z-index: 3; margin-left: -150px; margin-top: 250px; font-size: 28px; width: 1400px; color: orange;">@ViewBag.InnerText</p>
                     }
-                    <p>@ViewBag.InnerText</p>
+                    <img src="~/Content/assets/images/tt.jpg" style="height: 300px; width: 1400px; position: relative; z-index: 1; margin-top: 0px; margin-left: -150px;" />
                 </div>
 
             </div>

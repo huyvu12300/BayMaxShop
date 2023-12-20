@@ -22,11 +22,11 @@
     </ul>
 }
 <!-- Content Header (Page header) -->
-<section class="content-header" >
+<section class="content-header">
     <div class="container-fluid">
         <div class="row mb-2">
             <div class="col-sm-6">
-                <h1 style="color: #CCCCCC;">Thêm mới tin tức</h1>
+                <h1 style="color: black;">Thêm mới tin tức</h1>
             </div>
             <div class="col-sm-6">
                 <ol class="breadcrumb float-sm-right">
@@ -43,7 +43,7 @@
 <section class="content">
 
     <!-- Default box -->
-    <div  style="background: linear-gradient(to right, #F2F2F2, #DBDBDB); " class="card">
+    <div style="background: linear-gradient(to right, #F2F2F2, #DBDBDB); " class="card">
         <div class="card-header">
             <h3 class="card-title">Thông tin thêm mới tin tức</h3>
         </div>
@@ -60,6 +60,11 @@
                                 <label for="exampleInputEmail1">Tên tin tức</label>
                                 @Html.TextBoxFor(x => x.NewsName, new { @class = "form-control", @placehoder = "Tên danh mục" })
                                 @Html.ValidationMessageFor(x => x.NewsName, null, new { @class = "text-danger" })
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleInputAuthor">Tên tác giả</label>
+                                @Html.TextBoxFor(x => x.Author, new { @class = "form-control", @placehoder = "Tên  tác giả" })
+                                @Html.ValidationMessageFor(x => x.Author, null, new { @class = "text-danger" })
                             </div>
                             <div class="form-group">
                                 <label for="exampleInputFile">Ảnh đại diện</label>
@@ -82,7 +87,7 @@
                             </div>
                             <div class="form-group">
                                 <a style="background-color: #B58499;" href="/admin/category" class="btn btn-danger">Quay lại</a>
-                                <button style="background-color: #848FB3;"  type="submit" class="btn btn-primary">Submit</button>
+                                <button style="background-color: #848FB3;" type="submit" class="btn btn-primary">Submit</button>
                             </div>
 
                         </div>

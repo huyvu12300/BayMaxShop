@@ -9,10 +9,10 @@ using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using BayMaxShop.Models;
+using System.Text.RegularExpressions;
 
 namespace BayMaxShop.Controllers
 {
-    //[Authorize(Roles = "Customer")]
     public class AccountController : Controller
     {
         private ApplicationSignInManager _signInManager;
@@ -52,7 +52,7 @@ namespace BayMaxShop.Controllers
             }
         }
 
-        public async Task<ActionResult> Profile()
+        public async Task<ActionResult> UserProfile()
         {
             var user = await UserManager.FindByNameAsync(User.Identity.Name);
             var item = new CreateAccountViewModel();
@@ -76,12 +76,24 @@ namespace BayMaxShop.Controllers
             user.DateOfBirth = req.DateOfBirth;
             user.Sex = req.Sex;
             user.Images = req.Images;
+            if (!IsValidPhoneNumber(req.Phone))
+            {
+                ModelState.AddModelError("Phone", "Số điện thoại không hợp lệ");
+                return RedirectToAction("UserProfile");
+            }
             var rs = await UserManager.UpdateAsync(user);
             if (rs.Succeeded)
             {
-                return RedirectToAction("Profile");
+                return RedirectToAction("UserProfile");
             }
             return View(rs);
+        }
+
+        private bool IsValidPhoneNumber(string phoneNumber)
+        {
+            // Kiểm tra xem chuỗi có đúng 10 chữ số không
+            const string pattern = @"^\d{10}$";
+            return !string.IsNullOrWhiteSpace(phoneNumber) && Regex.IsMatch(phoneNumber, pattern);
         }
 
         //

@@ -14,7 +14,7 @@
         <script>
             function OnBeginRE() {
                 $('#review_submit').attr("disabled", "disabled");
-            //    $('#load_send').html('<h2>Dang Gui....</h2>');
+                //    $('#load_send').html('<h2>Dang Gui....</h2>');
             }
             function OnSuccessRE(res) {
                 if (res.Success) {
@@ -30,7 +30,9 @@
             <div>
                 <h1>Add Review</h1>
                 @Html.TextBoxFor(x => x.FullName, new { @class = "form_input input_name", @placeholder = "Name*", @id = "review_name" })
+                @Html.ValidationMessageFor(x => x.FullName, "", new { @class = "text-danger" })
                 @Html.TextBoxFor(x => x.Email, new { @class = "form_input input_email", @placeholder = "Email*", @id = "review_email" })
+                @Html.ValidationMessageFor(x => x.Email, "", new { @class = "text-danger" })
                 @Html.HiddenFor(x => x.UserName)
                 @Html.HiddenFor(x => x.Avatar)
                 @Html.HiddenFor(x => x.ProductId, new { @Value = ViewBag.ProductId })
@@ -46,7 +48,7 @@
                     <li><i class="fa fa-star-o" aria-hidden="true"></i></li>
                 </ul>
                 @Html.TextAreaFor(x => x.Content, new { @class = "input_review", @rows = "4", @placeholder = "Your Review" })
-
+                @Html.ValidationMessageFor(x => x.Content, "", new { @class = "text-danger" })
             </div>
         </div>
         <div style="margin-left: 660px; margin-top:-20px;" class="text-left text-sm-right">

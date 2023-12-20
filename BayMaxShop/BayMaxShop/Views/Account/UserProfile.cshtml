@@ -1,0 +1,149 @@
+﻿@model  BayMaxShop.Models.ApplicationUser
+@{
+    ViewBag.Title = "Profile";
+    Layout = "~/Views/Shared/_ProfileLayout.cshtml";
+}
+
+<link rel="stylesheet" type="text/css" href="~/Content/assets/styles/categories_styles.css">
+<link rel="stylesheet" type="text/css" href="~/Content/assets/styles/categories_responsive.css">
+
+<style>
+    .news_section_container {
+        margin-top: 180px;
+    }
+
+    .row-item-new {
+        margin-bottom: 20px;
+    }
+
+    .title-news {
+        font-size: 24px;
+        border-bottom: 1px solid;
+        padding: 15px 0;
+        margin-bottom: 25px;
+    }
+
+    .img-box img {
+        max-width: 100%;
+        max-height: 100%;
+    }
+
+    .form {
+        margin-top: 210px;
+        left: 50%;
+        border-radius: 10px;
+        backdrop-filter: blur(10px);
+        border: 2px solid rgba(255,255,255,0.1);
+        box-shadow: 0 0 40px rgba(8,7,16,0.6);
+        padding: 50px 35px;
+        transform: translate(-50%,-50%);
+        height: 580px;
+        width: 400px;
+    }
+</style>
+
+
+
+<div style="margin-left: 100px; margin-top: 300px; " class="container news_section_container">
+    <div class="row">
+        @using (Html.BeginForm("PostProfile", "Account"))
+        {
+            @Html.ValidationSummary(false)
+            @Html.AntiForgeryToken()
+            <div style="float: left; text-align:center; padding-top: -30px;" class="form">
+                <h2 style="font-family: Cursive; font-size: 50px; color: #AB506D;">Profile</h2>
+                <div style="margin-top:20px; margin-left: 10px; padding-top: 30px;" class="form-group">
+                    <label style="margin-right: 245px; " for="exampleInputEmail1">Họ tên</label>
+                    <input style="width: 500px; height: 45px; border-radius: 30px; font-size: 15px; opacity: 0.8; " type="text" class="form-control" aria-describedby="emailHelp" name="FullName" placeholder="Nhập Họ tên" value="@Model.FullName">
+                </div>
+                <div style="margin-top: 20px; margin-left: 10px; padding-top: 30px;" class="form-group">
+                    <label style="margin-right: 225px; " for="exampleInputEmail1">Tài khoản</label>
+                    <input style="width: 500px; height: 45px; border-radius: 30px; font-size: 15px; opacity: 0.8; " type="text" class="form-control" aria-describedby="emailHelp" name="UserName" placeholder="Nhập tài khoản" value="@Model.UserName" readonly>
+                </div>
+                <div style="margin-top: 20px; margin-left: 10px; padding-top: 25px;" class="form-group">
+                    <label style="margin-right: 195px; " for="exampleInputEmail1">Số điện thoại</label>
+                    <input style="width: 500px; height: 45px; border-radius: 30px; font-size: 15px; opacity: 0.8; " type="number" class="form-control" aria-describedby="emailHelp" name="Phone" placeholder="Nhập Số điện thoại" value="@Model.Phone">
+                </div>
+
+            </div><div style="float: left; text-align:center;" class="form">
+                @if (Model.Images != null)
+                {
+                    <div class="img-avatar-profile">
+                        <img src="@Model.Images" style="width: 90px; height: 90px; margin-top: -20px; border-radius: 100px; " />
+                    </div>
+                }
+                else
+                {
+                    <div class="img-avatar-profile">
+                        <img src="~/Content/Image/account.png" style="width: 90px; height: 90px; margin-top: -20px; border-radius: 100px; " />
+                    </div>
+                }
+                <div style="margin-top: -50px; margin-left: 20px; padding-top: 90px;" class="form-group">
+                    <label style="margin-right:245px;" for="exampleInputEmail1">Email</label>
+                    <input style="width: 500px; height:45px; border-radius: 30px; font-size: 15px; opacity:0.8; " type="email" class="form-control" aria-describedby="emailHelp" name="Email" placeholder="Nhập Email" value="@Model.Email" readonly>
+                </div>
+                <div style=" margin-left: 20px; padding-top: 40px;" class="form-group">
+                    <label style="margin-right:225px;" for="exampleInputEmail1">Giới tính</label>
+                    <input style="width: 500px; height: 45px; border-radius: 30px; font-size: 15px; opacity: 0.8; " type="text" class="form-control" aria-describedby="emailHelp" name="Sex" placeholder=" Giới tính" value="@Model.Sex">
+                </div>
+                <div style=" margin-left: 20px; padding-top: 35px;" class="form-group">
+                    <label style="margin-right:215px;" for="exampleInputEmail1">Ngày sinh</label>
+                    <input style="width: 500px; height: 45px; border-radius: 30px; font-size: 15px; opacity: 0.8; " type="datetime" class="form-control" aria-describedby="emailHelp" name="DateOfBirth" placeholder="Ngày sinh" value="@Model.DateOfBirth">
+                </div>
+                <div style=" margin-left: 20px; padding-top: 35px; margin-top: -390px; position: absolute; z-index: 3;" class="form-group">
+                    <div style="position: absolute; z-index: -1; margin-left: 900px;" class="custom-file">
+                        @Html.EditorFor(model => model.Images, "Hình ảnh", new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.Images, "", new { @class = "text-danger" })
+                    </div>
+                    <div style="margin-left: 100px;" class="input-group-append">
+                        <input type="file" name="fileUpload" id="fileUpload" accept="image/*" style="display:none;" />
+                        <input style="opacity: 6;" type="button" id="btnUpload" value="Thay Đổi Avatar" class="btn btn-success" />
+                    </div>
+                </div>
+                <button style="margin-top: 25px; width: 150px; height: 40px; font-size: 20px; border-radius: 30px;" type="submit" class="btn btn-primary btn-lg">Cập nhật</button>
+            </div>
+        }
+    </div>
+</div>
+
+@section upload
+{
+    <script>
+        $(function () {
+            $('#btnUpload').click(function () {
+                $('#fileUpload').trigger('click');
+            });
+        });
+        $('#fileUpload').change(function () {
+            if (window.FormData !== undefined) {
+                var fileUpload = $('#fileUpload').get(0);
+                var files = fileUpload.files;
+                var formData = new FormData();
+                formData.append('file', files[0]);
+                $.ajax(
+                    {
+                        type: 'POST',
+                        url: '/Account/ProcessUpload',
+                        contentType: false,
+                        processData: false,
+                        data: formData,
+                        success: function (urlImage) {
+                            $('#pictureUpload').attr('src', urlImage);
+                            $('#Images').val(urlImage);
+                        },
+                        error: function (err) {
+                            alert('Error ', err.statusText);
+                        }
+                    });
+            }
+        });
+    </script>
+}
+
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
+
+
+

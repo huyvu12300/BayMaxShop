@@ -13,7 +13,6 @@ namespace BayMaxShop.Models.EF
         public Menu()
         {
             this.News = new HashSet<News>();
-            this.Posts = new HashSet<Posts>();
         }
         [Key]
         [DatabaseGeneratedAttribute(DatabaseGeneratedOption.Identity)]
@@ -30,6 +29,5 @@ namespace BayMaxShop.Models.EF
         public string SeoKeywords { get; set; }
         public int Position { get; set; }
         public ICollection<News> News { get; set; }
-        public ICollection<Posts> Posts { get; set; }
     }
 }

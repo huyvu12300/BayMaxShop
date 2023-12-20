@@ -13,7 +13,6 @@ namespace BayMaxShop.Models.EF
         public Product(){
             this.ProductImage = new HashSet<ProductImage>();
             this.OrderDetails = new HashSet<OrderDetail>();
-            this.Wishlists = new HashSet<Wishlist>();
             this.Reviews = new HashSet<ReviewProduct>();
         }
         [Key]
@@ -43,7 +42,6 @@ namespace BayMaxShop.Models.EF
         public virtual Brand Brand { get; set; }
         public virtual ICollection<ProductImage> ProductImage { get; set; }
         public virtual ICollection<OrderDetail> OrderDetails { get; set; }
-        public virtual ICollection<Wishlist> Wishlists { get; set; }
         public virtual ICollection<ReviewProduct> Reviews { get; set; }
 
     }

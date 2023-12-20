@@ -187,7 +187,6 @@
     <Compile Include="Areas\Admin\Controllers\HomeController.cs" />
     <Compile Include="Areas\Admin\Controllers\NewsController.cs" />
     <Compile Include="Areas\Admin\Controllers\OrderController.cs" />
-    <Compile Include="Areas\Admin\Controllers\PostsController.cs" />
     <Compile Include="Areas\Admin\Controllers\ProductCategoryController.cs" />
     <Compile Include="Areas\Admin\Controllers\ProductImageController.cs" />
     <Compile Include="Areas\Admin\Controllers\ProductsController.cs" />
@@ -196,18 +195,15 @@
     <Compile Include="Common\Common.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\AddressController.cs" />
-    <Compile Include="Controllers\ArticleController.cs" />
     <Compile Include="Controllers\ContactController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\MenuController.cs" />
     <Compile Include="Controllers\NewsController.cs" />
     <Compile Include="Controllers\OrdersController.cs" />
-    <Compile Include="Controllers\PostsController.cs" />
     <Compile Include="Controllers\ProductsController.cs" />
     <Compile Include="Controllers\ReviewController.cs" />
     <Compile Include="Controllers\ShoppingCartController.cs" />
-    <Compile Include="Controllers\WishlistController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -279,6 +275,14 @@
     <Compile Include="Migrations\202312191728314_fix-contact.designer.cs">
       <DependentUpon>202312191728314_fix-contact.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202312201039075_Drop-tables-Wishlist-Post.cs" />
+    <Compile Include="Migrations\202312201039075_Drop-tables-Wishlist-Post.designer.cs">
+      <DependentUpon>202312201039075_Drop-tables-Wishlist-Post.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202312201146380_add-phone-constraint.cs" />
+    <Compile Include="Migrations\202312201146380_add-phone-constraint.designer.cs">
+      <DependentUpon>202312201146380_add-phone-constraint.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Commons\Filter.cs" />
@@ -291,7 +295,6 @@
     <Compile Include="Models\EF\News.cs" />
     <Compile Include="Models\EF\Order.cs" />
     <Compile Include="Models\EF\OrderDetail.cs" />
-    <Compile Include="Models\EF\Posts.cs" />
     <Compile Include="Models\EF\Product.cs" />
     <Compile Include="Models\EF\ProductCategory.cs" />
     <Compile Include="Models\EF\ProductImage.cs" />
@@ -369,6 +372,7 @@
     <Content Include="Content\assets\images\sssssss.jpg" />
     <Content Include="Content\assets\images\success.png" />
     <Content Include="Content\assets\images\sunset.png" />
+    <Content Include="Content\assets\images\tt.jpg" />
     <Content Include="Content\assets\images\vnpay.png" />
     <Content Include="Content\assets\js\categories_custom.js" />
     <Content Include="Content\assets\js\contact_custom.js" />
@@ -3357,9 +3361,6 @@
     <Content Include="Content\assets\plugins\themify-icons\fonts\themify.eot" />
     <Content Include="Content\assets\plugins\themify-icons\fonts\themify.ttf" />
     <Content Include="Content\assets\plugins\themify-icons\fonts\themify.woff" />
-    <Content Include="Areas\Admin\Views\Posts\Index.cshtml" />
-    <Content Include="Areas\Admin\Views\Posts\Add.cshtml" />
-    <Content Include="Areas\Admin\Views\Posts\Edit.cshtml" />
     <Content Include="Areas\Admin\Views\Statistical\Index.cshtml" />
     <Content Include="Areas\Admin\Views\Account\AdminProfile.cshtml" />
     <Content Include="Areas\Admin\Views\Booking\Index.cshtml" />
@@ -3434,17 +3435,14 @@
     <Content Include="Views\News\Partial_News_Home.cshtml" />
     <Content Include="Views\ShoppingCart\Partial_CheckOut.cshtml" />
     <Content Include="Views\ShoppingCart\CheckOutSuccess.cshtml" />
-    <Content Include="Views\Posts\Index.cshtml" />
-    <Content Include="Views\Posts\Detail.cshtml" />
     <Content Include="Views\Orders\ListOrders.cshtml" />
     <Content Include="Views\Orders\Partial_SanPham.cshtml" />
     <Content Include="Views\Shared\_ProfileLayout.cshtml" />
-    <Content Include="Views\Account\Profile.cshtml" />
+    <Content Include="Views\Account\UserProfile.cshtml" />
     <Content Include="Views\Address\Index.cshtml" />
     <Content Include="Views\Address\Add.cshtml" />
     <Content Include="Views\Address\Edit.cshtml" />
     <Content Include="Views\Orders\View.cshtml" />
-    <Content Include="Views\Wishlist\Index.cshtml" />
     <Content Include="Views\Review\_Review.cshtml" />
     <Content Include="Views\Review\_LoadReview.cshtml" />
     <Content Include="Views\Menu\MenuBrand.cshtml" />
@@ -3520,6 +3518,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202312191728314_fix-contact.resx">
       <DependentUpon>202312191728314_fix-contact.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202312201039075_Drop-tables-Wishlist-Post.resx">
+      <DependentUpon>202312201039075_Drop-tables-Wishlist-Post.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202312201146380_add-phone-constraint.resx">
+      <DependentUpon>202312201146380_add-phone-constraint.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

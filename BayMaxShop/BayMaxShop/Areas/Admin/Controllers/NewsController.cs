@@ -9,7 +9,7 @@ using System.Web.Mvc;
 
 namespace BayMaxShop.Areas.Admin.Controllers
 {
-    //[Authorize(Roles = "Admin, Staff")]
+    [Authorize(Roles = "Admin, Staff")]
     public class NewsController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();
@@ -44,7 +44,7 @@ namespace BayMaxShop.Areas.Admin.Controllers
             if (ModelState.IsValid)
             {
                 model.CreatedDate = DateTime.Now;
-                model.MenuId = 10;
+                model.MenuId = 4;
                 model.ModifiedDate = DateTime.Now;
                 model.Alias = BayMaxShop.Models.Commons.Filter.FilterChar(model.NewsName);
                 db.News.Add(model);

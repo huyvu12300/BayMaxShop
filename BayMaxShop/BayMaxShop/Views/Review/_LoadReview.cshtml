@@ -8,7 +8,7 @@
 {
     foreach (var item in Model)
     {
-        <div class="user_review_container d-flex flex-column flex-sm-row">
+        <div class="user_review_container d-flex flex-column flex-sm-row" style="margin-bottom: 10px;">
             <div class="user">
                 @if (item.Avatar != null)
                 {
@@ -27,9 +27,53 @@
             <div class="review">
                 <div class="review_date">@item.CreatedDate.ToString("dd MM yyyy")</div>
                 <div class="user_name">@item.FullName</div>
-                <p>@item.Content</p>
+                @if (@item.Content != null)
+                {
+                    <p>@item.Content</p>
+                }
+                else
+                {
+                    <p>No Comment</p>
+                }
+
             </div>
         </div>
     }
 }
+<div id="showMore" class="mt-3 mb-3">
+    <button class="btn btn-primary">Xem thêm đánh giá</button>
+</div>
 
+<script>
+    $(document).ready(function () {
+        var itemsCount = 0,
+            itemsMax = $('.user_review_container div.user, .user_review_container div.review').length;
+        $('.user_review_container div.user, .user_review_container div.review').hide();
+
+        function showNextItems() {
+            var pagination = 5;
+
+            for (var i = itemsCount; i < (itemsCount + pagination); i++) {
+                var $currentItem = $('.user_review_container div.user:eq(' + i + '), .user_review_container div.review:eq(' + i + ')');
+                $currentItem.show();
+            }
+
+            itemsCount += pagination;
+
+            // Kiểm tra xem có phần tử nào còn ẩn không
+            var remainingItems = $('.user_review_container div.user, .user_review_container div.review').filter(':hidden');
+
+            // Nếu không còn phần tử nào ẩn, ẩn nút "Show More"
+            if (remainingItems.length === 0) {
+                $('#showMore').hide();
+            }
+        };
+
+        showNextItems();
+
+        $('#showMore').on('click', function (e) {
+            e.preventDefault();
+            showNextItems();
+        });
+    });
+</script>

@@ -15,15 +15,18 @@ namespace BayMaxShop.Models.EF
         [DatabaseGeneratedAttribute(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
         public string Image { get; set; }
-        [Required(ErrorMessage = "Bạn không để trống tiêu đề tin")]
+        [Required(ErrorMessage = "Bạn không được để trống tiêu đề tin")]
         [StringLength(150)]
         public string NewsName { get; set; }
         public string Alias { get; set; }
+        [Required(ErrorMessage = "Bạn không được để trống tên tác giả")]
+        [StringLength(50)]
+        public string Author { get; set; }
         public string Description { get; set; }
         [AllowHtml]
         public string Detail { get; set; }
         public int MenuId { get; set; }
         public bool IsActive { get; set; }
-        public virtual Menu  Menu{ get; set; }
+        public virtual Menu Menu { get; set; }
     }
 }

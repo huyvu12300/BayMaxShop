@@ -28,7 +28,7 @@
     <div class="container-fluid">
         <div class="row mb-2">
             <div class="col-sm-6">
-                <h1 style="color: #CCCCCC;">Cập nhật Tin Tức</h1>
+                <h1 style="color: black;">Cập nhật Tin Tức</h1>
             </div>
             <div class="col-sm-6">
                 <ol class="breadcrumb float-sm-right">
@@ -65,6 +65,11 @@
                                 <label for="exampleInputEmail1">Tên tin tức</label>
                                 @Html.TextBoxFor(x => x.NewsName, new { @class = "form-control", @placehoder = "Tiêu đề" })
                                 @Html.ValidationMessageFor(x => x.NewsName, null, new { @class = "text-danger" })
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleInputAuthor">Tên tác giả</label>
+                                @Html.TextBoxFor(x => x.Author, new { @class = "form-control", @placehoder = "Tên tác giả" })
+                                @Html.ValidationMessageFor(x => x.Author, null, new { @class = "text-danger" })
                             </div>
                             <div class="form-group">
                                 <label for="exampleInputFile">Ảnh đại diện</label>
