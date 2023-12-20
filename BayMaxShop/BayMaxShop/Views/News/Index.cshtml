@@ -27,39 +27,47 @@
         max-height: 100%;
     }
 </style>
+
 <div class="container news_section_container">
-    <div class="row">
-        <div class="col-md-12">
-            <h1 class="title-news"> Tin tức</h1>
-        </div>
-    </div>
+
+
     @if (Model != null && Model.Any())
     {
         foreach (var item in Model)
         {
-            <div class="row row-item-new">
-                <div class="col-md-3">
-                    <div class="img-box">
-                        <a href="" title="@item.NewsName"><img src="@item.Image" alt="@item.NewsName" /></a>
+            <div style="border: #ffffff solid 3px; width: 1100px; height: 450px; border-radius: 5px;">
+
+                <div style=" margin-top: 80px; margin-left: 20px; width: 1000px;" class="row row-item-new">
+
+                    <div class="col-md-3">
+
+
+                        <div class="img-box">
+
+                            <a href="" title="@item.NewsName"><img style="border-radius: 40px;" src="@item.Image" alt="@item.NewsName" /></a>
+                        </div>
                     </div>
-                </div>
-                <div class="col-md-9">
-                    <div class="content-box">
-                        <h3><a href="/@item.Alias-n@(item.Id)" title="@item.NewsName">@item.NewsName</a></h3>
-                        <div class="description-box">
-                            @item.Description
+                    <div style="margin-top: 20px;" class="col-md-9">
+                        <div class="date">
+                            <h1 style="font-size: 20px; margin-left: 8px; width: 400px; color: red;">@item.Author | @item.CreatedDate</h1>
+                        </div>
+                        <div style="margin-top: 10px; margin-left: 10px;" class="content-box">
+                            <h3><a style="color: ActiveBorder;" href="/@item.Alias-n@(item.Id)" title="@item.NewsName">@item.NewsName</a></h3>
+                            <div class="description-box">
+                                @item.Description
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         }
-        <div class="row">
+
+        <div style="margin-left: 570px; margin-top: 70px; " class="row">
             <div class="col-6"></div>
             <div class="col-6" style="text-align:right;">
                 @Html.PagedListPager(Model, page => Url.Action("Index", new { page }))
             </div>
         </div>
     }
-
 </div>
 

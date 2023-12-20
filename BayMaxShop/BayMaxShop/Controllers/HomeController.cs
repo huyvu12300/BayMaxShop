@@ -10,6 +10,11 @@ namespace BayMaxShop.Controllers
     {
         public ActionResult Index()
         {
+            if (User.IsInRole("Admin"))
+            {
+                // Người dùng là admin, chuyển hướng đến trang admin
+                return RedirectToAction("Index", "Home", new { area = "Admin" });
+            }
             return View();
         }
 

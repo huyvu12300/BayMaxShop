@@ -9,7 +9,7 @@ using PagedList;
 
 namespace BayMaxShop.Areas.Admin.Controllers
 {
-    //[Authorize(Roles = "Admin, Staff")]
+    [Authorize(Roles = "Admin, Staff")]
     public class ProductsController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();

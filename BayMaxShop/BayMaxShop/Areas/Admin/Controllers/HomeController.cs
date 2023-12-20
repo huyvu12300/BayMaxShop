@@ -17,9 +17,8 @@ namespace BayMaxShop.Areas.Admin.Controllers
         {
             ViewBag.Orders = db.Orders.Count();
             ViewBag.Products = db.Products.Count();
-            ViewBag.Posts = db.Posts.Count();
             ViewBag.News = db.News.Count();
-
+            ViewBag.Account = db.Users.Count();
             return View();
         }
     }

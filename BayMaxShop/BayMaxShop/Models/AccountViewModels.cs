@@ -65,16 +65,19 @@ namespace BayMaxShop.Models
     public class CreateAccountViewModel
     {
         [Required]
+        [RegularExpression(@"^\S*$", ErrorMessage = "Không được có khoảng trắng trong username")]
         public string UserName { get; set; }
         [Required]
         public string FullName { get; set; }
         public string Images { get; set; }
+        [Required]
+        [RegularExpression(@"^\d{10,11}$", ErrorMessage = "Số điện thoại phải có đủ 10 hay 11 số")]
         public string Phone { get; set; }
         public string Role { get; set; }
         public DateTime DateOfBirth { get; set; }
         public string Sex { get; set; }
         [Required]
-        [EmailAddress]
+        [EmailAddress(ErrorMessage = "Địa chỉ Email không hợp lệ")]
         [Display(Name = "Email")]
         public string Email { get; set; }
 
@@ -86,23 +89,26 @@ namespace BayMaxShop.Models
 
         [DataType(DataType.Password)]
         [Display(Name = "Confirm password")]
-        [Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
+        [Compare("Password", ErrorMessage = "Mật khẩu xác nhận không trùng khớp!")]
         public string ConfirmPassword { get; set; }
     }
 
     public class RegisterViewModel
     {
+        [Required]
+        [RegularExpression(@"^\S*$", ErrorMessage = "Không được có khoảng trắng trong username")]
         public string UserName { get; set; }
 
         public string FullName { get; set; }
 
         public DateTime DateOfBirth { get; set; }
         public string Sex { get; set; }
+        [Required]
+        [RegularExpression(@"^\d{10,11}$", ErrorMessage = "Số điện thoại phải có đủ 10 hay 11 số")]
         public string Phone { get; set; }
 
-
         [Required]
-        [EmailAddress]
+        [EmailAddress(ErrorMessage = "Địa chỉ Email không hợp lệ")]
         [Display(Name = "Email")]
         public string Email { get; set; }
 
@@ -114,7 +120,7 @@ namespace BayMaxShop.Models
 
         [DataType(DataType.Password)]
         [Display(Name = "Confirm password")]
-        [Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
+        [Compare("Password", ErrorMessage = "Mật khẩu xác nhận không trùng khớp.")]
         public string ConfirmPassword { get; set; }
     }
 

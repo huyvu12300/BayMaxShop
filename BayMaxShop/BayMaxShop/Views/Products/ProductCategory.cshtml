@@ -3,7 +3,7 @@
 @using PagedList.Mvc;
 @using PagedList;
 
-@{ 
+@{
     ViewBag.Title = "Danh sách sản phẩm";
 }
 
@@ -27,18 +27,18 @@
 
             <!-- Sidebar -->
 
-            <div class="sidebar">
-                <div class="sidebar_section">
+            <div style="border: #ffffff solid 2px; width: 230px; margin-left: -70px;" class="sidebar">
+                <div style="margin-left: 40px; margin-top: 30px;" class="sidebar_section">
                     <div class="sidebar_title">
-                        <h4>Danh mục</h4>
+                        <h4 style="color:red;">Danh mục</h4>
                     </div>
                     @Html.Action("MenuLeft", "Menu")
                 </div>
 
                 <!-- Price Range Filtering -->
-                <div class="sidebar_section">
+                <div style="margin-left: 40px; margin-top: 30px;" class="sidebar_section">
                     <div class="sidebar_title">
-                        <h4>Thương hiệu</h4>
+                        <h4 style="color:red;">Thương Hiệu</h4>
                     </div>
                     @Html.Action("MenuBrand", "Menu")
                 </div>
@@ -54,19 +54,21 @@
                 <div class="products_iso">
                     <div class="row">
                         <div class="col">
-                            <div class="col-6" style="margin-left: 580px;">
+                            <div class="col-6" style="margin-left:310px;">
 
                                 <!-- Product Sorting -->
                                 <!-- Product Grid -->
                                 <div class="pages d-flex flex-row align-items-center">
                                     <form>
-                                        @using (Html.BeginForm("ProductCategory", "Products", FormMethod.Get, new { }))
+                                        @using (Html.BeginForm("index", "Products", FormMethod.Get, new { }))
                                         {
-                                            <div class="input-group input-group-sm">
-                                                @Html.TextBox("Searchtext")
-                                                @*<input type="text" name="searchText" class="form-control">*@
-                                                <span class="input-group-append">
-                                                    <button type="submit" class="btn btn-info btn-flat">Tìm Kiếm</button>
+                                            <div style="margin-left: 10px; margin-top: -70px; font-size: 30px;" class="input-group input-group-sm">
+
+                                                @*@Html.TextBox("Searchtext")*@
+
+                                                <input style="height: 45px; width: 180px; border-radius: 30px; position: absolute; z-index: 1; font-size: 17px;" type="text" name="Searchtext" placeholder="Search" class="form-control">
+                                                <span style="font-size: 70px; " class="input-group-append">
+                                                    <button type="submit" style="font-size: 17px; width: 30px; height: 30px; border-radius: 20px; border: black solid 1px; margin-left: 143px; margin-top: 7px; background-color: aliceblue; position: absolute; z-index: 2;" class="glyphicon glyphicon-search"></button>
                                                 </span>
                                             </div>
                                         }

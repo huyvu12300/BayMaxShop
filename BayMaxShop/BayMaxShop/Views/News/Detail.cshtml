@@ -1,8 +1,6 @@
 ﻿@model BayMaxShop.Models.EF.News
 @{
-    ViewBag.Title = Model.SeoTitle;
-    ViewBag.SeoDescription = Model.SeoDescription;
-    ViewBag.SeoKeyWord = Model.SeoKeywords;
+    ViewBag.Title = Model.NewsName;
 }
 <link rel="stylesheet" type="text/css" href="~/Content/assets/styles/main_styles.css">
 <!-- Slider -->
@@ -41,6 +39,13 @@
             </div>
             <div class="col-md-12">
                 @Html.Raw(Model.Detail)
+            </div>
+        </div>
+        <br />
+        <hr />
+        <div class="row">
+            <div class="col-md-12">
+                <div class="author" style="color: red; font-size: small; font-weight:bold"> @Model.Author | @Model.CreatedDate</div>
             </div>
         </div>
     }

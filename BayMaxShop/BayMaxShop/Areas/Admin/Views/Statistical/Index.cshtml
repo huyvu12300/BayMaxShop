@@ -7,7 +7,7 @@
     <div class="container-fluid">
         <div class="row mb-2">
             <div class="col-sm-6">
-                <h1 style="color: #CCCCCC;">Thống kê</h1>
+                <h1 style="color: black;">Thống kê</h1>
             </div>
             <div class="col-sm-6">
                 <ol class="breadcrumb float-sm-right">
@@ -32,7 +32,7 @@
                     <i class="fas fa-minus"></i>
                 </button>
                 <button style="color: black;" type="button" class="btn btn-tool" data-card-widget="remove" title="Remove">
-                    <i  class="fas fa-times"></i>
+                    <i class="fas fa-times"></i>
                 </button>
             </div>
         </div>
@@ -60,7 +60,7 @@
         </div>
         <!-- /.card-body -->
         <div class="card-footer">
-            
+
         </div>
         <!-- /.card-footer-->
     </div>
@@ -153,10 +153,10 @@
             $.each(data, function (i, item) {
                 var strDate = moment(item.Date).format('DD/MM/yyyy');
                 strHtml += "<tr>";
-                strHtml += "<td>"+(i+1)+"</td>";
-                strHtml += "<td>" + strDate+"</td>";
-                strHtml += "<td>"+item.DoanhThu+"</td>";
-                strHtml += "<td>"+item.LoiNhuan+"</td>";
+                strHtml += "<td>" + (i + 1) + "</td>";
+                strHtml += "<td>" + strDate + "</td>";
+                strHtml += "<td>" + item.DoanhThu + "</td>";
+                strHtml += "<td>" + item.LoiNhuan + "</td>";
                 strHtml += "</tr>";
             });
             $('#load_data').html(strHtml);
