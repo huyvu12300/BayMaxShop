@@ -54,5 +54,6 @@ namespace BayMaxShop.Controllers
             }
             return Json(new { message = "Unsuccess", Success = false });
         }
+
     }
 }

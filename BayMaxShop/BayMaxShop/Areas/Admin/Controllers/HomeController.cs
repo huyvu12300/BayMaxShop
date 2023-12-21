@@ -15,6 +15,11 @@ namespace BayMaxShop.Areas.Admin.Controllers
         // GET: Admin/Home
         public ActionResult Index()
         {
+            if (User.IsInRole("Customer"))
+            {
+                // Người dùng là Customer, chuyển hướng đến trang customer
+                return RedirectToAction("Index", "Home", new { area = "" });
+            }
             ViewBag.Orders = db.Orders.Count();
             ViewBag.Products = db.Products.Count();
             ViewBag.News = db.News.Count();

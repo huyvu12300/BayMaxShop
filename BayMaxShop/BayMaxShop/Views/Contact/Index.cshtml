@@ -37,44 +37,32 @@
 
     <div class="row" style=" margin-left: 250px; margin-top: 30px; font-family: 'Times New Roman', Times, serif;">
 
-        <div class="col-lg-6 contact_col" style="margin-top: 40px; margin-left:-50px;">
-            <div class="contact_contents">
-                <h2>Liên Hệ</h2>
-                <div class="info-member" style="margin-top: 20px;">
-                    <h5>Nguyễn Nguyên Trung</h5>
-                    <h5>Nguyễn Hoàng Nguyên Vũ</h5>
-                    <h5>Phạm Minh Đức</h5>
-                </div>
-
-            </div>
-
-            <!-- Follow Us -->
+        <div class="info-member" style="font-size: 30px;  margin-left: 400px;">
+            <h5 style="color: red;">Hotline:</h5>
+            <h5 style="margin-left: 70px; margin-top: -23px;">  0915607543 ( Dr. Duc )</h5>
+            <h5 style="margin-left: 270px; margin-top: -23px;">      0963304506 ( Ms. Duc )</h5>
         </div>
-        <div class="col-lg-6 get_in_touch_col">
+
+        <div style="margin-left: -1100px; margin-top: -10px;" class="col-lg-6 get_in_touch_col">
             <div class="get_in_touch_contents">
-                <h1>Get In Touch With Us!</h1>
-                <p>Fill out the form below to recieve a free and confidential.</p>
+
+                <p style="color: black; font-size: 20px;">Get In Touch With Us!</p>
                 @using (Html.BeginForm("Index", "Contact", FormMethod.Post, new { }))
                 {
                     @Html.AntiForgeryToken()
                     @Html.ValidationSummary(true)
-                    <div>
-                        <input id="input_name" class="form_input input_name input_ph" type="text" name="name" placeholder="Name" required="required" data-error="Name is required.">
-                        <input id="input_email" class="form_input input_email input_ph" type="email" name="email" placeholder="Email" required="required" data-error="Valid email is required.">
-                        <textarea id="input_message" class="input_ph input_message" name="message" placeholder="Message" rows="3" required data-error="Please, write us a message."></textarea>
+                    <div style="width: 500px; letter-spacing: 20px; ">
+                        <input style="width: 300px; height: 30px; border: unset; " id="input_name" class="form_input input_name input_ph" type="text" name="name" placeholder="Name" required="required" data-error="Name is required.">
+                        <input style="width: 300px; height: 30px; margin-top: 10px; border: unset;" style="" id="input_email" class="form_input input_email input_ph" type="email" name="email" placeholder="Email" required="required" data-error="Valid email is required.">
+                        <textarea style="margin-top: 15px; width: 800px; height: 100px; border: unset; border-radius: 0px 0px 30px 0px; " id="input_message" class="input_ph input_message" name="message" placeholder="Message" rows="3" required data-error="Please, write us a message."></textarea>
                     </div>
-                    <div>
-                        <button id="review_submit" type="submit" class="red_button message_submit_btn trans_300" value="Submit">send message</button>
+                    <div style="margin-left: 90px;">
+                        <button style="width: 100px; height: 30px; background-color: cornflowerblue; border:unset; color: white; border-radius: 50px;" id="review_submit" type="submit" class="red_button message_submit_btn trans_300" value="Submit">Send</button>
                     </div>
                 }
             </div>
         </div>
 
-        <div class="info-phone" style=" left: -36px; top: 40px; display: flex; justify-content: center; align-items: center; font-family: 'Times New Roman', Times, serif;">
-
-            <a> <a style="color: red; font-family: 'Times New Roman', Times, serif;">HOTLINE: </a>  0963304506</a>
-            <a style="margin-left: 360px; font-family: 'Times New Roman', Times, serif;"> <a style="color:red;"> Email: </a> durdu02012002@gmail.com</a>
-        </div>
     </div>
 </div>
 @section scripts{
@@ -116,11 +104,10 @@
             transition: all 0.5s ease;
         }
 
-          .social-links a:hover {
+            .social-links a:hover {
                 color: #24262b;
                 background-color: #ffffff;
             }
-
     </style>
 }
 
