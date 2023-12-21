@@ -8,12 +8,12 @@
     <!-- Default box -->
     <div style="padding-top:180px" class="card">
         <div class="card-header">
-            <h3 class="card-title">Danh sách đơn hàng đã đặt</h3>
+            <h3 class="card-title" style="margin-left: 540px; font-size: 45px; margin-top: 60px;">Danh Sách Đơn Hàng Đã Đặt</h3>
         </div>
         @if (Model.Count() == 0)
         {
             <div class="card-header">
-                <h3 class="card-title" style="color:red;font-style:italic;">Bạn chưa có đơn hàng nào!</h3>
+                <h3 class="card-title" style="margin-left: 660px; color: red; font-style: italic; margin-top: 70px; ">Bạn chưa có đơn hàng nào!</h3>
             </div>
         }
         else
@@ -97,37 +97,33 @@
 
 <div class="modal fade" id="modal-default">
     <div class="modal-dialog">
-        <div style="background-color: #F0B1DF; " class="modal-content">
+        <div style="background-color: #F0B1DF; height: 280px; margin-top: 100px; " class="modal-content">
             <div class="modal-header">
                 <h4 style="margin-left: 133px;" class="modal-title">Cập nhật trạng thái</h4>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
-            <div class="modal-body">
+            <div style="width: 1500px;" class="modal-body">
                 <input type="hidden" id="txtOrderId" value="0" />
                 <div class="form-group">
-                    <label style="margin-left: 195px;">Trạng thái</label>
-                    <select class="form-control" id="ddTrangThai">
-                        <option value="2">
-                            Đã thanh toán
-                        </option>
-                        <option value="3">
+                    <label style="margin-left: 180px; font-size: 20px;">Trạng thái</label>
+                    <select style=" height: 40px; margin-left: 90px; margin-top: 20px; font-size: 15px; " class="form-control" id="ddTrangThai">
+                        <option style="font-size: 13px;" value="3">
                             Huỷ đơn hàng
                         </option>
                     </select>
                 </div>
             </div>
             <div class="modal-footer justify-content-between">
-                <button type="button" class="btn btn-default" data-dismiss="modal">Đóng</button>
-                <button style="background-color: #848FB3;" type="button" class="btn btn-primary" id="btnLuu">Lưu</button>
+                <button style="width: 70px; height:40px; font-size: 15px;" type="button" class="btn btn-default" data-dismiss="modal">Đóng</button>
+                <button style="background-color: #848FB3; width: 70px; height: 40px; margin-left: 350px; font-size: 15px; " type="button" class="btn btn-primary" id="btnLuu">Lưu</button>
             </div>
         </div>
         <!-- /.modal-content -->
     </div>
     <!-- /.modal-dialog -->
 </div>
-
 @section scripts{
 
     <script>
@@ -142,7 +138,7 @@
                 var id = $('#txtOrderId').val();
                 var tt = $('#ddTrangThai').val();
                 $.ajax({
-                    url: '/admin/order/UpdateTT',
+                    url: '/orders/UpdateTT',
                     type: 'POST',
                     data: { id: id, trangthai: tt },
                     success: function (res) {

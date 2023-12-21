@@ -85,9 +85,17 @@
                                 }
                                 <td>@item.CreatedDate.ToString("dd/MM/yyyy")</td>
                                 <td>
-                                    <a href="/admin/order/view/@item.Id" class="btn btn-sm btn-success">Xem</a>
-                                    <a style="background-color: #B58499;" href="#" class="btn btn-sm btn-danger btnCapNhat" data-id="@item.Id">Cập nhật</a>
+                                    @if (item.TypePayment != 3)
+                                    {
+                                        <a href="/admin/order/view/@item.Id" class="btn btn-sm btn-success">Xem</a>
+                                        <a style="background-color: #B58499;" href="#" class="btn btn-sm btn-danger btnCapNhat" data-id="@item.Id">Cập nhật</a>
+                                    }
+                                    else
+                                    {
+                                        <a href="/admin/order/view/@item.Id" class="btn btn-sm btn-success">Xem</a>
+                                    }
                                 </td>
+
                             </tr>
                             i++;
                         }
@@ -127,6 +135,9 @@
                 <div class="form-group">
                     <label style="margin-left: 195px;">Trạng thái</label>
                     <select class="form-control" id="ddTrangThai">
+                        <option value="1">
+                            Chờ thanh toán
+                        </option>
                         <option value="2">
                             Đã thanh toán
                         </option>
@@ -142,7 +153,6 @@
     </div>
     <!-- /.modal-dialog -->
 </div>
-<!-- /.modal -->
 
 @section scripts{
     <script>
